@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>PHP高级编程之消息队列</title><link rel="stylesheet" type="text/css" href="docbook.css"/><link rel="stylesheet" type="text/css" href="/journal/journal.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.79.1"/><meta name="description" content="2015-10-19 第一版 2016-11-31 第二版"/><meta name="keywords" content="amqp, RabbitMQ, Message Queue, RPC, "/></head><body><section xml:lang="zh-cn" class="article" id="idp1"><div class="titlepage"><div><div><h2 class="title">PHP高级编程之消息队列</h2></div><div><h3 class="subtitle"><em>http://netkiller.github.io/journal/php.mq.html</em></h3></div><div><div class="author"><h3 class="author"><span class="honorific">Mr</span>. <span class="firstname">Neo Chen</span> <span class="surname">(陈景峯)</span>, <span class="lineage">netkiller, BG7NYT</span></h3><div class="affiliation">
+			<div class="address"><p><br/>
+				<span class="country">中国</span><span class="state">广东省</span><span class="city">深圳市</span><span class="street">龙华新区民治街道溪山美地</span><br/>
+				<span class="postcode">518131</span><br/>
+				<span class="phone">+86 13113668890</span><br/>
+				<br/>
+				<code class="email">&lt;<a class="email" href="mailto:netkiller@msn.com">netkiller@msn.com</a>&gt;</code><br/>
+			</p></div>
+		</div></div></div><div><div class="legalnotice" id="legalnotice">
+	<p class="legalnotice-title"><strong>版权声明</strong></p>
+	<p>转载请与作者联系，转载时请务必标明文章原始出处和作者信息及本声明。</p>
+	<table style="border: 0; " class="simplelist"><tr><td>
+		<a class="ulink" href="http://creativecommons.org/licenses/by/3.0/" target="_top">
+			<div><table style="border: 0; width: 180px; cellpadding: 0; cellspacing: 0;"><tr><td><img src="/images/by-nc-sa.png" width="180"/></td></tr></table></div>
+		</a>
+		</td><td>
+			<table style="border: 0; " class="simplelist"><tr><td>
+					文档出处:
+				</td></tr><tr><td>
+					<a class="ulink" href="http://netkiller.github.io/" target="_top">http://netkiller.github.io</a>
+				</td></tr><tr><td>
+					<a class="ulink" href="http://netkiller.sourceforge.net/" target="_top">http://netkiller.sourceforge.net</a>
+				</td></tr></table>
+		</td><td>
+			<a class="ulink" href="/images/weixin.jpg" target="_top"><div><table style="border: 0; width: 80px; cellpadding: 0; cellspacing: 0;"><tr><td><img src="/images/weixin.jpg" width="80"/></td></tr></table></div></a>
+		</td><td>
+			<p>微信扫描二维码进入 Netkiller 微信订阅号 </p>
+			<p>QQ群：128659835 请注明“读者”</p>
+		</td></tr></table>
+	<p/>
+</div></div><div><p class="pubdate">2017-06-16</p></div><div><div class="abstract"><div class="abstract-title">摘要</div>
+			<p>2015-10-19 第一版</p>
+			<p>2016-11-31 第二版</p>
+		</div></div></div><hr/></div><div class="toc"><div class="toc-title">目录</div><ul class="toc"><li><span class="section"><a href="#what">1. 什么是消息队列</a></span></li><li><span class="section"><a href="#why">2. 为什么使用消息队列</a></span></li><li><span class="section"><a href="#where">3. 什么场合使用消息队列</a></span></li><li><span class="section"><a href="#when">4. 什么时候使用消息队列</a></span></li><li><span class="section"><a href="#who">5. 谁负责处理消息队列</a></span></li><li><span class="section"><a href="#how">6. 怎么实现消息队列框架</a></span><ul><li><span class="section"><a href="#idp2">6.1. 守护进程</a></span></li><li><span class="section"><a href="#idp3">6.2. 消息队列协议</a></span></li><li><span class="section"><a href="#idp4">6.3. 消息队列处理</a></span></li><li><span class="section"><a href="#idp5">6.4. 测试</a></span></li></ul></li><li><span class="section"><a href="#idp6">7. 多线程</a></span></li><li><span class="section"><a href="#idp7">8. 订阅节点横向扩展</a></span></li><li><span class="section"><a href="#idp8">9. 总结</a></span></li><li><span class="section"><a href="#idp9">10. 延伸阅读</a></span></li></ul></div>
+	
+	<section class="section" id="what"><div class="titlepage"><div><div><h2 class="title" style="clear: both">1. 什么是消息队列</h2></div></div></div>
+		
+		<p>消息队列（英语：Message queue）是一种进程间通信或同一进程的不同线程间的通信方式</p>
+	</section>
+	<section class="section" id="why"><div class="titlepage"><div><div><h2 class="title" style="clear: both">2. 为什么使用消息队列</h2></div></div></div>
+		
+		<p>消息队列技术是分布式应用间交换信息的一种技术。消息队列可驻留在内存或磁盘上,队列存储消息直到它们被应用程序读出。通过消息队列，应用程序可独立地执行，它们不需要知道彼此的位置、或在继续执行前不需要等待接收程序接收此消息。</p>
+	</section>
+	<section class="section" id="where"><div class="titlepage"><div><div><h2 class="title" style="clear: both">3. 什么场合使用消息队列</h2></div></div></div>
+		
+		<p>你首先需要弄清楚，消息队列与远程过程调用的区别，在很多读者咨询我的时候，我发现他们需要的是RPC(远程过程调用)，而不是消息队列。</p>
+		<p>消息队列有同步或异步实现方式，通常我们采用异步方式使用消息队列，远程过程调用多采用同步方式。</p>
+		<p>MQ与RPC有什么不同？ MQ通常传递无规则协议，这个协议由用户定义并且实现存储转发；而RPC通常是专用协议，调用过程返回结果。</p>
+	</section>
+	<section class="section" id="when"><div class="titlepage"><div><div><h2 class="title" style="clear: both">4. 什么时候使用消息队列</h2></div></div></div>
+		
+		<p>同步需求，远程过程调用(PRC)更适合你。</p>
+		<p>异步需求，消息队列更适合你。</p>
+		<p>目前很多消息队列软件同时支持RPC功能，很多RPC系统也能异步调用。</p>
+		<div class="orderedlist"><div class="orderedlist-title">消息队列用来实现下列需求</div><ol class="orderedlist" type="1"><li class="listitem">
+				<p>存储转发</p>
+			</li><li class="listitem">
+				<p>分布式事务</p>
+			</li><li class="listitem">
+				<p>发布订阅</p>
+			</li><li class="listitem">
+				<p>基于内容的路由</p>
+			</li><li class="listitem">
+				<p>点对点连接</p>
+			</li></ol></div>
+	</section>
+ 	<section class="section" id="who"><div class="titlepage"><div><div><h2 class="title" style="clear: both">5. 谁负责处理消息队列</h2></div></div></div>
+		
+		<p>
+			通常的做法，如果小的项目团队可以有一个人实现，包括消息的推送，接收处理。如果大型团队，通常是定义好消息协议，然后各自开发各自的部分，
+			例如一个团队负责写推送协议部分，另一个团队负责写接收与处理部分。
+		</p>
+		<p>那么为什么我们不讲消息队列框架化呢？</p>
+		<div class="orderedlist"><div class="orderedlist-title">框架化有几个好处：</div><ol class="orderedlist" type="1"><li class="listitem">开发者不用学习消息队列接口</li><li class="listitem">开发者不需要关心消息推送与接收</li><li class="listitem">开发者通过统一的API推送消息</li><li class="listitem">开发者的重点是实现业务逻辑功能</li></ol></div>
+	</section>
+	<section class="section" id="how"><div class="titlepage"><div><div><h2 class="title" style="clear: both">6. 怎么实现消息队列框架</h2></div></div></div>
+		
+		<p>下面是作者开发的一个SOA框架，该框架提供了三种接口，分别是SOAP,RESTful,AMQP(RabbitMQ)，理解了该框架思想，你很容易进一步扩展，例如增加XML-RPC, ZeroMQ等等支持。</p>
+		<p><a class="ulink" href="https://github.com/netkiller/SOA" target="_top">https://github.com/netkiller/SOA</a></p>
+		<p>本文只讲消息队列框架部分。</p>
+		<section class="section" id="idp2"><div class="titlepage"><div><div><h3 class="title">6.1. 守护进程</h3></div></div></div>
+			
+			<p>消息队列框架是本地应用程序（命令行程序），我们为了让他在后台运行，需要实现守护进程。</p>
+			<p><a class="ulink" href="https://github.com/netkiller/SOA/blob/master/bin/rabbitmq.php" target="_top">https://github.com/netkiller/SOA/blob/master/bin/rabbitmq.php</a></p>
+			<p>每个实例处理一组队列，实例化需要提供三个参数，$queueName = '队列名', $exchangeName = '交换名', $routeKey = '路由'</p>
+			<pre class="screen">
+$daemon = new \framework\RabbitDaemon($queueName = 'email', $exchangeName = 'email', $routeKey = 'email');
+			</pre>
+			<p>守护进程需要使用root用户运行，运行后会切换到普通用户，同时创建进程ID文件，以便进程停止的时候使用。</p>
+			<p>守护进程核心代码<a class="ulink" href="https://github.com/netkiller/SOA/blob/master/system/rabbitdaemon.class.php" target="_top">https://github.com/netkiller/SOA/blob/master/system/rabbitdaemon.class.php</a></p>
+		</section>
+		<section class="section" id="idp3"><div class="titlepage"><div><div><h3 class="title">6.2. 消息队列协议</h3></div></div></div>
+			
+			<p>消息协议是一个数组，将数组序列化或者转为JSON推送到消息队列服务器，这里使用json格式的协议。</p>
+			<pre class="screen">
+$msg = array(
+	'Namespace'=&gt;'namespace',
+	"Class"=&gt;"Email",
+	"Method"=&gt;"smtp",
+	"Param" =&gt; array(
+		$mail, $subject, $message, null
+	)
+);			
+			</pre>
+			<p>序列化后的协议</p>
+			<pre class="screen">
+{"Namespace":"single","Class":"Email","Method":"smtp","Param":["netkiller@msn.com","Hello"," TestHelloWorld",null]}			
+			</pre>
+			<p>使用json格式是考虑到通用性，这样推送端可以使用任何语言。如果不考虑兼容，建议使用二进制序列化，例如msgpack效率更好。</p>
+		</section>
+		<section class="section" id="idp4"><div class="titlepage"><div><div><h3 class="title">6.3. 消息队列处理</h3></div></div></div>
+			
+			<p>消息队列处理核心代码</p>
+			<p><a class="ulink" href="https://github.com/netkiller/SOA/blob/master/system/rabbitmq.class.php" target="_top">https://github.com/netkiller/SOA/blob/master/system/rabbitmq.class.php</a></p>
+			<p>所以消息的处理在下面一段代码中进行</p>
+			<pre class="screen">
+$this-&gt;queue-&gt;consume(function($envelope, $queue) {
+
+	$speed = microtime(true);
+	
+	$msg = $envelope-&gt;getBody();
+	$result = $this-&gt;loader($msg);
+	$queue-&gt;ack($envelope-&gt;getDeliveryTag()); //手动发送ACK应答
+
+	//$this-&gt;logging-&gt;info(''.$msg.' '.$result)
+	$this-&gt;logging-&gt;debug('Protocol: '.$msg.' ');
+	$this-&gt;logging-&gt;debug('Result: '. $result.' ');
+	$this-&gt;logging-&gt;debug('Time: '. (microtime(true) - $speed) .'');
+});
+			</pre>
+			<p>public  function loader($msg = null) 负责拆解协议，然后载入对应的类文件，传递参数，运行方法，反馈结果。</p>
+			<p>Time 可以输出程序运行所花费的时间，对于后期优化十分有用。</p>
+			<div class="tip"><h3 class="title">提示</h3>
+				<p>loader() 可以进一步优化，使用多线程每次调用loader将任务提交到线程池中，这样便可以多线程处理消息队列。 </p>
+			</div>
+		</section>
+		<section class="section" id="idp5"><div class="titlepage"><div><div><h3 class="title">6.4. 测试</h3></div></div></div>
+			
+			<p>测试代码 <a class="ulink" href="https://github.com/netkiller/SOA/blob/master/test/queue/email.php" target="_top">https://github.com/netkiller/SOA/blob/master/test/queue/email.php</a></p>
+			<pre class="screen">
+			
+&lt;?php
+$queueName = 'example';
+$exchangeName = 'email';
+$routeKey = 'email';
+$mail = $argv[1];
+$subject = $argv[2];
+$message = empty($argv[3]) ? 'Hello World!' : ' '.$argv[3];
+
+ 
+$connection = new AMQPConnection(array(
+	'host' =&gt; '192.168.4.1', 
+	'port' =&gt; '5672', 
+	'vhost' =&gt; '/', 
+	'login' =&gt; 'guest', 
+	'password' =&gt; 'guest'
+	));
+$connection-&gt;connect() or die("Cannot connect to the broker!\n");
+ 
+$channel = new AMQPChannel($connection);
+$exchange = new AMQPExchange($channel);
+$exchange-&gt;setName($exchangeName);
+$queue = new AMQPQueue($channel);
+$queue-&gt;setName($queueName);
+$queue-&gt;setFlags(AMQP_DURABLE);
+$queue-&gt;declareQueue();
+
+$msg = array(
+	'Namespace'=&gt;'namespace',
+	"Class"=&gt;"Email",
+	"Method"=&gt;"smtp",
+	"Param" =&gt; array(
+		$mail, $subject, $message, null
+	)
+);
+
+$exchange-&gt;publish(json_encode($msg), $routeKey);
+printf("[x] Sent %s \r\n", json_encode($msg));
+
+
+$connection-&gt;disconnect();	
+					
+			</pre>
+			<p>这里只给出了少量测试与演示程序，如有疑问请到渎者群，或者公众号询问。</p>
+		</section>
+	</section>
+	<section class="section" id="idp6"><div class="titlepage"><div><div><h2 class="title" style="clear: both">7. 多线程</h2></div></div></div>
+		
+		<p>上面消息队列 核心代码如下</p>
+		<pre class="screen">
+		
+$this-&gt;queue-&gt;consume(function($envelope, $queue) {	
+	$msg = $envelope-&gt;getBody();
+	$result = $this-&gt;loader($msg);
+	$queue-&gt;ack($envelope-&gt;getDeliveryTag());
+});
+		
+		</pre>
+		<p>这段代码生产环境使用了半年，发现效率比较低。有些业务场入队非常快，但处理起来所花的时间就比较长，容易出现队列堆积现象。</p>
+		<p>增加多线程可能更有效利用硬件资源，提高业务处理能力。代码如下</p>
+		<pre class="screen">
+		
+&lt;?php
+namespace framework;
+
+require_once( __DIR__.'/autoload.class.php' );
+
+class RabbitThread extends \Threaded {
+
+	private $queue;
+	public $classspath;
+	protected $msg;
+
+	public function __construct($queue, $logging, $msg) {
+		$this-&gt;classspath = __DIR__.'/../queue';
+		$this-&gt;msg = $msg;
+		$this-&gt;logging = $logging;
+		$this-&gt;queue = $queue;
+	}
+	public function run() {
+		$speed = microtime(true);
+		$result = $this-&gt;loader($this-&gt;msg);
+		$this-&gt;logging-&gt;debug('Result: '. $result.' ');
+		$this-&gt;logging-&gt;debug('Time: '. (microtime(true) - $speed) .'');
+	}
+	// private
+	public  function loader($msg = null){
+		
+		$protocol 	= json_decode($msg,true);
+		$namespace	= $protocol['Namespace'];
+		$class 		= $protocol['Class'];
+		$method 	= $protocol['Method'];
+		$param 		= $protocol['Param'];
+		$result 	= null;
+
+		$classspath = $this-&gt;classspath.'/'.$this-&gt;queue.'/'.$namespace.'/'.strtolower($class)  . '.class.php';
+		if( is_file($classspath) ){
+			require_once($classspath);
+			//$class = ucfirst(substr($request_uri, strrpos($request_uri, '/')+1));
+			if (class_exists($class)) {
+				if(method_exists($class, $method)){
+					$obj = new $class;
+					if (!$param){
+						$tmp = $obj-&gt;$method();
+						$result = json_encode($tmp);
+						$this-&gt;logging-&gt;info($class.'-&gt;'.$method.'()');
+					}else{
+						$tmp = call_user_func_array(array($obj, $method), $param);
+						$result = (json_encode($tmp));
+						$this-&gt;logging-&gt;info($class.'-&gt;'.$method.'("'.implode('","', $param).'")');
+					}
+				}else{
+					$this-&gt;logging-&gt;error('Object '. $class. '-&gt;' . $method. ' is not exist.');
+				}
+			}else{
+				$msg = sprintf("Object is not exist. (%s)", $class);
+				$this-&gt;logging-&gt;error($msg);
+			}
+		}else{
+			$msg = sprintf("Cannot loading interface! (%s)", $classspath);
+			$this-&gt;logging-&gt;error($msg);
+		}
+		return $result;
+	}
+}
+
+class RabbitMQ {
+	
+	const loop = 10;
+	
+	protected $queue;
+	protected $pool;
+	
+	public function __construct($queueName = '', $exchangeName = '', $routeKey = '') {
+
+		$this-&gt;config = new \framework\Config('rabbitmq.ini');
+		$this-&gt;logfile = __DIR__.'/../log/rabbitmq.%s.log';
+		$this-&gt;logqueue = __DIR__.'/../log/queue.%s.log';
+		$this-&gt;logging = new \framework\log\Logging($this-&gt;logfile, $debug=true); //.H:i:s
+		
+		$this-&gt;queueName	= $queueName;
+		$this-&gt;exchangeName	= $exchangeName;
+		$this-&gt;routeKey		= $routeKey; 
+
+		$this-&gt;pool = new \Pool($this-&gt;config-&gt;get('pool')['thread']);
+
+	}
+	public function main(){
+		
+		$connection = new \AMQPConnection($this-&gt;config-&gt;get('rabbitmq'));
+		try {
+			$connection-&gt;connect();
+			if (!$connection-&gt;isConnected()) {
+				$this-&gt;logging-&gt;exception("Cannot connect to the broker!".PHP_EOL);
+			}
+			$this-&gt;channel = new \AMQPChannel($connection);
+			$this-&gt;exchange = new \AMQPExchange($this-&gt;channel);
+			$this-&gt;exchange-&gt;setName($this-&gt;exchangeName);
+			$this-&gt;exchange-&gt;setType(AMQP_EX_TYPE_DIRECT); //direct类型
+			$this-&gt;exchange-&gt;setFlags(AMQP_DURABLE); //持久�?
+			$this-&gt;exchange-&gt;declareExchange();
+			$this-&gt;queue = new \AMQPQueue($this-&gt;channel);
+			$this-&gt;queue-&gt;setName($this-&gt;queueName);
+			$this-&gt;queue-&gt;setFlags(AMQP_DURABLE); //持久�?
+			$this-&gt;queue-&gt;declareQueue();
+
+			$this-&gt;queue-&gt;bind($this-&gt;exchangeName, $this-&gt;routeKey);
+
+			$this-&gt;queue-&gt;consume(function($envelope, $queue) {
+				$msg = $envelope-&gt;getBody();
+				$this-&gt;logging-&gt;debug('Protocol: '.$msg.' ');
+				//$result = $this-&gt;loader($msg);
+				$this-&gt;pool-&gt;submit(new RabbitThread($this-&gt;queueName, new \framework\log\Logging($this-&gt;logqueue, $debug=true), $msg));
+				$queue-&gt;ack($envelope-&gt;getDeliveryTag()); 
+			});
+			$this-&gt;channel-&gt;qos(0,1);
+		}
+		catch(\AMQPConnectionException $e){
+			$this-&gt;logging-&gt;exception($e-&gt;__toString());
+		}
+		catch(\Exception $e){
+			$this-&gt;logging-&gt;exception($e-&gt;__toString());
+			$connection-&gt;disconnect();
+			$this-&gt;pool-&gt;shutdown();
+		}
+	}
+	private function fault($tag, $msg){
+		$this-&gt;logging-&gt;exception($msg);
+		throw new \Exception($tag.': '.$msg);
+	}
+
+	public function __destruct() {
+	}	
+}
+		
+		</pre>
+	</section>
+	<section class="section" id="idp7"><div class="titlepage"><div><div><h2 class="title" style="clear: both">8. 订阅节点横向扩展</h2></div></div></div>
+		
+		<p>上面使用多线程达到对单机资源的充分使用，除此之外我们还可以横向扩展系统，增加订阅节点的数量。</p>
+	</section>
+	<section class="section" id="idp8"><div class="titlepage"><div><div><h2 class="title" style="clear: both">9. 总结</h2></div></div></div>
+		
+		<p>该消息队列框架还比较简陋，但在生产环境已经运行很长一段时间，效果还是不错的。同时降低了消息队列的开发难度，开发者更多的时间是考虑业务逻辑的实现，而不用操心消息队列本身的使用。</p>
+	</section>
+	<section class="section" id="idp9"><div class="titlepage"><div><div><h2 class="title" style="clear: both">10. 延伸阅读</h2></div></div></div>
+		
+		<p><a class="ulink" href="http://netkiller.github.io/journal/php.daemon.html" target="_top">PHP高级编程之守护进程</a></p>
+		<p><a class="ulink" href="http://netkiller.github.io/journal/php.thread.html" target="_top">PHP高级编程之多线程</a></p>
+	</section>
+</section><div xmlns="" id="disqus_thread"/><script xmlns="">
+
+var disqus_config = function () {
+this.page.url = "http://www.netkiller.cn";  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'netkiller'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//netkiller.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script><noscript xmlns="">Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><br xmlns=""/><script xmlns="" type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?u=r5HG&amp;d=9mi5r_kkDC8uxG8HuY3p4-2qgeeVypAK9vMD-2P6BYM"/></body></html>

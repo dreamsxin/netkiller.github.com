@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>跟我学 systemd</title><link rel="stylesheet" type="text/css" href="docbook.css"/><link rel="stylesheet" type="text/css" href="/journal/journal.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.79.1"/><meta name="description" content=""/><meta name="keywords" content="systemd, systemctl, , , "/></head><body><section xml:lang="zh-cn" class="article" id="idp1"><div class="titlepage"><div><div><h2 class="title">跟我学 systemd</h2></div><div><h3 class="subtitle"><em>http://netkiller.github.io/journal/os.systemd.html</em></h3></div><div><div class="author"><h3 class="author"><span class="honorific">Mr</span>. <span class="firstname">Neo Chen</span> <span class="surname">(陈景峯)</span>, <span class="lineage">netkiller, BG7NYT</span></h3><div class="affiliation">
+			<div class="address"><p><br/>
+				<span class="country">中国</span><span class="state">广东省</span><span class="city">深圳市</span><span class="street">龙华新区民治街道溪山美地</span><br/>
+				<span class="postcode">518131</span><br/>
+				<span class="phone">+86 13113668890</span><br/>
+				<br/>
+				<code class="email">&lt;<a class="email" href="mailto:netkiller@msn.com">netkiller@msn.com</a>&gt;</code><br/>
+			</p></div>
+		</div></div></div><div><p class="copyright">版权 © 2015 http://netkiller.github.io</p></div><div><div class="legalnotice" id="legalnotice">
+	<p class="legalnotice-title"><strong>版权声明</strong></p>
+	<p>转载请与作者联系，转载时请务必标明文章原始出处和作者信息及本声明。</p>
+	<table style="border: 0; " class="simplelist"><tr><td>
+		<a class="ulink" href="http://creativecommons.org/licenses/by/3.0/" target="_top">
+			<div><table style="border: 0; width: 180px; cellpadding: 0; cellspacing: 0;"><tr><td><img src="/images/by-nc-sa.png" width="180"/></td></tr></table></div>
+		</a>
+		</td><td>
+			<table style="border: 0; " class="simplelist"><tr><td>
+					文档出处:
+				</td></tr><tr><td>
+					<a class="ulink" href="http://netkiller.github.io/" target="_top">http://netkiller.github.io</a>
+				</td></tr><tr><td>
+					<a class="ulink" href="http://netkiller.sourceforge.net/" target="_top">http://netkiller.sourceforge.net</a>
+				</td></tr></table>
+		</td><td>
+			<a class="ulink" href="/images/weixin.jpg" target="_top"><div><table style="border: 0; width: 80px; cellpadding: 0; cellspacing: 0;"><tr><td><img src="/images/weixin.jpg" width="80"/></td></tr></table></div></a>
+		</td><td>
+			<p>微信扫描二维码进入 Netkiller 微信订阅号 </p>
+			<p>QQ群：128659835 请注明“读者”</p>
+		</td></tr></table>
+	<p/>
+</div></div><div><p class="pubdate">2017-06-16</p></div><div><div class="abstract"><div class="abstract-title">摘要</div>
+
+		</div></div></div><hr/></div><div class="toc"><div class="toc-title">目录</div><ul class="toc"><li><span class="section"><a href="#what">1. 什么是 systemd</a></span></li><li><span class="section"><a href="#why">2. why-为什么做</a></span></li><li><span class="section"><a href="#when">3. systemd 是何时被采用的</a></span></li><li><span class="section"><a href="#where">4. 那些系统使用 systemd</a></span></li><li><span class="section"><a href="#who">5. system 是谁开发的</a></span></li><li><span class="section"><a href="#how">6. 怎样编写systemd脚本</a></span><ul><li><span class="section"><a href="#idp3">6.1. Unit</a></span></li><li><span class="section"><a href="#idp4">6.2. Service</a></span></li><li><span class="section"><a href="#idp5">6.3. Install</a></span></li></ul></li></ul></div>
+	
+	<section class="section" id="what"><div class="titlepage"><div><div><h2 class="title" style="clear: both">1. 什么是 systemd</h2></div></div></div>
+		
+		<p>systemd是Linux电脑操作系统之下的一套中央化系统及设置管理程序（init软件），包括有守护进程、程序库跟应用软件，由Lennart
+			Poettering带头开发。
+			其开发目标是提供更优秀的框架以表示系统服务间的依赖关系，并依此实现系统初始化时服务的并行启动，同时达到降低Shell的系统开销的效果，最终代替现在常用的System
+			V与BSD风格init程序。</p>
+	</section>
+	<section class="section" id="why"><div class="titlepage"><div><div><h2 class="title" style="clear: both">2. why-为什么做</h2></div></div></div>
+		
+		<p>与多数发行版使用的System V风格init相比，systemd采用了以下新技术：</p>
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p>采用Socket激活式与D-Bus激活式服务，以提高相互依赖的各服务的并行运行性能；</p>
+			</li><li class="listitem">
+				<p>用cgroups代替进程ID来追踪进程，以此即使是两次fork之后生成的守护进程也不会脱离systemd的控制。</p>
+			</li></ol></div>
+	</section>
+	<section class="section" id="when"><div class="titlepage"><div><div><h2 class="title" style="clear: both">3. systemd 是何时被采用的</h2></div></div></div>
+		
+		<p>CentOS 7 开始系统默认使用 systemd，对于用户来说就是service被systemctl替代了。</p>
+	</section>
+	<section class="section" id="where"><div class="titlepage"><div><div><h2 class="title" style="clear: both">4. 那些系统使用 systemd</h2></div></div></div>
+		
+		<p>基本上从 Redhat 派生出的Linux操作系统基本都切换到了 systemd，Ubuntu也采用了systemd</p>
+	</section>
+	<section class="section" id="who"><div class="titlepage"><div><div><h2 class="title" style="clear: both">5. system 是谁开发的</h2></div></div></div>
+		
+		<p>由Lennart 	Poettering带头开发</p>
+	</section>
+	<section class="section" id="how"><div class="titlepage"><div><div><h2 class="title" style="clear: both">6. 怎样编写systemd脚本</h2></div></div></div>
+		
+		<p>下面是一个启动tomcat的systemd脚本，以此脚本为例我带大家进入 systemd 的世界。</p>
+		<div class="example" id="idp6"><div class="example-title">例 1. /usr/lib/systemd/system/tomcat.service</div><div class="example-contents">
+			
+			<pre class="screen">
+			
+####################################################
+# Homepage: http://netkiller.github.io
+# Author: netkiller&lt;netkiller@msn.com&gt;
+# Script: https://github.com/oscm/shell
+# Date: 2015-11-03
+####################################################
+
+[Unit]
+Description=Apache Tomcat Web Application Container
+After=network.target
+After=syslog.target
+
+[Service]
+Type=forking
+
+User=www
+Group=www
+
+#EnvironmentFile=/etc/sysconfig/tomcat
+ExecStartPre="rm -rf /srv/apache-tomcat/logs/*"
+ExecStart=/srv/apache-tomcat/bin/startup.sh
+#ExecStartPost=
+
+ExecStop=/srv/apache-tomcat/bin/shutdown.sh
+
+[Install]
+WantedBy=multi-user.target
+			
+			</pre>
+			<p>脚本安装到 /usr/lib/systemd/system/tomcat.service 下面</p>
+			<pre class="screen">
+systemctl enable tomcat
+systemctl start tomcat
+systemctl stop tomcat
+systemctl disable tomcat
+			</pre>
+			<p>启用脚本的时候会创建一个符号链接</p>
+			<pre class="screen">
+[neo@netkiller ~]# ll /etc/systemd/system/multi-user.target.wants/tomcat.service 
+lrwxrwxrwx 1 root root 38 Nov  3 04:06 /etc/systemd/system/multi-user.target.wants/tomcat.service -&gt; /usr/lib/systemd/system/tomcat.service
+			</pre>
+		</div></div><br class="example-break"/>
+		<section class="section" id="idp3"><div class="titlepage"><div><div><h3 class="title">6.1. Unit</h3></div></div></div>
+			
+			<p>Description 写一段文字描述该脚本</p>
+			<p>After 等待网络就绪后运行</p>
+		</section>
+		<section class="section" id="idp4"><div class="titlepage"><div><div><h3 class="title">6.2. Service</h3></div></div></div>
+			
+			<p>Type 启动类型</p>
+			<p>User, Group 运行 ExecStart 脚本的用户，相当于 su - user -c ExecStart</p>
+			<p>Environment 环境变量，EnvironmentFile 环境变量文件</p>
+			<p>ExecStartPre 开始之前运行的脚本，ExecStart 启动脚本， ExecStartPost 启动之后运行的脚本</p>
+			<p>ExecStop 停止脚本</p>
+		</section>
+		<section class="section" id="idp5"><div class="titlepage"><div><div><h3 class="title">6.3. Install</h3></div></div></div>
+			
+			<p>WantedBy=multi-user.target 安装到多用户模式</p>
+		</section>
+	</section>
+
+</section><div xmlns="" id="disqus_thread"/><script xmlns="">
+
+var disqus_config = function () {
+this.page.url = "http://www.netkiller.cn";  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'netkiller'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//netkiller.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script><noscript xmlns="">Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><br xmlns=""/><script xmlns="" type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?u=r5HG&amp;d=9mi5r_kkDC8uxG8HuY3p4-2qgeeVypAK9vMD-2P6BYM"/></body></html>

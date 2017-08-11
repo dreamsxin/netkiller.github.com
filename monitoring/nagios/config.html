@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>19.2. 配置 Nagios</title><link rel="stylesheet" type="text/css" href="..//docbook.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><meta name="keywords" content="snmp, ipmi,openipmi,freeipmi,ipmitool, cpu,memory,hdd,ssd,raid,power, logwatch, webmin" /><link rel="home" href="../index.html" title="Netkiller Linux Monitoring 手札" /><link rel="up" href="index.html" title="第 19 章 Nagios" /><link rel="prev" href="index.html" title="第 19 章 Nagios" /><link rel="next" href="define.html" title="19.3. 配置监控设备" /></head><body><a xmlns="" href="http://netkiller.github.io/">Home</a> |
-		<a xmlns="" href="http://netkiller.github.io/">简体中文</a> |
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>20.4. 配置 Nagios</title><link rel="stylesheet" type="text/css" href="..//docbook.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><meta name="keywords" content="snmp, ipmi,openipmi,freeipmi,ipmitool, cpu,memory,hdd,ssd,raid,power, logwatch, webmin" /><link rel="home" href="../index.html" title="Netkiller Linux Monitoring 手札" /><link rel="up" href="index.html" title="第 20 章 Nagios" /><link rel="prev" href="nagios.nrpe.html" title="20.3. nrpe node" /><link rel="next" href="define.html" title="20.5. 配置监控设备" /></head><body><a xmlns="" href="//www.netkiller.cn/">Home</a> |
+		<a xmlns="" href="//netkiller.github.io/">简体中文</a> |
 	    <a xmlns="" href="http://netkiller.sourceforge.net/">繁体中文</a> |
 	    <a xmlns="" href="/journal/index.html">杂文</a> |
-	    <a xmlns="" href="/search.html">Search</a> |
+	    <a xmlns="" href="//www.netkiller.cn/home/donations.html">打赏(Donations)</a> |
 	    <a xmlns="" href="http://netkiller-github-com.iteye.com/">ITEYE 博客</a> |
 	    <a xmlns="" href="http://my.oschina.net/neochen/">OSChina 博客</a> |
 	    <a xmlns="" href="https://www.facebook.com/bg7nyt">Facebook</a> |
 	    <a xmlns="" href="http://cn.linkedin.com/in/netkiller/">Linkedin</a> |
-		<a xmlns="" href="mailto:netkiller@msn.com">Email</a><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">19.2. 配置 Nagios</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="index.html">上一页</a> </td><th width="60%" align="center">第 19 章 Nagios</th><td width="20%" align="right"> <a accesskey="n" href="define.html">下一页</a></td></tr></table><hr /><table width="100%" border="0"><tr><td align="left"><a href="http://netkiller.sourceforge.net/">Home</a> | 
-		<a href="http://netkiller.github.com/">Mirror</a> |		
-		<a href="/search.html">Search</a></td><td align="right"></td></tr></table></div><table xmlns=""><tr><td><iframe src="http://ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.com&amp;type=watch&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="http://ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.com&amp;type=fork&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="http://ghbtns.com/github-btn.html?user=netkiller&amp;type=follow&amp;count=true&amp;size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe></td></tr></table><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="config"></a>19.2. 配置 Nagios</h3></div></div></div>
+	    <a xmlns="" href="https://zhuanlan.zhihu.com/netkiller">知乎专栏</a> |
+	    <a xmlns="" href="/search.html">Search</a> |
+		<a xmlns="" href="mailto:netkiller@msn.com">Email</a><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">20.4. 配置 Nagios</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="nagios.nrpe.html">上一页</a> </td><th width="60%" align="center">第 20 章 Nagios</th><td width="20%" align="right"> <a accesskey="n" href="define.html">下一页</a></td></tr></table><hr /></div><table xmlns=""><tr><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.io&amp;type=watch&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.io&amp;type=fork&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;type=follow&amp;count=true&amp;size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe></td></tr></table><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="config"></a>20.4. 配置 Nagios</h3></div></div></div>
 		
 		<pre class="screen">
 $ sudo vim /etc/nagios3/nagios.cfg
@@ -22,7 +22,7 @@ cfg_dir=/etc/nagios3/routers
 
 admin_email=nagios, neo.chen@example.com
 		</pre>
-		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp50504880"></a>19.2.1. authorized</h4></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp60"></a>20.4.1. authorized</h4></div></div></div>
 			
 			<p>add user neo for nagios</p>
 			<pre class="screen">
@@ -56,7 +56,7 @@ authorized_for_all_hosts=nagiosadmin,neo
 
 			</pre>
 		</div>
-		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp50508896"></a>19.2.2. contacts</h4></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp61"></a>20.4.2. contacts</h4></div></div></div>
 			
 			<pre class="screen">
 $ sudo vim /etc/nagios3/conf.d/contacts_nagios2.cfg
@@ -105,7 +105,7 @@ neo@monitor:/etc/nagios3$ grep admins conf.d/generic-service_nagios2.cfg
                 contact_groups                  admins
 			</pre>
 		</div>
-		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp50513616"></a>19.2.3. hostgroups</h4></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp62"></a>20.4.3. hostgroups</h4></div></div></div>
 			
 			<pre class="screen">
 $ sudo vim /etc/nagios3/conf.d/hostgroups_nagios2.cfg
@@ -118,7 +118,7 @@ define hostgroup {
 
 			</pre>
 		</div>
-		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp50515248"></a>19.2.4. generic-service</h4></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp63"></a>20.4.4. generic-service</h4></div></div></div>
 			
 			<pre class="screen">
 $ cat /etc/nagios3/conf.d/generic-service_nagios2.cfg
@@ -152,7 +152,7 @@ define service{
 
 			<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>notification_interval 	报警发送间隔，单位分钟</p></li><li class="listitem"><p>normal_check_interval 	间隔时间</p></li><li class="listitem"><p>retry_check_interval	重试间隔时间</p></li><li class="listitem"><p>max_check_attempts 		检查次数，4次失败后报警</p></li></ul></div>
 		</div>
-		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp50521568"></a>19.2.5. SOUND OPTIONS</h4></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp64"></a>20.4.5. SOUND OPTIONS</h4></div></div></div>
 			
 			<p>发出警报声</p>
 			<pre class="screen">
@@ -185,7 +185,7 @@ normal_sound=noproblem.wav
 			
 			</pre>
 		</div>
-		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp50524320"></a>19.2.6. SMS 短信</h4></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp65"></a>20.4.6. SMS 短信</h4></div></div></div>
 			
 			<pre class="screen">
 vim /etc/nagios3/commands.cfg
@@ -219,22 +219,74 @@ define contact{
 
 			</pre>
 		</div>
-</div><div xmlns="" id="disqus_thread"></div><script xmlns="" type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+		
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="nrpe"></a>20.4.7. nrpe plugins</h4></div></div></div>
+			
+			<pre class="screen">
+neo@monitor:/etc/nagios3/hosts$ sudo cat www.example.com.cfg
 
-            //if(document.domain == 'netkiller.github.com'){
-            var disqus_shortname = 'netkiller'; // required: replace example with your forum shortname
-            //}else{
-			//var disqus_shortname = 'neochan';
-            //}
+define host{
+        use             generic-host            ; Inherit default values from a template
+        host_name       www.example.com             ; The name we're giving to this host
+        alias           Some Remote Host        ; A longer name associated with the host
+        address         172.16.1.10              ; IP address of the host
+        hostgroups      http-servers                    ; Host groups this host is associated with
+        }
 
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script><noscript xmlns="">Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a xmlns="" href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><br xmlns="" /><div xmlns="" id="clustrmaps-widget"></div><script xmlns="" type="text/javascript">var _clustrmaps = {'url' : 'http://netkiller.github.io', 'user' : 1107643, 'server' : '2', 'id' : 'clustrmaps-widget', 'version' : 1, 'date' : '2013-08-14', 'lang' : 'en', 'corners' : 'square' };(function (){ var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'http://www2.clustrmaps.com/counter/map.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);})();</script><noscript xmlns=""><a href="http://www2.clustrmaps.com/user/87410e6bb"><img src="http://www2.clustrmaps.com/stats/maps-no_clusters/netkiller.github.io-thumb.jpg" alt="Locations of visitors to this page" /></a></noscript><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="index.html">上一页</a> </td><td width="20%" align="center"><a accesskey="u" href="index.html">上一级</a></td><td width="40%" align="right"> <a accesskey="n" href="define.html">下一页</a></td></tr><tr><td width="40%" align="left" valign="top">第 19 章 Nagios </td><td width="20%" align="center"><a accesskey="h" href="../index.html">起始页</a></td><td width="40%" align="right" valign="top"> 19.3. 配置监控设备</td></tr></table></div><script xmlns="">
+# NRPE disk check.
+define service {
+        use                             generic-service
+        host_name                       www.example.com
+        service_description             nrpe-disk
+        check_command                   check_nrpe_1arg!check_all_disks!172.16.1.10
+}
+define service {
+        use                             generic-service
+        host_name                       www.example.com
+        service_description             nrpe-users
+        check_command                   check_nrpe_1arg!check_users!172.16.1.10
+}
+define service {
+        use                             generic-service
+        host_name                       www.example.com
+        service_description             nrpe-swap
+        check_command                   check_nrpe_1arg!check_swap!172.16.1.10
+}
+define service {
+        use                             generic-service
+        host_name                       www.example.com
+        service_description             nrpe-procs
+        check_command                   check_nrpe_1arg!check_total_procs!172.16.1.10
+}
+define service {
+        use                             generic-service
+        host_name                       www.example.com
+        service_description             nrpe-load
+        check_command                   check_nrpe_1arg!check_load!172.16.1.10
+}
+define service {
+        use                             generic-service
+        host_name                       www.example.com
+        service_description             nrpe-zombie_procs
+        check_command                   check_nrpe_1arg!check_zombie_procs!172.16.1.10
+}
+
+			</pre>			
+		</div>		
+</div><div xmlns="" id="disqus_thread"></div><script xmlns="">
+
+var disqus_config = function () {
+this.page.url = "http://www.netkiller.cn";  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'netkiller'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//netkiller.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script><noscript xmlns="">Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><br xmlns="" /><script xmlns="" type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?u=r5HG&amp;d=9mi5r_kkDC8uxG8HuY3p4-2qgeeVypAK9vMD-2P6BYM"></script><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="nagios.nrpe.html">上一页</a> </td><td width="20%" align="center"><a accesskey="u" href="index.html">上一级</a></td><td width="40%" align="right"> <a accesskey="n" href="define.html">下一页</a></td></tr><tr><td width="40%" align="left" valign="top">20.3. nrpe node </td><td width="20%" align="center"><a accesskey="h" href="../index.html">起始页</a></td><td width="40%" align="right" valign="top"> 20.5. 配置监控设备</td></tr></table></div><script xmlns="">
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -243,7 +295,25 @@ define contact{
   ga('create', 'UA-11694057-1', 'auto');
   ga('send', 'pageview');
 
-</script><script xmlns="" type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F997cd4a7320a82d72cb74d179118f697' type='text/javascript'%3E%3C/script%3E"));
-</script><script xmlns="" type="text/javascript" src="/js/q.js"></script></body></html>
+</script><script xmlns="" async="async">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?93967759a51cda79e49bf4e34d0b0f2c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script xmlns="" async="async">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><script xmlns="" type="text/javascript" src="/js/q.js" async="async"></script></body></html>

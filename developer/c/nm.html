@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>29.7. nm - list symbols from object files</title><link rel="stylesheet" type="text/css" href="..//docbook.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><meta name="keywords" content="PHP, Python, Perl, Ruby, Java, HTML, XHTML, HTML5, CSS, Javascript, JQuery, C, C++, D" /><link rel="home" href="../index.html" title="Netkiller Developer 手札" /><link rel="up" href="c.debug.html" title="第 29 章 调试工具" /><link rel="prev" href="valgrind.html" title="29.6. Valgrind" /><link rel="next" href="objdump.html" title="29.8. objdump - display information from object files." /></head><body><a xmlns="" href="//www.netkiller.cn/">Home</a> |
+		<a xmlns="" href="//netkiller.github.io/">简体中文</a> |
+	    <a xmlns="" href="http://netkiller.sourceforge.net/">繁体中文</a> |
+	    <a xmlns="" href="/journal/index.html">杂文</a> |
+	    <a xmlns="" href="//www.netkiller.cn/home/donations.html">打赏(Donations)</a> |
+	    <a xmlns="" href="http://netkiller-github-com.iteye.com/">ITEYE 博客</a> |
+	    <a xmlns="" href="http://my.oschina.net/neochen/">OSChina 博客</a> |
+	    <a xmlns="" href="https://www.facebook.com/bg7nyt">Facebook</a> |
+	    <a xmlns="" href="http://cn.linkedin.com/in/netkiller/">Linkedin</a> |
+	    <a xmlns="" href="https://zhuanlan.zhihu.com/netkiller">知乎专栏</a> |
+	    <a xmlns="" href="/search.html">Search</a> |
+		<a xmlns="" href="mailto:netkiller@msn.com">Email</a><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">29.7. nm - list symbols from object files</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="valgrind.html">上一页</a> </td><th width="60%" align="center">第 29 章 调试工具</th><td width="20%" align="right"> <a accesskey="n" href="objdump.html">下一页</a></td></tr></table><hr /></div><table xmlns=""><tr><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.io&amp;type=watch&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.io&amp;type=fork&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;type=follow&amp;count=true&amp;size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe></td></tr></table><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="nm"></a>29.7. nm - list symbols from object files</h2></div></div></div>
+		
+		<pre class="screen">
+$ nm libzeromq.so 
+                 U asprintf@@GLIBC_2.2.5
+00000000002020d0 B __bss_start
+00000000002020d0 b completed.6992
+0000000000000f25 T concat
+                 w __cxa_finalize@@GLIBC_2.2.5
+0000000000000e40 t deregister_tm_clones
+0000000000000eb0 t __do_global_dtors_aux
+0000000000201de8 t __do_global_dtors_aux_fini_array_entry
+00000000002020c8 d __dso_handle
+0000000000201df8 d _DYNAMIC
+00000000002020d0 D _edata
+00000000002020d8 B _end
+0000000000001710 T _fini
+0000000000000ef0 t frame_dummy
+0000000000201de0 t __frame_dummy_init_array_entry
+0000000000001ab8 r __FRAME_END__
+                 U free@@GLIBC_2.2.5
+0000000000202000 d _GLOBAL_OFFSET_TABLE_
+                 w __gmon_start__
+0000000000000ca8 T _init
+                 w _ITM_deregisterTMCloneTable
+                 w _ITM_registerTMCloneTable
+0000000000201df0 d __JCR_END__
+0000000000201df0 d __JCR_LIST__
+                 w _Jv_RegisterClasses
+                 U malloc@@GLIBC_2.2.5
+                 U memcpy@@GLIBC_2.14
+                 U memset@@GLIBC_2.2.5
+0000000000000e70 t register_tm_clones
+                 U __stack_chk_fail@@GLIBC_2.4
+                 U strlen@@GLIBC_2.2.5
+                 U strncpy@@GLIBC_2.2.5
+00000000002020d0 d __TMC_END__
+0000000000001399 T zmq_client
+000000000000151f T zmq_client_deinit
+0000000000001346 T zmq_client_init
+                 U zmq_close
+                 U zmq_connect
+                 U zmq_ctx_destroy
+                 U zmq_ctx_new
+                 U zmq_msg_close
+                 U zmq_msg_data
+                 U zmq_msg_init
+                 U zmq_msg_init_size
+                 U zmq_msg_size
+000000000000157d T zmq_publish
+0000000000001703 T zmq_publish_deinit
+000000000000152a T zmq_publish_init
+0000000000000fae T zmq_read
+0000000000001157 T zmq_read_deinit
+0000000000000f5b T zmq_read_init
+                 U zmq_recvmsg
+                 U zmq_sendmsg
+                 U zmq_socket
+00000000000011b5 T zmq_write
+000000000000133b T zmq_write_deinit
+0000000000001162 T zmq_write_init
+		</pre>
+	</div><div xmlns="" id="disqus_thread"></div><script xmlns="">
+
+var disqus_config = function () {
+this.page.url = "http://www.netkiller.cn";  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'netkiller'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//netkiller.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script><noscript xmlns="">Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><br xmlns="" /><script xmlns="" type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?u=r5HG&amp;d=9mi5r_kkDC8uxG8HuY3p4-2qgeeVypAK9vMD-2P6BYM"></script><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="valgrind.html">上一页</a> </td><td width="20%" align="center"><a accesskey="u" href="c.debug.html">上一级</a></td><td width="40%" align="right"> <a accesskey="n" href="objdump.html">下一页</a></td></tr><tr><td width="40%" align="left" valign="top">29.6. Valgrind </td><td width="20%" align="center"><a accesskey="h" href="../index.html">起始页</a></td><td width="40%" align="right" valign="top"> 29.8. objdump - display information from object files.</td></tr></table></div><script xmlns="">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11694057-1', 'auto');
+  ga('send', 'pageview');
+
+</script><script xmlns="" async="async">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?93967759a51cda79e49bf4e34d0b0f2c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script xmlns="" async="async">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><script xmlns="" type="text/javascript" src="/js/q.js" async="async"></script></body></html>

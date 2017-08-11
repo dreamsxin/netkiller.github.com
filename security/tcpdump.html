@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>2.2. tcpdump - A powerful tool for network monitoring and data acquisition</title><link rel="stylesheet" type="text/css" href="/docbook.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><meta name="keywords" content="Sniffer, Scanner, Vulnerability, Penetration, nmap, tcpdump, sqlmap, Nessus, Backtrack" /><link rel="home" href="index.html" title="Netkiller Security 手札" /><link rel="up" href="sniffer.html" title="第 2 章 Sniffer" /><link rel="prev" href="sniffer.html" title="第 2 章 Sniffer" /><link rel="next" href="cdpr.html" title="2.3. cdpr - Cisco Discovery Protocol Reporter" /></head><body><a xmlns="" href="http://netkiller.github.io/">Home</a> |
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>2.2. tcpdump - A powerful tool for network monitoring and data acquisition</title><link rel="stylesheet" type="text/css" href="/docbook.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><meta name="keywords" content="Sniffer, Scanner, Vulnerability, Penetration, nmap, tcpdump, sqlmap, Nessus, Backtrack" /><link rel="home" href="index.html" title="Netkiller Security 手札" /><link rel="up" href="sniffer.html" title="第 2 章 Sniffer" /><link rel="prev" href="sniffer.html" title="第 2 章 Sniffer" /><link rel="next" href="cdpr.html" title="2.3. cdpr - Cisco Discovery Protocol Reporter" /></head><body><a xmlns="" href="http://www.netkiller.cn/">Home</a> |
 		<a xmlns="" href="http://netkiller.github.io/">简体中文</a> |
 	    <a xmlns="" href="http://netkiller.sourceforge.net/">繁体中文</a> |
 	    <a xmlns="" href="/journal/index.html">杂文</a> |
-	    <a xmlns="" href="/search.html">Search</a> |
+	    <a xmlns="" href="//www.netkiller.cn/home/donations.html">打赏(Donations)</a> |
 	    <a xmlns="" href="http://netkiller-github-com.iteye.com/">ITEYE 博客</a> |
 	    <a xmlns="" href="http://my.oschina.net/neochen/">OSChina 博客</a> |
 	    <a xmlns="" href="https://www.facebook.com/bg7nyt">Facebook</a> |
 	    <a xmlns="" href="http://cn.linkedin.com/in/netkiller/">Linkedin</a> |
-		<a xmlns="" href="mailto:netkiller@msn.com">Email</a><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.2. tcpdump - A powerful tool for network monitoring and data acquisition</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="sniffer.html">上一页</a> </td><th width="60%" align="center">第 2 章 Sniffer</th><td width="20%" align="right"> <a accesskey="n" href="cdpr.html">下一页</a></td></tr></table><hr /><table width="100%" border="0"><tr><td align="left"><a href="http://netkiller.sourceforge.net/">Home</a> | 
-		<a href="http://netkiller.github.com/">Mirror</a> |		
-		<a href="/search.html">Search</a></td><td align="right"></td></tr></table></div><table xmlns=""><tr><td><iframe src="http://ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.com&amp;type=watch&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="http://ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.com&amp;type=fork&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="http://ghbtns.com/github-btn.html?user=netkiller&amp;type=follow&amp;count=true&amp;size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe></td></tr></table><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="tcpdump"></a>2.2. tcpdump - A powerful tool for network monitoring and data acquisition</h2></div></div></div>
+	    <a xmlns="" href="https://zhuanlan.zhihu.com/netkiller">知乎专栏</a> |
+	    <a xmlns="" href="/search.html">Search</a> |
+		<a xmlns="" href="mailto:netkiller@msn.com">Email</a><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.2. tcpdump - A powerful tool for network monitoring and data acquisition</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="sniffer.html">上一页</a> </td><th width="60%" align="center">第 2 章 Sniffer</th><td width="20%" align="right"> <a accesskey="n" href="cdpr.html">下一页</a></td></tr></table><hr /></div><table xmlns=""><tr><td><iframe src="http://ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.io&amp;type=watch&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="http://ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.io&amp;type=fork&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="http://ghbtns.com/github-btn.html?user=netkiller&amp;type=follow&amp;count=true&amp;size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe></td></tr></table><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="tcpdump"></a>2.2. tcpdump - A powerful tool for network monitoring and data acquisition</h2></div></div></div>
 	
 	<span class="command"><strong>tcpdump</strong></span>
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp68242336"></a>2.2.1. 监控网络适配器接口</h3></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp37"></a>2.2.1. 监控网络适配器接口</h3></div></div></div>
 		
 		<pre class="screen">
 $ sudo tcpdump -n -i eth1
 		</pre>
 	</div>
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp68300112"></a>2.2.2. 监控主机</h3></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp38"></a>2.2.2. 监控主机</h3></div></div></div>
 		
 		<span class="command"><strong>tcpdump host 172.16.5.51</strong></span>
 		<pre class="screen">
@@ -30,7 +30,7 @@ listening on eth0, link-type EN10MB (Ethernet), capture size 65535 bytes
 17:49:26.203002 IP 172.16.5.51 &gt; 172.16.1.3: ICMP echo reply, id 4, seq 22397, length 40
 		</pre>
 	</div>
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp68302240"></a>2.2.3. 监控TCP端口</h3></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp39"></a>2.2.3. 监控TCP端口</h3></div></div></div>
 		
 		<p>显示所有到的FTP会话</p>
 		<pre class="screen">
@@ -52,13 +52,13 @@ $ sudo tcpdump -n not dst port 22 and not src port 22
 # tcpdump -i eth0 'udp port 53'
 		</pre>
 	</div>
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp68302400"></a>2.2.4. 监控协议</h3></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp40"></a>2.2.4. 监控协议</h3></div></div></div>
 		
 		<pre class="screen">
 $ tcpdump -n -i eth0 icmp or arp
 		</pre>
 	</div>
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp68308928"></a>2.2.5. 输出到文件</h3></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp41"></a>2.2.5. 输出到文件</h3></div></div></div>
 		
 		<pre class="screen">
 # tcpdump -n -i eth1 -s 0 -w output.txt src or dst port 80
@@ -66,8 +66,106 @@ $ tcpdump -n -i eth0 icmp or arp
 		<p>使用wireshark分析输出文件，下面地址下载</p>
 		<p>http://www.wireshark.org/</p>
 	</div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp42"></a>2.2.6. src / dst</h3></div></div></div>
+		
+		<p>src 监控源</p>
+		<pre class="screen">
+# tcpdump -ni eth1 'tcp and src port 3000'
+		</pre>
+		<p>dst 监控目的地</p>
+		<pre class="screen">
+# tcpdump -ni eth1 'tcp and dst port smtp'		
+		</pre>
+		<p>演示 src 与 dst</p>
+		<pre class="screen">
+		
+[root@netkiller ~]# tcpdump -ni eth1 'tcp and dst port 3000'
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth1, link-type EN10MB (Ethernet), capture size 65535 bytes
 
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="tcpdump.save"></a>2.2.6. 保存结果</h3></div></div></div>
+
+09:08:11.763041 IP 219.90.123.138.28270 &gt; 47.90.44.87.hbci: Flags [S], seq 2048018668, win 8192, options [mss 1400,nop,wscale 8,nop,nop,sackOK], length 0
+09:08:11.763383 IP 219.90.123.138.12047 &gt; 47.90.44.87.hbci: Flags [S], seq 2468955264, win 8192, options [mss 1400,nop,wscale 8,nop,nop,sackOK], length 0
+09:08:11.763774 IP 219.90.123.138.27092 &gt; 47.90.44.87.hbci: Flags [S], seq 3069483725, win 8192, options [mss 1400,nop,wscale 8,nop,nop,sackOK], length 0
+09:08:11.763855 IP 219.90.123.138.8602 &gt; 47.90.44.87.hbci: Flags [S], seq 2460960642, win 8192, options [mss 1400,nop,wscale 8,nop,nop,sackOK], length 0
+09:08:11.764323 IP 219.90.123.138.10480 &gt; 47.90.44.87.hbci: Flags [S], seq 1687488150, win 8192, options [mss 1400,nop,wscale 8,nop,nop,sackOK], length 0
+09:08:11.786487 IP 219.90.123.138.28270 &gt; 47.90.44.87.hbci: Flags [.], ack 1705484229, win 257, length 0
+09:08:11.786535 IP 219.90.123.138.12047 &gt; 47.90.44.87.hbci: Flags [.], ack 461089870, win 257, length 0
+09:08:11.786543 IP 219.90.123.138.27092 &gt; 47.90.44.87.hbci: Flags [.], ack 2893320938, win 257, length 0
+09:08:11.788955 IP 219.90.123.138.28270 &gt; 47.90.44.87.hbci: Flags [P.], seq 0:1025, ack 1, win 257, length 1025
+09:08:11.789671 IP 219.90.123.138.10480 &gt; 47.90.44.87.hbci: Flags [.], ack 1815033342, win 257, length 0
+09:08:11.789692 IP 219.90.123.138.8602 &gt; 47.90.44.87.hbci: Flags [.], ack 1519500600, win 257, length 0
+09:08:11.886937 IP 219.90.123.138.28270 &gt; 47.90.44.87.hbci: Flags [.], ack 2415, win 257, length 0
+09:08:11.889665 IP 219.90.123.138.28270 &gt; 47.90.44.87.hbci: Flags [.], ack 5215, win 257, length 0
+09:08:11.893673 IP 219.90.123.138.28270 &gt; 47.90.44.87.hbci: Flags [.], ack 8015, win 257, length 0
+09:08:11.904151 IP 219.90.123.138.28270 &gt; 47.90.44.87.hbci: Flags [.], ack 10815, win 257, length 0
+09:08:11.904707 IP 219.90.123.138.28270 &gt; 47.90.44.87.hbci: Flags [.], ack 13615, win 257, length 0
+09:08:11.914796 IP 219.90.123.138.28270 &gt; 47.90.44.87.hbci: Flags [.], ack 17815, win 257, length 0
+09:08:11.923904 IP 219.90.123.138.28270 &gt; 47.90.44.87.hbci: Flags [.], ack 19215, win 257, length 0
+09:08:11.979687 IP 219.90.123.138.28270 &gt; 47.90.44.87.hbci: Flags [.], ack 19880, win 254, length 0
+09:08:14.761388 IP 219.90.123.138.28461 &gt; 47.90.44.87.hbci: Flags [S], seq 3215826970, win 8192, options [mss 1400,nop,wscale 8,nop,nop,sackOK], length 0
+09:08:14.782284 IP 219.90.123.138.28461 &gt; 47.90.44.87.hbci: Flags [.], ack 1574781090, win 257, length 0
+^C
+21 packets captured
+22 packets received by filter
+0 packets dropped by kernel
+[root@netkiller ~]# tcpdump -ni eth1 'tcp and src port 3000'
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth1, link-type EN10MB (Ethernet), capture size 65535 bytes
+
+
+09:08:41.241996 IP 47.90.44.87.hbci &gt; 219.90.123.138.28461: Flags [F.], seq 1574781090, ack 3215826972, win 115, length 0
+09:08:41.242395 IP 47.90.44.87.hbci &gt; 219.90.123.138.24925: Flags [S.], seq 1277500664, ack 2163858186, win 14600, options [mss 1460,nop,nop,sackOK,nop,wscale 7], length 0
+09:08:41.242498 IP 47.90.44.87.hbci &gt; 219.90.123.138.27571: Flags [S.], seq 1906857203, ack 3261786724, win 14600, options [mss 1460,nop,nop,sackOK,nop,wscale 7], length 0
+09:08:41.243081 IP 47.90.44.87.hbci &gt; 219.90.123.138.27152: Flags [S.], seq 3451566690, ack 2095717279, win 14600, options [mss 1460,nop,nop,sackOK,nop,wscale 7], length 0
+09:08:41.243223 IP 47.90.44.87.hbci &gt; 219.90.123.138.25265: Flags [S.], seq 943843868, ack 3740664697, win 14600, options [mss 1460,nop,nop,sackOK,nop,wscale 7], length 0
+09:08:41.243413 IP 47.90.44.87.hbci &gt; 219.90.123.138.27145: Flags [S.], seq 1814275155, ack 3577858982, win 14600, options [mss 1460,nop,nop,sackOK,nop,wscale 7], length 0
+09:08:41.247070 IP 47.90.44.87.hbci &gt; 219.90.123.138.28270: Flags [.], ack 2048020719, win 147, length 0
+09:08:41.436542 IP 47.90.44.87.hbci &gt; 219.90.123.138.28270: Flags [P.], seq 0:1014, ack 1, win 147, length 1014
+09:08:41.436595 IP 47.90.44.87.hbci &gt; 219.90.123.138.28270: Flags [.], seq 1014:3814, ack 1, win 147, length 2800
+09:08:41.436608 IP 47.90.44.87.hbci &gt; 219.90.123.138.28270: Flags [.], seq 3814:6614, ack 1, win 147, length 2800
+09:08:41.436613 IP 47.90.44.87.hbci &gt; 219.90.123.138.28270: Flags [.], seq 6614:9414, ack 1, win 147, length 2800
+09:08:41.436617 IP 47.90.44.87.hbci &gt; 219.90.123.138.28270: Flags [.], seq 9414:12214, ack 1, win 147, length 2800
+09:08:41.436624 IP 47.90.44.87.hbci &gt; 219.90.123.138.28270: Flags [.], seq 12214:13614, ack 1, win 147, length 1400
+09:08:41.458774 IP 47.90.44.87.hbci &gt; 219.90.123.138.28270: Flags [.], seq 13614:16414, ack 1, win 147, length 2800
+09:08:41.461374 IP 47.90.44.87.hbci &gt; 219.90.123.138.28270: Flags [.], seq 16414:19214, ack 1, win 147, length 2800
+09:08:41.461388 IP 47.90.44.87.hbci &gt; 219.90.123.138.28270: Flags [P.], seq 19214:19879, ack 1, win 147, length 665
+09:08:41.485084 IP 47.90.44.87.hbci &gt; 219.90.123.138.24925: Flags [.], ack 1011, win 130, length 0
+09:08:41.485958 IP 47.90.44.87.hbci &gt; 219.90.123.138.27571: Flags [.], ack 999, win 130, length 0
+09:08:41.486888 IP 47.90.44.87.hbci &gt; 219.90.123.138.27152: Flags [.], ack 998, win 130, length 0
+09:08:41.487791 IP 47.90.44.87.hbci &gt; 219.90.123.138.25265: Flags [.], ack 1005, win 130, length 0
+09:08:41.488224 IP 47.90.44.87.hbci &gt; 219.90.123.138.27571: Flags [P.], seq 1:139, ack 999, win 130, length 138
+09:08:41.488291 IP 47.90.44.87.hbci &gt; 219.90.123.138.27145: Flags [.], ack 983, win 130, length 0
+09:08:41.489100 IP 47.90.44.87.hbci &gt; 219.90.123.138.24925: Flags [P.], seq 1:139, ack 1011, win 130, length 138
+09:08:41.491998 IP 47.90.44.87.hbci &gt; 219.90.123.138.27152: Flags [P.], seq 1:139, ack 998, win 130, length 138
+09:08:41.492653 IP 47.90.44.87.hbci &gt; 219.90.123.138.28270: Flags [.], seq 12214:13614, ack 1, win 147, length 1400
+09:08:41.494013 IP 47.90.44.87.hbci &gt; 219.90.123.138.25265: Flags [P.], seq 1:139, ack 1005, win 130, length 138
+09:08:41.499825 IP 47.90.44.87.hbci &gt; 219.90.123.138.27145: Flags [P.], seq 1:139, ack 983, win 130, length 138
+09:08:41.514427 IP 47.90.44.87.hbci &gt; 219.90.123.138.27571: Flags [P.], seq 139:277, ack 1980, win 146, length 138
+09:08:41.688727 IP 47.90.44.87.hbci &gt; 219.90.123.138.27145: Flags [P.], seq 139:277, ack 2005, win 146, length 138
+09:08:41.689548 IP 47.90.44.87.hbci &gt; 219.90.123.138.27571: Flags [P.], seq 277:415, ack 2998, win 162, length 138
+09:08:41.824277 IP 47.90.44.87.hbci &gt; 219.90.123.138.27571: Flags [P.], seq 415:651, ack 3932, win 178, length 236
+09:08:41.824391 IP 47.90.44.87.hbci &gt; 219.90.123.138.27571: Flags [.], seq 651:3451, ack 3932, win 178, length 2800
+09:08:41.824427 IP 47.90.44.87.hbci &gt; 219.90.123.138.27571: Flags [.], seq 3451:6251, ack 3932, win 178, length 2800
+09:08:41.824451 IP 47.90.44.87.hbci &gt; 219.90.123.138.27571: Flags [.], seq 6251:7651, ack 3932, win 178, length 1400
+09:08:41.846233 IP 47.90.44.87.hbci &gt; 219.90.123.138.27571: Flags [P.], seq 7651:8537, ack 3932, win 178, length 886
+^C
+35 packets captured
+36 packets received by filter
+0 packets dropped by kernel
+
+
+# tcpdump -ni any 'tcp and dst host 184.105.206.82 and port 25'
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on any, link-type LINUX_SLL (Linux cooked), capture size 65535 bytes
+05:46:31.833762 IP 107.178.142.42.49771 &gt; 184.105.206.82.smtp: Flags [.], ack 231639512, win 229, options [nop,nop,TS val 2464661680 ecr 1677502875], length 0
+05:46:31.833826 IP 107.178.142.42.49771 &gt; 184.105.206.82.smtp: Flags [P.], seq 0:21, ack 1, win 229, options [nop,nop,TS val 2464661680 ecr 1677502875], length 21
+05:46:32.515302 IP 107.178.142.42.49771 &gt; 184.105.206.82.smtp: Flags [P.], seq 21:52, ack 62, win 229, options [nop,nop,TS val 2464662361 ecr 1677503046], length 31
+05:46:32.886948 IP 107.178.142.42.49771 &gt; 184.105.206.82.smtp: Flags [P.], seq 52:80, ack 70, win 229, options [nop,nop,TS val 2464662733 ecr 1677503139], length 28
+		
+		</pre>
+	</div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="tcpdump.save"></a>2.2.7. 保存结果</h3></div></div></div>
 		
 		<pre class="screen">
 tcpdump -w tmp.pcap port not 22
@@ -75,7 +173,7 @@ tcpdump -r tmp.pcap -nnA
 		</pre>
 	</div>
 
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="tcpdump.cdp"></a>2.2.7. Cisco Discovery Protocol (CDP)</h3></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="tcpdump.cdp"></a>2.2.8. Cisco Discovery Protocol (CDP)</h3></div></div></div>
 		
 		<pre class="screen">
 $ sudo tcpdump -nn -v -i eth0 -s 1500 -c 1 'ether[20:2] == 0x2000'
@@ -136,16 +234,29 @@ tcpdump: listening on eth0, link-type EN10MB (Ethernet), capture size 1500 bytes
 		</pre>
 		<p><a class="link" href="cdpr.html" title="2.3. cdpr - Cisco Discovery Protocol Reporter">cdpr - Cisco Discovery Protocol Reporter</a></p>
 	</div>
-
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp68319296"></a>2.2.8. 案例</h3></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="Flags"></a>2.2.9. Flags</h3></div></div></div>
 		
-		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp68320112"></a>2.2.8.1. 监控80端口与icmp,arp</h4></div></div></div>
+		<p>每一行中间都有这个包所携带的标志：</p>
+		<pre class="screen">
+Flags [*](
+S=SYN   发起连接标志
+P=PUSH  传送数据标志
+F=FIN    关闭连接标志
+ack     表示确认包
+RST= RESET  异常关闭连接
+.      表示没有任何标志
+)		
+		</pre>
+	</div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="example"></a>2.2.10. 案例</h3></div></div></div>
+		
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="icmp"></a>2.2.10.1. 监控80端口与icmp,arp</h4></div></div></div>
 			
 			<pre class="screen">
 $ tcpdump -n -i eth0 port 80 or icmp or arp
 			</pre>
 		</div>
-		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp68321520"></a>2.2.8.2. monitor mysql tcp package</h4></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="mysql"></a>2.2.10.2. monitor mysql tcp package</h4></div></div></div>
 			
 			<pre class="screen">
 			
@@ -163,7 +274,7 @@ while(&lt;&gt;) { chomp; next if /^[^ ]+[ ]*$/;
 			
 			</pre>
 		</div>
-		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="tcpdump.http"></a>2.2.8.3. HTTP 包</h4></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="http"></a>2.2.10.3. HTTP 包</h4></div></div></div>
 			
 			<pre class="screen">
 			
@@ -171,7 +282,7 @@ tcpdump -i eth0 -s 0 -l -w - dst port 80 | strings
 			
 			</pre>
 		</div>
-		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp68324976"></a>2.2.8.4. 显示SYN、FIN和ACK-only包</h4></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="syn"></a>2.2.10.4. 显示SYN、FIN和ACK-only包</h4></div></div></div>
 			
 			<p>显示所有进出80端口IPv4 HTTP包，也就是只打印包含数据的包。例如：SYN、FIN包和ACK-only包输入：</p>
 			<pre class="screen">
@@ -180,24 +291,89 @@ tcpdump -i eth0 -s 0 -l -w - dst port 80 | strings
 			
 			</pre>
 		</div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="oracle"></a>2.2.10.5. 嗅探 Oracle 错误</h4></div></div></div>
+			
+			<pre class="screen">
+			
+tcpdump -i eth1 tcp port 1521 -A -s1500 | awk '$1 ~ "ORA-" {i=1;split($1,t,"ORA-");while (i &lt;= NF) {if (i == 1) {printf("%s","ORA-"t[2])}else {printf("%s ",$i)};i++}printf("\n")}'
+						
+			</pre>
+		</div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="smtp"></a>2.2.10.6. smtp</h4></div></div></div>
+			
+			<pre class="screen">
+			
+# tcpdump -nni any  -x -X port 25 | more
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on any, link-type LINUX_SLL (Linux cooked), capture size 65535 bytes
+05:55:43.133217 IP 184.105.206.85.25 &gt; 59.153.146.101.42756: Flags [P.], seq 3205055214:3205055222, ack 3276605059, win 16022, options [nop,nop,TS val 2899843510 ecr 1568241053], length 8
+	0x0000:  4500 003c c773 4000 3b06 238b b869 ce55  E..&lt;.s@.;.#..i.U
+	0x0010:  3b99 9265 0019 a704 bf09 42ee c34d 0683  ;..e......B..M..
+	0x0020:  8018 3e96 1803 0000 0101 080a acd8 19b6  ..&gt;.............
+	0x0030:  5d79 759d 3235 3020 4f6b 0d0a 0000 0000  ]yu.250.Ok......
+	0x0040:  0000 0000 0000 0000 0000 0000            ............
+05:55:43.133247 IP 59.153.146.101.42756 &gt; 184.105.206.85.25: Flags [.], ack 8, win 115, options [nop,nop,TS val 1568241323 ecr 2899843510], length 0
+	0x0000:  4500 0034 0478 4000 4006 e18e 3b99 9265  E..4.x@.@...;..e
+	0x0010:  b869 ce55 a704 0019 c34d 0683 bf09 42f6  .i.U.....M....B.
+	0x0020:  8010 0073 54e4 0000 0101 080a 5d79 76ab  ...sT.......]yv.
+	0x0030:  acd8 19b6 0000 0000 0000 0000 0000 0000  ................
+	0x0040:  0000 0000                                ....
+05:55:43.133321 IP 59.153.146.101.42756 &gt; 184.105.206.85.25: Flags [P.], seq 1:32, ack 8, win 115, options [nop,nop,TS val 1568241323 ecr 2899843510], length 31
+	0x0000:  4500 0053 0479 4000 4006 e16e 3b99 9265  E..S.y@.@..n;..e
+	0x0010:  b869 ce55 a704 0019 c34d 0683 bf09 42f6  .i.U.....M....B.
+	0x0020:  8018 0073 5503 0000 0101 080a 5d79 76ab  ...sU.......]yv.
+	0x0030:  acd8 19b6 4d41 494c 2046 524f 4d3a 3c6e  ....MAIL.FROM:&lt;n
+	0x0040:  6f72 6570 6c79 4063 6631 3339 2e63 6f6d  oreply@139.com
+	0x0050:  3e0d 0a00 0000 0000 0000 0000 0000 0000  &gt;...............
+	0x0060:  0000 00                                  ...
+05:55:43.142280 IP 184.105.206.85.25 &gt; 59.153.146.101.42756: Flags [.], ack 32, win 16022, options [nop,nop,TS val 2899843513 ecr 1568241323], length 0
+	0x0000:  4500 0034 c774 4000 3b06 2392 b869 ce55  E..4.t@.;.#..i.U
+	0x0010:  3b99 9265 0019 a704 bf09 42f6 c34d 06a2  ;..e......B..M..
+	0x0020:  8010 3e96 d5a5 0000 0101 080a acd8 19b9  ..&gt;.............
+	0x0030:  5d79 76ab 0000 0000 0000 0000 0000 0000  ]yv.............
+	0x0040:  0000 0000                                ....
+05:55:43.270436 IP 203.205.160.43.25 &gt; 202.88.38.95.39594: Flags [.], ack 1271517256, win 159, options [nop,nop,TS val 1663885325 ecr 1568241310], length 0
+	0x0000:  4500 0034 18e5 4000 3806 cd2e cbcd a02b  E..4..@.8......+
+	0x0010:  ca58 265f 0019 9aaa 800c c423 4bc9 d048  .X&amp;_.......#K..H
+	0x0020:  8010 009f 0716 0000 0101 080a 632c e00d  ............c,..
+	0x0030:  5d79 769e 0000 0000 0000 0000 0000 0000  ]yv.............
+	0x0040:  0000 0000                                ....
+			
+			</pre>
+			<p>嗅探用户密码</p>
+			<pre class="screen">
+			
+# tcpdump -i any port http or port smtp or port imap or port pop3 -l -A | egrep -i 'pass=|pwd=|log=|login=|user=|username=|pw=|passw=|passwd=|password=|pass:|user:|userna me:|password:|login:|pass |user '
+
+# tcpdump port http or port ftp or port smtp or port imap or port pop3 -l -A | egrep -i 'pass=|pwd=|log=|login=|user=|username=|pw=|passw=|passwd=|password=|pass:|user:|username:|password:|login:|pass |user ' --color=auto --line-buffered -B20
+			
+			</pre>
+			<pre class="screen">
+			
+# tcpdump -A -q -i any port 25 | grep "RCPT TO:"
+# tcpdump -l -s0 -w - tcp dst port 25 | strings | grep -i 'MAIL FROM\|RCPT TO'			
+			
+			</pre>
+			<pre class="screen">
+			
+			</pre>
+		</div>
 	</div>
 			
-</div><div xmlns="" id="disqus_thread"></div><script xmlns="" type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+</div><div xmlns="" id="disqus_thread"></div><script xmlns="">
 
-            //if(document.domain == 'netkiller.github.com'){
-            var disqus_shortname = 'netkiller'; // required: replace example with your forum shortname
-            //}else{
-			//var disqus_shortname = 'neochan';
-            //}
+var disqus_config = function () {
+this.page.url = "http://www.netkiller.cn";  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'netkiller'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
 
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script><noscript xmlns="">Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a xmlns="" href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><br xmlns="" /><div xmlns="" id="clustrmaps-widget"></div><script xmlns="" type="text/javascript">var _clustrmaps = {'url' : 'http://netkiller.github.io', 'user' : 1107643, 'server' : '2', 'id' : 'clustrmaps-widget', 'version' : 1, 'date' : '2013-08-14', 'lang' : 'en', 'corners' : 'square' };(function (){ var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'http://www2.clustrmaps.com/counter/map.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);})();</script><noscript xmlns=""><a href="http://www2.clustrmaps.com/user/87410e6bb"><img src="http://www2.clustrmaps.com/stats/maps-no_clusters/netkiller.github.io-thumb.jpg" alt="Locations of visitors to this page" /></a></noscript><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="sniffer.html">上一页</a> </td><td width="20%" align="center"><a accesskey="u" href="sniffer.html">上一级</a></td><td width="40%" align="right"> <a accesskey="n" href="cdpr.html">下一页</a></td></tr><tr><td width="40%" align="left" valign="top">第 2 章 Sniffer </td><td width="20%" align="center"><a accesskey="h" href="index.html">起始页</a></td><td width="40%" align="right" valign="top"> 2.3. cdpr - Cisco Discovery Protocol Reporter</td></tr></table></div><script xmlns="">
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//netkiller.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script><noscript xmlns="">Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><br xmlns="" /><script xmlns="" type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?u=r5HG&amp;d=9mi5r_kkDC8uxG8HuY3p4-2qgeeVypAK9vMD-2P6BYM"></script><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="sniffer.html">上一页</a> </td><td width="20%" align="center"><a accesskey="u" href="sniffer.html">上一级</a></td><td width="40%" align="right"> <a accesskey="n" href="cdpr.html">下一页</a></td></tr><tr><td width="40%" align="left" valign="top">第 2 章 Sniffer </td><td width="20%" align="center"><a accesskey="h" href="index.html">起始页</a></td><td width="40%" align="right" valign="top"> 2.3. cdpr - Cisco Discovery Protocol Reporter</td></tr></table></div><script xmlns="">
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -206,7 +382,25 @@ tcpdump -i eth0 -s 0 -l -w - dst port 80 | strings
   ga('create', 'UA-11694057-1', 'auto');
   ga('send', 'pageview');
 
-</script><script xmlns="" type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F997cd4a7320a82d72cb74d179118f697' type='text/javascript'%3E%3C/script%3E"));
-</script><script xmlns="" type="text/javascript" src="/js/q.js"></script></body></html>
+</script><script xmlns="" async="async">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?93967759a51cda79e49bf4e34d0b0f2c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script xmlns="" async="async">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><script xmlns="" type="text/javascript" src="/js/q.js" async="async"></script></body></html>

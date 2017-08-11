@@ -1,34 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<html xmlns="http://www.w3.org/1999/xhtml"><head><title>启动Shell编写</title><link rel="stylesheet" type="text/css" href="docbook.css"/><link rel="stylesheet" type="text/css" href="journal.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><meta name="description" content="."/><meta name="keywords" content="iptables, access.log, error.log"/><script xmlns="" type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-11694057-1']);
-  _gaq.push(['_setDomainName', 'netkiller.sourceforge.net']);
-  _gaq.push(['_setAllowHash', 'false']);
-  _gaq.push(['_setAllowLinker', true]);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script></head><body><a xmlns="" href="http://netkiller.github.io/">Home</a> |
-        <a xmlns="" href="http://netkiller.sourceforge.net/">Mirror</a> |
-        <a xmlns="" href="/search.html">Search</a> | 
-		<a xmlns="" href="/journal/index.html">杂文</a> |
-        <a xmlns="" href="http://netkiller-github-com.iteye.com/">ITEYE 博客</a> |
-        <a xmlns="" href="http://my.oschina.net/neochen/">OSChina 博客</a> |
-        <a xmlns="" href="http://rline.blog.51cto.com/">51CTO 博客</a><section xml:lang="zh-cn" class="article" id="idp57864512"><div class="titlepage"><div><div><h2 class="title">启动Shell编写</h2></div><div><div class="author"><h3 class="author"><span class="honorific">Mr</span>. <span class="firstname">Neo Chen</span> <span class="surname">(netkiller)</span>, <span class="lineage">陈景峰(BG7NYT)</span></h3><div class="affiliation"><div class="address"><p><br/>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Shell 高级编程</title><link rel="stylesheet" type="text/css" href="docbook.css"/><link rel="stylesheet" type="text/css" href="/journal/journal.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.79.1"/><meta name="description" content="Shell 更多是被看成一种批处理命令，确实很多是是吧 Shell当成批处理去使用的。 我确不这么看，我认为要想开发程序一样去写Shell，把Shell当成一种语言。 我们需要将很多软件开发技巧应用在Shell领域"/><meta name="keywords" content="iptables, access.log, error.log"/></head><body><section xml:lang="zh-cn" class="article" id="idp1"><div class="titlepage"><div><div><h2 class="title">Shell 高级编程</h2></div><div><h3 class="subtitle"><em>http://netkiller.github.io/journal/shell.html</em></h3></div><div><div class="author"><h3 class="author"><span class="honorific">Mr</span>. <span class="firstname">Neo Chen</span> <span class="surname">(陈景峯)</span>, <span class="lineage">netkiller, BG7NYT</span></h3><div class="affiliation"><div class="address"><p><br/>
 				<span class="country">中国</span><span class="state">广东省</span><span class="city">深圳市</span><span class="street">龙华新区民治街道溪山美地</span><br/>
 				<span class="postcode">518131</span><br/>
 				<span class="phone">+86 13113668890</span><br/>
-				<span class="fax">+86 755 29812080</span><br/>
+				<br/>
 				<code class="email">&lt;<a class="email" href="mailto:netkiller@msn.com">netkiller@msn.com</a>&gt;</code><br/>
-			</p></div></div></div></div><div><p class="releaseinfo">$Id: shell.xml 449 2012-08-10 10:38:08Z netkiller $</p></div><div><p class="copyright">版权 © 2011, 2012, 2013, 2014 http://netkiller.github.io</p></div><div><div class="legalnotice" id="legalnotice"><p class="legalnotice-title"><strong>版权声明</strong></p><p>转载请与作者联系，转载时请务必标明文章原始出处和作者信息及本声明。</p><table style="border: 0; " class="simplelist"><tr><td>
+			</p></div></div></div></div><div><p class="releaseinfo">$Id: shell.xml 449 2012-08-10 10:38:08Z netkiller </p></div><div><div class="legalnotice" id="legalnotice"><p class="legalnotice-title"><strong>版权声明</strong></p><p>转载请与作者联系，转载时请务必标明文章原始出处和作者信息及本声明。</p><table style="border: 0; " class="simplelist"><tr><td>
 		<a class="ulink" href="http://creativecommons.org/licenses/by/3.0/" target="_top">
-			<div><table style="border: 0; width: 180; cellpadding: 0; cellspacing: 0;"><tr><td><img src="/images/by-nc-sa.png" width="180"/></td></tr></table></div>
+			<div><table style="border: 0; width: 180px; cellpadding: 0; cellspacing: 0;"><tr><td><img src="/images/by-nc-sa.png" width="180"/></td></tr></table></div>
 		</a>
 		</td><td>
 			<table style="border: 0; " class="simplelist"><tr><td>
@@ -38,79 +17,78 @@
 				</td></tr><tr><td>
 					<a class="ulink" href="http://netkiller.sourceforge.net/" target="_top">http://netkiller.sourceforge.net</a>
 				</td></tr></table>
-		</td></tr></table><p/></div></div><div><p class="pubdate">$Data$</p></div><div><div class="abstract"><div class="abstract-title">摘要</div>
-			<p>.</p>
-		</div></div><div><div class="abstract" id="abstract"><div class="abstract-title">我的系列文档</div><table style="border: 0; " class="simplelist"><tr><td>
-			<a class="ulink" href="../architect/index.html" target="_top">Netkiller Architect 手札</a>
 		</td><td>
-			<a class="ulink" href="../developer/index.html" target="_top">Netkiller Developer 手札</a>
+			<a class="ulink" href="/images/weixin.jpg" target="_top"><div><table style="border: 0; width: 80px; cellpadding: 0; cellspacing: 0;"><tr><td><img src="/images/weixin.jpg" width="80"/></td></tr></table></div></a>
 		</td><td>
-			<a class="ulink" href="../php/index.html" target="_top">Netkiller PHP 手札</a>
-		</td><td>
-			<a class="ulink" href="../python/index.html" target="_top">Netkiller Python 手札</a>
-		</td><td>
-			<a class="ulink" href="../testing/index.html" target="_top">Netkiller Testing 手札</a>
-		</td><td>
-			<a class="ulink" href="../cryptography/index.html" target="_top">Netkiller Cryptography 手札</a>
-		</td></tr><tr><td>
-			<a class="ulink" href="../linux/index.html" target="_top">Netkiller Linux 手札</a>
-		</td><td>
-			<a class="ulink" href="../debian/index.html" target="_top">Netkiller Debian 手札</a>
-		</td><td>
-			<a class="ulink" href="../centos/index.html" target="_top">Netkiller CentOS 手札</a>
-		</td><td>
-			<a class="ulink" href="../freebsd/index.html" target="_top">Netkiller FreeBSD 手札</a>
-		</td><td>
-			<a class="ulink" href="../shell/index.html" target="_top">Netkiller Shell 手札</a>
-		</td><td>
-			<a class="ulink" href="../security/index.html" target="_top">Netkiller Security 手札</a>
-		</td></tr><tr><td>
-			<a class="ulink" href="../www/index.html" target="_top">Netkiller Web 手札</a>
-		</td><td>
-			<a class="ulink" href="../monitoring/index.html" target="_top">Netkiller Monitoring 手札</a>
-		</td><td>
-			<a class="ulink" href="../storage/index.html" target="_top">Netkiller Storage 手札</a>
-		</td><td>
-			<a class="ulink" href="../mail/index.html" target="_top">Netkiller Mail 手札</a>
-		</td><td>
-			<a class="ulink" href="../docbook/index.html" target="_top">Netkiller Docbook 手札</a>
-		</td><td>
-			<a class="ulink" href="../version/index.html" target="_top">Netkiller Version 手札</a>
-		</td></tr><tr><td>
-			<a class="ulink" href="../database/index.html" target="_top">Netkiller Database 手札</a>
-		</td><td>
-			<a class="ulink" href="../postgresql/index.html" target="_top">Netkiller PostgreSQL 手札</a>
-		</td><td>
-			<a class="ulink" href="../mysql/index.html" target="_top">Netkiller MySQL 手札</a>
-		</td><td>
-			<a class="ulink" href="../nosql/index.html" target="_top">Netkiller NoSQL 手札</a>
-		</td><td>
-			<a class="ulink" href="../ldap/index.html" target="_top">Netkiller LDAP 手札</a>
-		</td><td>
-			<a class="ulink" href="../network/index.html" target="_top">Netkiller Network 手札</a>
-		</td></tr><tr><td>
-			<a class="ulink" href="../cisco/index.html" target="_top">Netkiller Cisco IOS 手札</a>
-		</td><td>
-			<a class="ulink" href="../h3c/index.html" target="_top">Netkiller H3C 手札</a>
-		</td><td>
-			<a class="ulink" href="../multimedia/index.html" target="_top">Netkiller Multimedia 手札</a>
-		</td><td>
-			<a class="ulink" href="../perl/index.html" target="_top">Netkiller Perl 手札</a>
-		</td><td>
-			<a class="ulink" href="../radio/index.html" target="_top">Netkiller Amateur Radio 手札</a>
-		</td><td> </td></tr></table></div></div></div><hr/></div><div class="toc"><div class="toc-title">目录</div><ul class="toc"><li><span class="section"><a href="#idp57866000">1. 启用 shell</a></span></li><li><span class="section"><a href="#idp57921104">2. htpasswd 密码批量生成</a></span></li><li><span class="section"><a href="#idp57923104">3. firewall</a></span></li></ul></div>
+			<p>微信扫描二维码进入 Netkiller 微信订阅号 </p>
+			<p>QQ群：128659835 请注明“读者”</p>
+		</td></tr></table><p/></div></div><div><p class="pubdate">$Data</p></div><div><div class="abstract"><div class="abstract-title">摘要</div>
+			<p>Shell 更多是被看成一种批处理命令，确实很多是是吧 Shell当成批处理去使用的。</p>
+			<p>我确不这么看，我认为要想开发程序一样去写Shell，把Shell当成一种语言。</p>
+			<p>我们需要将很多软件开发技巧应用在Shell领域</p>
+		</div></div></div><hr/></div><div class="toc"><div class="toc-title">目录</div><ul class="toc"><li><span class="section"><a href="#idp2">1. 递归调用</a></span></li><li><span class="section"><a href="#idp3">2. 实现守护进程</a></span></li><li><span class="section"><a href="#idp4">3. 进程间通信</a></span></li><li><span class="section"><a href="#idp5">4. </a></span></li></ul></div>
 	
-
-	<section class="section" id="idp57866000"><div class="titlepage"><div><div><h2 class="title" style="clear: both">1. 启用 shell</h2></div></div></div>
+	
+	<section class="section" id="idp2"><div class="titlepage"><div><div><h2 class="title" style="clear: both">1. 递归调用</h2></div></div></div>
 		
-		<p>1 解决重复运行问题</p>
-		<p>1 记录PID以便可以停止Shell运维</p>
+		<p>不懂递归不算是合格的程序员</p>
+		<p>递归调用是一种特殊的嵌套调用，是一个函数在它的函数体内调用它自身称为递归调用。这种函数称为递归函数。</p>
+		<pre class="screen">
+		
+#!/bin/bash
+########################################
+# Author: Neo &lt;netiller@msn.com&gt;
+# Home : http://netkiler.github.io
+# Project: https://github.com/oscm/shell
+########################################
+domain=$1
+########################################
+function include(){
+	txt=$1
+	for host in $(echo $txt | egrep -o "include:(.+) ")
+	do
+		txt=$(dig $(echo $host | cut -d":" -f2) txt | grep "v=spf1")
+		echo $txt;
+		if [ "$(echo $txt | grep "include")" ]; then
+			include "$txt"
+		fi
+	done
+}
+function main(){
+	spf=$(dig ${domain} txt | grep "v=spf1")
+	echo $spf
+
+	if [ "$(echo $spf | grep "include")" ]; then
+		include "$spf"
+	fi
+}
+
+main $domain
+		
+		</pre>
+		<p>运行上面的程序</p>
+		<pre class="screen">
+$ bash spf.sh 163.com
+163.com. 6878 IN TXT "v=spf1 include:spf.163.com -all"
+spf.163.com. 16991 IN TXT "v=spf1 include:a.spf.163.com include:b.spf.163.com include:c.spf.163.com include:d.spf.163.com -all"
+a.spf.163.com. 8001 IN TXT "v=spf1 ip4:220.181.12.0/22 ip4:220.181.31.0/24 ip4:123.125.50.0/24 ip4:220.181.72.0/24 ip4:123.58.178.0/24 ip4:123.58.177.0/24 ip4:113.108.225.0/24 ip4:218.107.63.0/24 ip4:123.58.189.128/25 -all"
+b.spf.163.com. 10131 IN TXT "v=spf1 ip4:176.34.21.58 ip4:176.34.53.178 ip4:121.195.178.48/28 ip4:223.252.213.0/24 -all"
+c.spf.163.com. 17199 IN TXT "v=spf1 ip4:223.252.206.0/24 ip4:43.230.90.0/27 -all"
+d.spf.163.com. 17615 IN TXT "v=spf1 ip4:123.126.65.0/24 ip4:106.2.88.0/24 ip4:220.181.97.0/24 ip4:180.150.142.123 ip4:180.150.142.124 ip4:180.150.154.88 ip4:180.150.154.92 ip4:180.150.154.93 ip4:103.251.128.69 -all"
+		</pre>
+	</section>
+	<section class="section" id="idp3"><div class="titlepage"><div><div><h2 class="title" style="clear: both">2. 实现守护进程</h2></div></div></div>
+		
+		<p>无论是C语言还是php/python/perl 通过fork命令实现守护进程，让当前程序进入后台运行，这种手段常常用于服务器软件。</p>
+		<p>启用 shell 解决重复运行问题，记录PID以便可以停止Shell运维</p>
 		<pre class="screen">
 		
 #!/bin/bash
 ##############################################
-# $Author: netkiller $
 # $Id: shell.xml 449 2012-08-10 10:38:08Z netkiller $
+# Author: Neo &lt;netiller@msn.com&gt;
+# Home : http://netkiler.github.io
+# Project: https://github.com/oscm/shell
 ##############################################
 NAME=info
 BASEDIR='/www'
@@ -164,96 +142,106 @@ exit $?
 		
 		</pre>
 	</section>
-	<section class="section" id="idp57921104"><div class="titlepage"><div><div><h2 class="title" style="clear: both">2. htpasswd 密码批量生成</h2></div></div></div>
-		
-		<pre class="screen">
-		
-#!/bin/bash
-
-PASSFILE=nginx.password
-[ ! -f $PASSFILE ] &amp;&amp; touch $PASSFILE
-
-while read username password
-do
-        htpasswd -b -d $PASSFILE $username $password
-done &lt;&lt; EOF
-neo     FwJSYxD4WBzPr4CQvxI8HIbV0yDkQi
-chen    2hsD3OgkeM4GPPcNYUceqL8ccMzXjU
-bg7nyt  XAq7Zcln8dGCTIIKt8GwwEwqmCN8d1
-netkiller       fcCIY3GaroTPCSW40XBrg0HNlmbLD7
-neochen DPSiWJtqUIaI2bUUobuX2PjdyzDGgI
-EOF
-		
-		</pre>
-	</section>
-	<section class="section" id="idp57923104"><div class="titlepage"><div><div><h2 class="title" style="clear: both">3. firewall</h2></div></div></div>
-		
-		<p>分析access.log 文件,将 top 30 的IP放入黑名单.</p>
-		<p>脚本具有黑白名单功能</p>
-		<pre class="screen">
-		
-#!/bin/bash
-
-ACCCESS_LOG=/tmp/access.log
-TIMEPOINT='24/May/2012'
-BLACKLIST=/var/tmp/black
-WHITELIST=/var/tmp/white
-if [ ! -f ${BLACKLIST} ]; then
-    touch ${BLACKLIST}
-fi
-
-if [ ! -f ${WHITELIST} ]; then
-    touch ${WHITELIST}
-fi
-
-for deny in $(grep ${TIMEPOINT} ${ACCCESS_LOG} | awk '{print $1}' | awk -F'.' '{print $1"."$2"."$3"."$4}' | sort | uniq -c | sort -r -n | head -n 30| awk '{print $2}')
-do
-
-    if [ $(grep -c $deny ${WHITELIST}) -ne 0 ]; then
-        echo 'Allow IP:' $deny
-	iptables -D INPUT -p tcp --dport 443 -s $deny -j DROP
-	iptables -D INPUT -p tcp --dport 80 -s $deny -j DROP
-	continue
-    fi
-
-    if [ $(grep -c $deny ${BLACKLIST}) -eq 0 ] ; then
-
-	echo 'Deny IP:' $deny
-        echo $deny &gt;&gt; ${BLACKLIST}
-        iptables -I INPUT -p tcp --dport 443 -s $deny -j DROP
-        iptables -I INPUT -p tcp --dport 80 -s $deny -j DROP
-    fi
-done
-		
-		</pre>
-	</section>
-</section><div xmlns="" id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"><a class="bds_fbook"/><a class="bds_twi"/><a class="bds_ms"/><a class="bds_msn"/><a class="bds_buzz"/><a class="bds_linkedin"/><a class="bds_deli"/><a class="bds_qzone"/><a class="bds_qq"/><a class="bds_tqq"/><a class="bds_tqf"/><a class="bds_tsina"/><a class="bds_baidu"/><a class="bds_renren"/><a class="bds_t163"/><a class="bds_tfh"/><a class="bds_douban"/><a class="bds_hi"/><a class="bds_tieba"/><a class="bds_tsohu"/><span class="bds_more"/><a class="shareCount"/></div><script xmlns="" type="text/javascript" id="bdshare_js" data="type=tools"/><script xmlns="" type="text/javascript" id="bdshell_js"/><script xmlns="" type="text/javascript">
-	document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
-</script><div xmlns="" id="disqus_thread"/><script xmlns="" type="text/javascript">
-	        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-	        var disqus_shortname = 'netkiller'; // required: replace example with your forum shortname
 	
-	        /* * * DON'T EDIT BELOW THIS LINE * * */
-	        (function() {
-	            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-	            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	        })();
-	    </script><noscript xmlns="">Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a xmlns="" href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><br xmlns=""/><div xmlns="" id="clustrmaps-widget"/><script xmlns="" type="text/javascript">var _clustrmaps = {'url' : 'http://netkiller.github.io', 'user' : 1107643, 'server' : '2', 'id' : 'clustrmaps-widget', 'version' : 1, 'date' : '2013-08-14', 'lang' : 'en', 'corners' : 'square' };(function (){ var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'http://www2.clustrmaps.com/counter/map.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);})();</script><noscript xmlns=""><a href="http://www2.clustrmaps.com/user/87410e6bb"><img src="http://www2.clustrmaps.com/stats/maps-no_clusters/netkiller.github.io-thumb.jpg" alt="Locations of visitors to this page"/></a></noscript><script xmlns="" type="text/javascript">
+	<section class="section" id="idp4"><div class="titlepage"><div><div><h2 class="title" style="clear: both">3. 进程间通信</h2></div></div></div>
+		
+		<p>进程间通信就是在不同进程之间传播或交换信息。</p>
+		<p>脚本具有黑白名单功能，一个进程专门负责采集数据，另一个进程专门负责处理由第一个进程发送过来的数据。</p>
+		<pre class="screen">
+		
+#!/bin/bash           
+########################################  
+# Homepage: http://netkiller.github.io  
+# Author: neo &lt;netkiller@msn.com&gt;  
+########################################  
+BLACKLIST=/tmp/BLACKLIST.lst  
+PIPE=/tmp/pipe  
+pidfile=/tmp/firewall.pid  
+KEYWORD=XXDD0S  
+ACCESSLOG=/www/logs/www.example.com/access.$(date +'%Y-%m-%d').log  
+########################################  
+if [ -z $1 ]; then  
+    echo "$0 clear|fw|collect|process|close"  
+fi
+  
+if [ "$1" == "clear" ]; then  
+    rm -rf $BLACKLIST  
+    rm -rf $PIPE  
+    echo "Clear OK!!!"  
+fi
+  
+if [ "$1" == "close" ]; then  
+        kill `cat $pidfile`  
+    echo &gt; $pidfile  
+fi
+  
+if [ ! -f $BLACKLIST ]; then  
+    touch $BLACKLIST  
+fi  
+  
+if [ ! -e $PIPE ]; then  
+    mkfifo $PIPE  
+fi  
+  
+if [ "$1" == 'fw' ]; then  
+    iptables -A OUTPUT -p tcp --dport 2049 -j REJECT  
+    iptables -A OUTPUT -p tcp -m multiport --dports 22,21 -j REJECT  
+fi  
+  
+if [ "$1" == "collect" ]; then  
+    killall tail
+    for (( ; ; ))  
+    do  
+        tail -f $ACCESSLOG | grep $KEYWORD | cut -d ' ' -f1 &gt; $PIPE  
+    done &amp;  
+    echo $! &gt; $pidfile  
+fi  
+  
+if [ "$1" == "process" ]; then  
+for (( ; ; ))  
+do  
+    while read line   
+    do  
+        grep $line ${BLACKLIST}
+        if [ $? -eq 1 ] ; then  
+            echo $line &gt;&gt; ${BLACKLIST}
+            iptables -I INPUT -p tcp --dport 80 -s $line -j DROP      
+        fi  
+    done &lt; $PIPE  
+done &amp;  
+echo $! &gt;&gt; $pidfile  
+fi  
+		
+		</pre>
+		<p>首先启动第一个进程，准备接收数据</p>
+		<pre class="screen">
+# ipfw process
+		</pre>
+		<p>然后启动第二个进程，发送采集数据</p>
+		<pre class="screen">
+# ipfw collect
+		</pre>
+		<p>这个程序使用管道作为进程见通信手段，所以只能在一个系统下运行，如果改为Socket通信就可以实现跨服务器数据处理</p>
+	</section>
+	<section class="section" id="idp5"><div class="titlepage"><div><div><h2 class="title" style="clear: both">4. </h2></div></div></div>
+		
+		<pre class="screen">
+		
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-11694057-1']);
-  _gaq.push(['_setDomainName', 'netkiller.github.io']);
-  _gaq.push(['_setAllowLinker', true]);
-  _gaq.push(['_trackPageview']);
+		
+		</pre>
+	</section>
+</section><div xmlns="" id="disqus_thread"/><script xmlns="">
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+var disqus_config = function () {
+this.page.url = "http://www.netkiller.cn";  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'netkiller'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
 
-</script><script xmlns="" type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F997cd4a7320a82d72cb74d179118f697' type='text/javascript'%3E%3C/script%3E"));
-</script><script xmlns="" type="text/javascript" src="/js/q.js"/></body></html>
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//netkiller.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script><noscript xmlns="">Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><br xmlns=""/><script xmlns="" type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?u=r5HG&amp;d=9mi5r_kkDC8uxG8HuY3p4-2qgeeVypAK9vMD-2P6BYM"/></body></html>

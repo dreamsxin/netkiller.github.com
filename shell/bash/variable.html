@@ -1,62 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>2.4. variable</title><link rel="stylesheet" type="text/css" href="..//docbook.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><meta name="keywords" content="shell,bash,zsh, awk,sed,curl,expect, grep,sort" /><link rel="home" href="../index.html" title="Netkiller Linux Shell 手札" /><link rel="up" href="index.html" title="第 2 章 Bash Shell" /><link rel="prev" href="environment.html" title="2.3. Internal Environment Variables" /><link rel="next" href="conditions.html" title="2.5. conditions if and case" /></head><body><a xmlns="" href="http://netkiller.github.io/">Home</a> |
-		<a xmlns="" href="http://netkiller.github.io/">简体中文</a> |
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>1.3. variable</title><link rel="stylesheet" type="text/css" href="..//docbook.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><meta name="keywords" content="shell,bash,zsh, awk,sed,curl,expect, grep,sort" /><link rel="home" href="../index.html" title="Netkiller Linux Shell 手札" /><link rel="up" href="index.html" title="第 1 章 Bash Shell" /><link rel="prev" href="introduction.html" title="1.2. Introduction" /><link rel="next" href="conditions.html" title="1.4. conditions if and case" /></head><body><a xmlns="" href="//www.netkiller.cn/">Home</a> |
+		<a xmlns="" href="//netkiller.github.io/">简体中文</a> |
 	    <a xmlns="" href="http://netkiller.sourceforge.net/">繁体中文</a> |
 	    <a xmlns="" href="/journal/index.html">杂文</a> |
-	    <a xmlns="" href="/search.html">Search</a> |
+	    <a xmlns="" href="//www.netkiller.cn/home/donations.html">打赏(Donations)</a> |
 	    <a xmlns="" href="http://netkiller-github-com.iteye.com/">ITEYE 博客</a> |
 	    <a xmlns="" href="http://my.oschina.net/neochen/">OSChina 博客</a> |
 	    <a xmlns="" href="https://www.facebook.com/bg7nyt">Facebook</a> |
 	    <a xmlns="" href="http://cn.linkedin.com/in/netkiller/">Linkedin</a> |
-		<a xmlns="" href="mailto:netkiller@msn.com">Email</a><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.4. variable</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="environment.html">上一页</a> </td><th width="60%" align="center">第 2 章 Bash Shell</th><td width="20%" align="right"> <a accesskey="n" href="conditions.html">下一页</a></td></tr></table><hr /><table width="100%" border="0"><tr><td align="left"><a href="http://netkiller.sourceforge.net/">Home</a> | 
-		<a href="http://netkiller.github.com/">Mirror</a> |		
-		<a href="/search.html">Search</a></td><td align="right"></td></tr></table></div><table xmlns=""><tr><td><iframe src="http://ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.com&amp;type=watch&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="http://ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.com&amp;type=fork&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="http://ghbtns.com/github-btn.html?user=netkiller&amp;type=follow&amp;count=true&amp;size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe></td></tr></table><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="variable"></a>2.4. variable</h2></div></div></div>
+	    <a xmlns="" href="https://zhuanlan.zhihu.com/netkiller">知乎专栏</a> |
+	    <a xmlns="" href="/search.html">Search</a> |
+		<a xmlns="" href="mailto:netkiller@msn.com">Email</a><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">1.3. variable</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="introduction.html">上一页</a> </td><th width="60%" align="center">第 1 章 Bash Shell</th><td width="20%" align="right"> <a accesskey="n" href="conditions.html">下一页</a></td></tr></table><hr /></div><table xmlns=""><tr><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.io&amp;type=watch&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.io&amp;type=fork&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;type=follow&amp;count=true&amp;size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe></td></tr></table><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="variable"></a>1.3. variable</h2></div></div></div>
 	
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="variable.set"></a>2.4.1. set</h3></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="system"></a>1.3.1. 系统变量</h3></div></div></div>
 		
+		<p>系统变量,Shell常用的系统变量并不多，但却十分有用，特别是在做一些参数检测的时候。下面是Shell常用的系统变量</p>
 		<pre class="screen">
-		
-$ set -- `echo aa bb cc`
-$ echo $1
-aa
-$ echo $2
-bb
-$ echo $3
-cc
-
-$ set -- aa bb cc
-		
-		</pre>
-	</div>
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="export"></a>2.4.2. export / unset</h3></div></div></div>
-		
-		<pre class="screen">
-export CATALINA_OUT=/www/logs/tomcat/catalina.out
-unset CATALINA_OUT
-		</pre>
-	</div>
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="variable.declare"></a>2.4.3. declare</h3></div></div></div>
-		
-		<pre class="screen">
-功能说明：声明 shell 变量。
-
-语　　法：declare [+/-][rxi][变量名称＝设置值] 或 declare -f
-
-补充说明：declare为shell指令，在第一种语法中可用来声明变量并设置变量的属性([rix]即为变量的属性），在第二种语法中可用来显示shell函数。若不加上任何参数，则会显示全部的shell变量与函数(与执行set指令的效果相同)。
-
-参　　数：
-　+/- 　"-"可用来指定变量的属性，"+"则是取消变量所设的属性。
-　-f 　仅显示函数。
-　r 　将变量设置为只读。
-　x 　指定的变量会成为环境变量，可供shell以外的程序来使用。
-　i 　[设置值]可以是数值，字符串或运算式。
-		</pre>
-	</div>
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp67265472"></a>2.4.4. 系统变量</h3></div></div></div>
-		
-		<p>系统变量</p>
-		<pre class="screen">
-Shell常用的系统变量并不多，但却十分有用，特别是在做一些参数检测的时候。下面是Shell常用的系统变量
 表示方法	描述
 $n	 $1 表示第一个参数，$2 表示第二个参数 ...
 $#	 命令行参数的个数
@@ -67,7 +26,9 @@ $@	 以"参数1" "参数2" ... 形式保存所有参数
 $$	 本程序的(进程ID号)PID
 $!	 上一个命令的PID
 		</pre>
-		<pre class="screen">
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp17"></a>1.3.1.1. 命令行参数传递</h4></div></div></div>
+			
+			<pre class="screen">
 [root@cc tmp]# cat test.sh
 echo $#
 echo $@
@@ -75,9 +36,12 @@ echo $@
 [root@cc tmp]# ./test.sh  helloworld
 1
 helloworld
-		</pre>
-		<pre class="screen">
-其中使用得比较多得是 $n $# $0 $? ,看看下面的例子：
+			</pre>
+		</div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp18"></a>1.3.1.2. $n $# $0 $?</h4></div></div></div>
+			
+			<p>其中使用得比较多得是 $n $# $0 $? ,看看下面的例子：</p>
+			<pre class="screen">
 #!/bin/sh
 if [ $# -ne 2 ] ; then
 echo "Usage: $0 string file";
@@ -98,11 +62,294 @@ Not Found "usage" in chapter2.2.sh
 -bash-2.05b$ ./chapter2.2.sh Usage chapter2.2.sh
 echo "Usage: $0 string file";
 Found "Usage" in chapter2.2.sh
+			</pre>
+		</div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp19"></a>1.3.1.3. $? 程序运行返回值</h4></div></div></div>
+			
+			<p>0 表示正常结束运行， 1 表示异常退出</p>
+			<pre class="screen">
+			
+[root@iZ621r6pk9aZ nginx]# ping -W 2 -c 2 www.google.com
+PING www.google.com (172.217.24.196) 56(84) bytes of data.
+64 bytes from hkg12s13-in-f4.1e100.net (172.217.24.196): icmp_seq=1 ttl=57 time=1.51 ms
+64 bytes from hkg12s13-in-f4.1e100.net (172.217.24.196): icmp_seq=2 ttl=57 time=1.44 ms
+
+--- www.google.com ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 1.447/1.479/1.512/0.050 ms
+
+[root@iZ621r6pk9aZ nginx]# echo $?
+0
+
+			
+			</pre>
+			<p>我们ping 一个不存在的IP地址，然后 Ctrl+C 推出程序，返回值是 1.</p>
+			<pre class="screen">
+			
+[root@iZ621r6pk9aZ nginx]# ping -W 2 -c 2 172.16.1.100
+PING 172.16.1.100 (172.16.1.100) 56(84) bytes of data.
+^C
+--- 172.16.1.100 ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 999ms
+
+[root@iZ621r6pk9aZ nginx]# echo $?
+1			
+			
+			</pre>
+		</div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="shift"></a>1.3.1.4. shift 移位</h4></div></div></div>
+			
+			<p>shift 移位传递过来的参数</p>
+			<pre class="screen">
+			
+$ cat test.sh 
+echo $@
+shift
+echo $@
+
+$ ./test.sh aaa bbb ccc ddd
+aaa bbb ccc ddd
+bbb ccc ddd
+			
+			</pre>			
+			<pre class="screen">
+			
+$ cat test.sh 
+echo $@
+shift
+echo $@
+
+shift 2
+echo $@
+$ ./test.sh aaa bbb ccc ddd eee
+aaa bbb ccc ddd eee
+bbb ccc ddd eee
+ddd eee
+			
+			</pre>
+		</div>		
+	</div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="expression"></a>1.3.2. 表达式</h3></div></div></div>
+		
+		<pre class="screen">
+!!：再次执行上一条命令
+
+!$：上一条命令的最后一个单词
+
+{a..b}：按照从a到b顺序的一个数字列表
+
+{a,b,c}：三个词a,b,c. 可以这样使用 touch /tmp/{a,b,c}
+
+{$1-$9}：执行shell脚本时的命令行参数
+
+$0：正在执行的命令名称
+
+$#：当前启动的命令中传入的参数个数
+
+$?：上一条命令的执行返回值。
+
+$$：该shell的进程号。
+
+$*：从$1开始，启动该shell脚本的所有参数。
+		</pre>
+		<pre class="screen">
+$ mkdir -p {a..z}
+$ ls
+a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z
+
+$ mkdir -p {a..z}{0..9}
+$ ls
+a0  b0  c0  d0  e0  f0  g0  h0  i0  j0  k0  l0  m0  n0  o0  p0  q0  r0  s0  t0  u0  v0  w0  x0  y0  z0
+a1  b1  c1  d1  e1  f1  g1  h1  i1  j1  k1  l1  m1  n1  o1  p1  q1  r1  s1  t1  u1  v1  w1  x1  y1  z1
+a2  b2  c2  d2  e2  f2  g2  h2  i2  j2  k2  l2  m2  n2  o2  p2  q2  r2  s2  t2  u2  v2  w2  x2  y2  z2
+a3  b3  c3  d3  e3  f3  g3  h3  i3  j3  k3  l3  m3  n3  o3  p3  q3  r3  s3  t3  u3  v3  w3  x3  y3  z3
+a4  b4  c4  d4  e4  f4  g4  h4  i4  j4  k4  l4  m4  n4  o4  p4  q4  r4  s4  t4  u4  v4  w4  x4  y4  z4
+a5  b5  c5  d5  e5  f5  g5  h5  i5  j5  k5  l5  m5  n5  o5  p5  q5  r5  s5  t5  u5  v5  w5  x5  y5  z5
+a6  b6  c6  d6  e6  f6  g6  h6  i6  j6  k6  l6  m6  n6  o6  p6  q6  r6  s6  t6  u6  v6  w6  x6  y6  z6
+a7  b7  c7  d7  e7  f7  g7  h7  i7  j7  k7  l7  m7  n7  o7  p7  q7  r7  s7  t7  u7  v7  w7  x7  y7  z7
+a8  b8  c8  d8  e8  f8  g8  h8  i8  j8  k8  l8  m8  n8  o8  p8  q8  r8  s8  t8  u8  v8  w8  x8  y8  z8
+a9  b9  c9  d9  e9  f9  g9  h9  i9  j9  k9  l9  m9  n9  o9  p9  q9  r9  s9  t9  u9  v9  w9  x9  y9  z9
+
+$ touch  {a..z}{0..9}/{a..z}{0..9}
+$ ls
+a0  b0  c0  d0  e0  f0  g0  h0  i0  j0  k0  l0  m0  n0  o0  p0  q0  r0  s0  t0  u0  v0  w0  x0  y0  z0
+a1  b1  c1  d1  e1  f1  g1  h1  i1  j1  k1  l1  m1  n1  o1  p1  q1  r1  s1  t1  u1  v1  w1  x1  y1  z1
+a2  b2  c2  d2  e2  f2  g2  h2  i2  j2  k2  l2  m2  n2  o2  p2  q2  r2  s2  t2  u2  v2  w2  x2  y2  z2
+a3  b3  c3  d3  e3  f3  g3  h3  i3  j3  k3  l3  m3  n3  o3  p3  q3  r3  s3  t3  u3  v3  w3  x3  y3  z3
+a4  b4  c4  d4  e4  f4  g4  h4  i4  j4  k4  l4  m4  n4  o4  p4  q4  r4  s4  t4  u4  v4  w4  x4  y4  z4
+a5  b5  c5  d5  e5  f5  g5  h5  i5  j5  k5  l5  m5  n5  o5  p5  q5  r5  s5  t5  u5  v5  w5  x5  y5  z5
+a6  b6  c6  d6  e6  f6  g6  h6  i6  j6  k6  l6  m6  n6  o6  p6  q6  r6  s6  t6  u6  v6  w6  x6  y6  z6
+a7  b7  c7  d7  e7  f7  g7  h7  i7  j7  k7  l7  m7  n7  o7  p7  q7  r7  s7  t7  u7  v7  w7  x7  y7  z7
+a8  b8  c8  d8  e8  f8  g8  h8  i8  j8  k8  l8  m8  n8  o8  p8  q8  r8  s8  t8  u8  v8  w8  x8  y8  z8
+a9  b9  c9  d9  e9  f9  g9  h9  i9  j9  k9  l9  m9  n9  o9  p9  q9  r9  s9  t9  u9  v9  w9  x9  y9  z9
+$ ls a0
+a0  b0  c0  d0  e0  f0  g0  h0  i0  j0  k0  l0  m0  n0  o0  p0  q0  r0  s0  t0  u0  v0  w0  x0  y0  z0
+a1  b1  c1  d1  e1  f1  g1  h1  i1  j1  k1  l1  m1  n1  o1  p1  q1  r1  s1  t1  u1  v1  w1  x1  y1  z1
+a2  b2  c2  d2  e2  f2  g2  h2  i2  j2  k2  l2  m2  n2  o2  p2  q2  r2  s2  t2  u2  v2  w2  x2  y2  z2
+a3  b3  c3  d3  e3  f3  g3  h3  i3  j3  k3  l3  m3  n3  o3  p3  q3  r3  s3  t3  u3  v3  w3  x3  y3  z3
+a4  b4  c4  d4  e4  f4  g4  h4  i4  j4  k4  l4  m4  n4  o4  p4  q4  r4  s4  t4  u4  v4  w4  x4  y4  z4
+a5  b5  c5  d5  e5  f5  g5  h5  i5  j5  k5  l5  m5  n5  o5  p5  q5  r5  s5  t5  u5  v5  w5  x5  y5  z5
+a6  b6  c6  d6  e6  f6  g6  h6  i6  j6  k6  l6  m6  n6  o6  p6  q6  r6  s6  t6  u6  v6  w6  x6  y6  z6
+a7  b7  c7  d7  e7  f7  g7  h7  i7  j7  k7  l7  m7  n7  o7  p7  q7  r7  s7  t7  u7  v7  w7  x7  y7  z7
+a8  b8  c8  d8  e8  f8  g8  h8  i8  j8  k8  l8  m8  n8  o8  p8  q8  r8  s8  t8  u8  v8  w8  x8  y8  z8
+a9  b9  c9  d9  e9  f9  g9  h9  i9  j9  k9  l9  m9  n9  o9  p9  q9  r9  s9  t9  u9  v9  w9  x9  y9  z9
+
+		</pre>
+
+	</div>
+		
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="environment"></a>1.3.3. Internal Environment Variables</h3></div></div></div>
+		
+		<a class="ulink" href="http://tldp.org/LDP/abs/html/internalvariables.html" target="_top">http://tldp.org/LDP/abs/html/internalvariables.html</a>
+	</div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="variable.set"></a>1.3.4. set 设置变量</h3></div></div></div>
+		
+		<pre class="screen">
+		
+$ set -- `echo aa bb cc`
+$ echo $1
+aa
+$ echo $2
+bb
+$ echo $3
+cc
+
+$ set -- aa bb cc
+		
 		</pre>
 	</div>
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="strings"></a>2.4.5. Strings</h3></div></div></div>
+
+    <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="unset"></a>1.3.5. unset 变量销毁</h3></div></div></div>
+    		
+    		<pre class="screen">
+$ unset logfile
+    		</pre>
+    </div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="variable.default"></a>1.3.6. 设置变量默认值</h3></div></div></div>
+   		
+   		<p>如果 logfile 值已经存在侧不会覆盖</p>
+   		<pre class="screen">
+$ logfile=/var/log/test.log
+
+$ echo $logfile
+/var/log/test.log
+
+$ logfile=${logfile:-/tmp/test.log}
+
+$ echo $logfile
+/var/log/test.log
+    	</pre>
+    	<p>如果变量为空才能设置</p>
+    	<pre class="screen">
+$ unset logfile
+$ logfile=${logfile:-/tmp/test.log}
+$ echo $logfile
+/tmp/test.log
+    	</pre>
+    </div>
+
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="variable.export"></a>1.3.7. export 设置全局变量</h3></div></div></div>
 		
-		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp67273024"></a>2.4.5.1. ##/#</h4></div></div></div>
+		<pre class="screen">
+export CATALINA_OUT=/www/logs/tomcat/catalina.out
+		</pre>
+		<p>unset 销毁变量</p>
+		<pre class="screen">
+unset CATALINA_OUT
+		</pre>
+	</div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="variable.declare"></a>1.3.8. declare</h3></div></div></div>
+		
+		<pre class="screen">
+功能说明：声明 shell 变量。
+
+语　　法：declare [+/-][rxi][变量名称＝设置值] 或 declare -f
+
+补充说明：declare为shell指令，在第一种语法中可用来声明变量并设置变量的属性([rix]即为变量的属性），在第二种语法中可用来显示shell函数。若不加上任何参数，则会显示全部的shell变量与函数(与执行set指令的效果相同)。
+
+参　　数：
+　+/- 　"-"可用来指定变量的属性，"+"则是取消变量所设的属性。
+　-f 　仅显示函数。
+　r 　将变量设置为只读。
+　x 　指定的变量会成为环境变量，可供shell以外的程序来使用。
+　i 　[设置值]可以是数值，字符串或运算式。
+		</pre>
+	</div>
+	
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="variable.number"></a>1.3.9. Numerical 数值运算</h3></div></div></div>
+		
+		<p>数值运算表达式</p>
+		<pre class="screen">
+$((EXPR))		
+		</pre>
+		<p></p>
+		<pre class="screen">
+neo@netkiller ~ % echo $((1+1))
+neo@netkiller ~ % echo $((5*5))
+
+neo@netkiller ~ % echo $(( (1 + 1) * 2 ))
+4
+		</pre>
+		<pre class="screen">
+num=$(awk "BEGIN {print $num1+$num2; exit}")
+num=$(python -c "print $num1+$num2")
+num=$(perl -e "print $num1+$num2")
+num=$(echo $num1 + $num2 | bc) 		
+		</pre>
+		<p>巧用linux服务器下的/dev/shm, 实现斐波拉切数列</p>
+		<pre class="screen">
+		
+[neo@netkiller ~]# cat mblq.sh
+
+TEMP_FILE=/dev/shm/mblq
+echo 0 &gt; $TEMP_FILE
+echo 1 &gt;&gt; $TEMP_FILE
+count=$1
+for i in `seq $count`
+do
+    first=$(tail -2 $TEMP_FILE |head -1)
+    two=$(tail -1 $TEMP_FILE)
+    echo $((first+two)) &gt;&gt; $TEMP_FILE
+done
+cat $TEMP_FILE
+[neo@netkiller ~]# bash mblq.sh 15
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+55
+89
+144
+233
+377
+610
+987
+		
+		</pre>
+	</div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="variable.strings"></a>1.3.10. Strings 字符串操作</h3></div></div></div>
+		
+		<pre class="screen">
+		
+[neo@netkiller ~]# cat abcde.sh
+#!/bin/bash
+str="abcde";
+for ((m=1;m&lt;=${#str};m++));do
+    for ((n=0;n&lt;${#str};n++));do
+        [[ ${#str}-$n -lt $m ]] &amp;&amp; continue || echo -n ${str:$n:$m}' '
+    done
+done
+[neo@netkiller ~]# bash abcde.sh
+a b c d e ab bc cd de abc bcd cde abcd bcde abcde 		
+		
+		</pre>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp20"></a>1.3.10.1. ##/#</h4></div></div></div>
 			
 			<pre class="screen">
 			
@@ -134,7 +381,7 @@ At first glance, this does not appear to be a tarball.
 			
 			</pre>
 		</div>
-		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp67275504"></a>2.4.5.2. %%/%</h4></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp21"></a>1.3.10.2. %%/%</h4></div></div></div>
 			
 			<pre class="screen">
 			
@@ -160,7 +407,7 @@ aaa
 
 			</pre>
 		</div>
-		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp67277392"></a>2.4.5.3. :n1:n2</h4></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp22"></a>1.3.10.3. :n1:n2</h4></div></div></div>
 			
 			<p>：${varible:n1:n2}:截取变量varible从n1到n2之间的字符串。</p>
 			<pre class="screen">
@@ -178,11 +425,11 @@ $echo ${file: -3}
 			
 			</pre>
 		</div>
-		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp67279520"></a>2.4.5.4. #</h4></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp23"></a>1.3.10.4. #</h4></div></div></div>
 			
 			<p>：${varible:n1:n2}:截取变量varible从n1到n2之间的字符串。</p>
 		</div>
-		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp67280960"></a>2.4.5.5. example</h4></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp24"></a>1.3.10.5. example</h4></div></div></div>
 			
 			<pre class="screen">
 			
@@ -204,8 +451,32 @@ jam zheng
 			
 			</pre>
 		</div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="string.len"></a>1.3.10.6. 计算字符串长度</h4></div></div></div>
+    		
+    		<p>计算字符串长度</p>
+    		<pre class="screen">
+echo ${#PATH}
+    		</pre>
+    	</div>
+    	<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp25"></a>1.3.10.7. 字符串查找替换</h4></div></div></div>
+    		
+    		<pre class="screen">
+# str="1 2 3 4";echo ${str// /}
+1234
+
+# str="1 2 3 4";echo ${str// /,}
+1,2,3,4
+	
+# str="1 2 3 4";echo ${str// /+}
+1+2+3+4
+
+# str="neo netkiller";echo ${str//neo/hello}
+hello netkiller
+    		</pre>
+    	</div>
+    	
 	</div>
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="array"></a>2.4.6. Array</h3></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="variable.array"></a>1.3.11. Array 数组</h3></div></div></div>
 		
 		<p>定义数组</p>
 		<pre class="screen">
@@ -223,8 +494,15 @@ ${!arr[*]}        # All of the indexes in the array
 ${#arr[*]}        # Number of items in the array
 ${#arr[0]}        # Length of item zero
 		</pre>
-
+		<p>追加操作</p>
 		<pre class="screen">
+ARRAY=()
+ARRAY+=('foo')
+ARRAY+=('bar')
+		</pre>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp26"></a>1.3.11.1. for 与 array</h4></div></div></div>
+			
+			<pre class="screen">
 #!/bin/bash
 
 array=(one two three four [5]=five)
@@ -248,9 +526,9 @@ for index in ${!array[*]}
 do
     printf "%4d: %s\n" $index ${array[$index]}
 done
-		</pre>
-
-		<pre class="screen">
+			</pre>
+	
+			<pre class="screen">
 #!/bin/bash
 
 array=("first item" "second item" "third" "item")
@@ -284,8 +562,8 @@ for ix in ${!arr[*]}
 do
     printf "   %s\n" "${arr[$ix]}"
 done
-		</pre>
-		<pre class="screen">
+			</pre>
+			<pre class="screen">
 array=({23..32} {49,50} {81..92})
 
 echo "Array size: ${#array[*]}"
@@ -295,9 +573,113 @@ for item in ${array[*]}
 do
     printf "   %s\n" $item
 done
+			</pre>
+		</div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp27"></a>1.3.11.2. while 与 array</h4></div></div></div>
+			
+			<p>while 与 array</p>
+			<pre class="screen">
+			
+		
+declare -a array=('1:one' '2:two' '3:three');
+len=${#array[@]}
+i=0
+while [ $i -lt $len ]; do
+    echo "${array[$i]}"
+    let i++
+done
+			
+			</pre>
+		</div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp28"></a>1.3.11.3. array 与 read</h4></div></div></div>
+			
+			<p>array 与 read</p>
+			<pre class="screen">
+			
+declare -a array=('1:one' '2:two' '3:three');
+
+while read -e item ; do
+    echo "$item \n"
+done &lt;&lt;&lt; ${array[@]}	
+
+mapfile CONFIG &lt;&lt;END
+192.168.0.1 80
+192.168.0.1 8080
+192.168.0.2 8000
+192.168.0.2 80
+192.168.0.1 88
+END
+
+printf %s "${CONFIG[@]}"
+
+for line in "${CONFIG[@]}"
+do
+	read ipaddr port &lt;&lt;&lt; $(echo ${line})
+	echo "$ipaddr : $port"
+done
+			
+			</pre>
+		</div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp29"></a>1.3.11.4. 拆分字符串并转换为数组</h4></div><div><h5 class="subtitle">Split string into an array in Bash</h5></div></div></div>
+			
+			
+			<p>字符串</p>
+			<pre class="screen">
+QUEUES="example|sss"			
+			</pre>
+			<p>类似列表的数据结构</p>
+			<pre class="screen">
+for caption in $(echo $QUEUES | tr '|' ' '); do 
+        echo $caption
+done			
+			</pre>
+			<p>拆分为数组形式</p>
+			<pre class="screen">
+captions=($(echo $QUEUES | tr '|' ' '))
+
+for element in "${captions[@]}"
+do
+    echo "$element"
+done
+
+for key in ${!captions[@]}; do
+    echo ${key} ${captions[${key}]}
+done
+			</pre>
+		</div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp30"></a>1.3.11.5. 数组转为字符串</h4></div></div></div>
+			
+			<pre class="screen">
+ids=(1 2 3 4);echo ${ids[*]// /|}
+ids=(1 2 3 4); lst=$( IFS='|'; echo "${ids[*]}" ); echo $lst
+
+array=(1 2 3 4); echo ${array[*]// /|}
+array=(1 2 3 4);string="${ids[@]}";echo ${string// /|}
+array=(1 2 3 4);string="${ids[@]}";echo ${string// /,}
+
+
+IFS='|';echo "${[*]// /|}";
+			</pre>
+		</div>
+		
+	</div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="read"></a>1.3.12. read 赋值多个变量</h3></div></div></div>
+		
+		<pre class="screen">
+		
+[net@netkiller tmp]# cat test.sh 
+read ipaddr port &lt;&lt;&lt; $(echo www.netkiller.cn 80)
+
+echo $ipaddr
+echo $port
+
+[net@netkiller tmp]# bash test.sh 
+www.netkiller.cn
+80
+		
 		</pre>
 	</div>
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="eval"></a>2.4.7. eval</h3></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="eval"></a>1.3.13. eval</h3></div></div></div>
 		
 		<pre class="screen">
 $ i=5
@@ -312,22 +694,20 @@ $ eval echo $"a_$i"
 Neo Chen
 		</pre>
 	</div>
-</div><div xmlns="" id="disqus_thread"></div><script xmlns="" type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+</div><div xmlns="" id="disqus_thread"></div><script xmlns="">
 
-            //if(document.domain == 'netkiller.github.com'){
-            var disqus_shortname = 'netkiller'; // required: replace example with your forum shortname
-            //}else{
-			//var disqus_shortname = 'neochan';
-            //}
+var disqus_config = function () {
+this.page.url = "http://www.netkiller.cn";  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'netkiller'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
 
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script><noscript xmlns="">Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a xmlns="" href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><br xmlns="" /><div xmlns="" id="clustrmaps-widget"></div><script xmlns="" type="text/javascript">var _clustrmaps = {'url' : 'http://netkiller.github.io', 'user' : 1107643, 'server' : '2', 'id' : 'clustrmaps-widget', 'version' : 1, 'date' : '2013-08-14', 'lang' : 'en', 'corners' : 'square' };(function (){ var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'http://www2.clustrmaps.com/counter/map.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);})();</script><noscript xmlns=""><a href="http://www2.clustrmaps.com/user/87410e6bb"><img src="http://www2.clustrmaps.com/stats/maps-no_clusters/netkiller.github.io-thumb.jpg" alt="Locations of visitors to this page" /></a></noscript><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="environment.html">上一页</a> </td><td width="20%" align="center"><a accesskey="u" href="index.html">上一级</a></td><td width="40%" align="right"> <a accesskey="n" href="conditions.html">下一页</a></td></tr><tr><td width="40%" align="left" valign="top">2.3. Internal Environment Variables </td><td width="20%" align="center"><a accesskey="h" href="../index.html">起始页</a></td><td width="40%" align="right" valign="top"> 2.5. conditions if and case</td></tr></table></div><script xmlns="">
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//netkiller.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script><noscript xmlns="">Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><br xmlns="" /><script xmlns="" type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?u=r5HG&amp;d=9mi5r_kkDC8uxG8HuY3p4-2qgeeVypAK9vMD-2P6BYM"></script><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="introduction.html">上一页</a> </td><td width="20%" align="center"><a accesskey="u" href="index.html">上一级</a></td><td width="40%" align="right"> <a accesskey="n" href="conditions.html">下一页</a></td></tr><tr><td width="40%" align="left" valign="top">1.2. Introduction </td><td width="20%" align="center"><a accesskey="h" href="../index.html">起始页</a></td><td width="40%" align="right" valign="top"> 1.4. conditions if and case</td></tr></table></div><script xmlns="">
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -336,7 +716,25 @@ Neo Chen
   ga('create', 'UA-11694057-1', 'auto');
   ga('send', 'pageview');
 
-</script><script xmlns="" type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F997cd4a7320a82d72cb74d179118f697' type='text/javascript'%3E%3C/script%3E"));
-</script><script xmlns="" type="text/javascript" src="/js/q.js"></script></body></html>
+</script><script xmlns="" async="async">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?93967759a51cda79e49bf4e34d0b0f2c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script xmlns="" async="async">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><script xmlns="" type="text/javascript" src="/js/q.js" async="async"></script></body></html>

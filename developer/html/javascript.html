@@ -1,59 +1,77 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>第 8 章 Javascript</title><link rel="stylesheet" type="text/css" href="..//docbook.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><meta name="keywords" content="PHP, Python, Perl, Ruby, Java, HTML, XHTML, HTML5, CSS, Javascript, JQuery, C, C++, D" /><link rel="home" href="../index.html" title="Netkiller Developer 手札" /><link rel="up" href="index.html" title="部分 II. Web page" /><link rel="prev" href="html.html" title="第 7 章 HTML" /><link rel="next" href="dom.html" title="8.2. DOMDocument" /></head><body><a xmlns="" href="http://netkiller.github.io/">Home</a> |
-		<a xmlns="" href="http://netkiller.github.io/">简体中文</a> |
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>第 11 章 Javascript</title><link rel="stylesheet" type="text/css" href="..//docbook.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><meta name="keywords" content="PHP, Python, Perl, Ruby, Java, HTML, XHTML, HTML5, CSS, Javascript, JQuery, C, C++, D" /><link rel="home" href="../index.html" title="Netkiller Developer 手札" /><link rel="up" href="index.html" title="部分 II. Web page" /><link rel="prev" href="article.html" title="10.2. article" /><link rel="next" href="navigator.html" title="11.2. navigator" /></head><body><a xmlns="" href="//www.netkiller.cn/">Home</a> |
+		<a xmlns="" href="//netkiller.github.io/">简体中文</a> |
 	    <a xmlns="" href="http://netkiller.sourceforge.net/">繁体中文</a> |
 	    <a xmlns="" href="/journal/index.html">杂文</a> |
-	    <a xmlns="" href="/search.html">Search</a> |
+	    <a xmlns="" href="//www.netkiller.cn/home/donations.html">打赏(Donations)</a> |
 	    <a xmlns="" href="http://netkiller-github-com.iteye.com/">ITEYE 博客</a> |
 	    <a xmlns="" href="http://my.oschina.net/neochen/">OSChina 博客</a> |
 	    <a xmlns="" href="https://www.facebook.com/bg7nyt">Facebook</a> |
 	    <a xmlns="" href="http://cn.linkedin.com/in/netkiller/">Linkedin</a> |
-		<a xmlns="" href="mailto:netkiller@msn.com">Email</a><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">第 8 章 Javascript</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="html.html">上一页</a> </td><th width="60%" align="center">部分 II. Web page</th><td width="20%" align="right"> <a accesskey="n" href="dom.html">下一页</a></td></tr></table><hr /><table width="100%" border="0"><tr><td align="left"><a href="http://netkiller.sourceforge.net/">Home</a> | 
-		<a href="http://netkiller.github.com/">Mirror</a> |		
-		<a href="/search.html">Search</a></td><td align="right"></td></tr></table></div><table xmlns=""><tr><td><iframe src="http://ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.com&amp;type=watch&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="http://ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.com&amp;type=fork&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="http://ghbtns.com/github-btn.html?user=netkiller&amp;type=follow&amp;count=true&amp;size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe></td></tr></table><div class="chapter"><div class="titlepage"><div><div><h2 class="title"><a id="javascript"></a>第 8 章 Javascript</h2></div></div></div><div class="toc"><p><strong>目录</strong></p><dl class="toc"><dt><span class="section"><a href="javascript.html#mouse">8.1. 禁止复制与鼠标右键</a></span></dt><dt><span class="section"><a href="dom.html">8.2. DOMDocument</a></span></dt><dd><dl><dt><span class="section"><a href="dom.html#idp48361200">8.2.1. createTextNode</a></span></dt></dl></dd><dt><span class="section"><a href="xmlhttp.html">8.3. Microsoft.XMLHTTP</a></span></dt><dd><dl><dt><span class="section"><a href="xmlhttp.html#idp48364064">8.3.1. Get</a></span></dt><dt><span class="section"><a href="xmlhttp.html#idp48366768">8.3.2. POST</a></span></dt></dl></dd><dt><span class="section"><a href="jquery.html">8.4. jQuery</a></span></dt><dd><dl><dt><span class="section"><a href="jquery.html#ajax">8.4.1. Ajax</a></span></dt><dd><dl><dt><span class="section"><a href="jquery.html#ajax.load">8.4.1.1. Load</a></span></dt></dl></dd><dt><span class="section"><a href="jquery.html#idp48374880">8.4.2. jsonp</a></span></dt><dt><span class="section"><a href="jquery.html#garlic.js">8.4.3. Garlic.js - 表单数据持久化</a></span></dt></dl></dd><dt><span class="section"><a href="bootstrap.html">8.5. Bootstrap</a></span></dt><dt><span class="section"><a href="activewidgets.html">8.6. ActiveWidgets - WebUI</a></span></dt><dt><span class="section"><a href="js.edit.html">8.7. 所见即所得现在编辑工具</a></span></dt><dd><dl><dt><span class="section"><a href="js.edit.html#idp48383792">8.7.1. FCKeditor</a></span></dt><dt><span class="section"><a href="js.edit.html#idp48384688">8.7.2. NicEdit</a></span></dt><dt><span class="section"><a href="js.edit.html#idp48385584">8.7.3. TinyMCE</a></span></dt><dt><span class="section"><a href="js.edit.html#idp48386480">8.7.4. WYSIWYG</a></span></dt></dl></dd><dt><span class="section"><a href="highslide.html">8.8. Highslide</a></span></dt><dt><span class="section"><a href="javascript.code.html">8.9. JavaScript 代码混淆</a></span></dt><dd><dl><dt><span class="section"><a href="javascript.code.html#javascript-packer">8.9.1. JavaScript Packer</a></span></dt></dl></dd><dt><span class="section"><a href="phantomjs.html">8.10. phantomjs - headless WebKit with JavaScript API</a></span></dt><dt><span class="section"><a href="highlight.html">8.11. Highlight</a></span></dt><dd><dl><dt><span class="section"><a href="highlight.html#idp48395568">8.11.1. SyntaxHighlighter</a></span></dt></dl></dd><dt><span class="section"><a href="javascript.framework.html">8.12. Javascript MVC Frameworks</a></span></dt><dd><dl><dt><span class="section"><a href="javascript.framework.html#angularjs">8.12.1. AngularJS</a></span></dt><dt><span class="section"><a href="javascript.framework.html#backbone.js">8.12.2. Backbone</a></span></dt><dt><span class="section"><a href="javascript.framework.html#todomvc">8.12.3. example</a></span></dt></dl></dd></dl></div>
+	    <a xmlns="" href="https://zhuanlan.zhihu.com/netkiller">知乎专栏</a> |
+	    <a xmlns="" href="/search.html">Search</a> |
+		<a xmlns="" href="mailto:netkiller@msn.com">Email</a><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">第 11 章 Javascript</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="article.html">上一页</a> </td><th width="60%" align="center">部分 II. Web page</th><td width="20%" align="right"> <a accesskey="n" href="navigator.html">下一页</a></td></tr></table><hr /></div><table xmlns=""><tr><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.io&amp;type=watch&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.io&amp;type=fork&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;type=follow&amp;count=true&amp;size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe></td></tr></table><div class="chapter"><div class="titlepage"><div><div><h2 class="title"><a id="javascript"></a>第 11 章 Javascript</h2></div></div></div><div class="toc"><p><strong>目录</strong></p><dl class="toc"><dt><span class="section"><a href="javascript.html#window">11.1. window</a></span></dt><dd><dl><dt><span class="section"><a href="javascript.html#idp27">11.1.1. window.location</a></span></dt></dl></dd><dt><span class="section"><a href="navigator.html">11.2. navigator</a></span></dt><dd><dl><dt><span class="section"><a href="navigator.html#idp28">11.2.1. userAgent</a></span></dt></dl></dd><dt><span class="section"><a href="document.html">11.3. document</a></span></dt><dd><dl><dt><span class="section"><a href="document.html#idp29">11.3.1. referrer</a></span></dt><dt><span class="section"><a href="document.html#idp30">11.3.2. domain</a></span></dt></dl></dd><dt><span class="section"><a href="string.html">11.4. String 字符串处理</a></span></dt><dd><dl><dt><span class="section"><a href="string.html#idp31">11.4.1. JSON.parse</a></span></dt><dt><span class="section"><a href="string.html#idp32">11.4.2. replace 替换</a></span></dt></dl></dd><dt><span class="section"><a href="date.html">11.5. Date and Time</a></span></dt><dt><span class="section"><a href="form.html">11.6. from 表单相关事件</a></span></dt><dd><dl><dt><span class="section"><a href="form.html#idp33">11.6.1. onblur</a></span></dt></dl></dd><dt><span class="section"><a href="mouse.html">11.7. 禁止复制与鼠标右键</a></span></dt><dt><span class="section"><a href="dom.html">11.8. DOMDocument</a></span></dt><dd><dl><dt><span class="section"><a href="dom.html#idp34">11.8.1. createTextNode</a></span></dt></dl></dd><dt><span class="section"><a href="xmlhttp.html">11.9. Microsoft.XMLHTTP</a></span></dt><dd><dl><dt><span class="section"><a href="xmlhttp.html#idp35">11.9.1. Get</a></span></dt><dt><span class="section"><a href="xmlhttp.html#idp36">11.9.2. POST</a></span></dt></dl></dd><dt><span class="section"><a href="jquery.html">11.10. jQuery</a></span></dt><dd><dl><dt><span class="section"><a href="jquery.html#selector">11.10.1. Selectors(选择器)</a></span></dt><dt><span class="section"><a href="jquery.html#attr">11.10.2. jQuery 属性操作</a></span></dt><dd><dl><dt><span class="section"><a href="jquery.html#is">11.10.2.1. is</a></span></dt><dt><span class="section"><a href="jquery.html#css">11.10.2.2. css</a></span></dt></dl></dd><dt><span class="section"><a href="jquery.html#time">11.10.3. 时间触发</a></span></dt><dd><dl><dt><span class="section"><a href="jquery.html#idp37">11.10.3.1. setTimeout 定时执行一次</a></span></dt><dt><span class="section"><a href="jquery.html#idp38">11.10.3.2. setInterval 间隔执行</a></span></dt></dl></dd><dt><span class="section"><a href="jquery.html#text">11.10.4. text</a></span></dt><dt><span class="section"><a href="jquery.html#inArray">11.10.5. inArray</a></span></dt><dt><span class="section"><a href="jquery.html#ajax">11.10.6. Ajax</a></span></dt><dd><dl><dt><span class="section"><a href="jquery.html#ajax.load">11.10.6.1. Load</a></span></dt><dt><span class="section"><a href="jquery.html#idp39">11.10.6.2. GET</a></span></dt><dt><span class="section"><a href="jquery.html#idp40">11.10.6.3. Post</a></span></dt><dt><span class="section"><a href="jquery.html#idp41">11.10.6.4. jsonp</a></span></dt><dt><span class="section"><a href="jquery.html#idp42">11.10.6.5. No 'Access-Control-Allow-Origin' header is present on the requested resource.</a></span></dt></dl></dd><dt><span class="section"><a href="jquery.html#form">11.10.7. Form 表单处理</a></span></dt><dd><dl><dt><span class="section"><a href="jquery.html#idp43">11.10.7.1. select</a></span></dt></dl></dd><dt><span class="section"><a href="jquery.html#event">11.10.8. Jquery 事件</a></span></dt><dd><dl><dt><span class="section"><a href="jquery.html#idp44">11.10.8.1. click 事件</a></span></dt></dl></dd><dt><span class="section"><a href="jquery.html#garlic.js">11.10.9. Garlic.js - 表单数据持久化</a></span></dt></dl></dd><dt><span class="section"><a href="bootstrap.html">11.11. Bootstrap</a></span></dt><dt><span class="section"><a href="activewidgets.html">11.12. ActiveWidgets - WebUI</a></span></dt><dt><span class="section"><a href="highslide.html">11.13. Highslide</a></span></dt><dt><span class="section"><a href="javascript.code.html">11.14. JavaScript 代码混淆</a></span></dt><dd><dl><dt><span class="section"><a href="javascript.code.html#javascript-packer">11.14.1. JavaScript Packer</a></span></dt></dl></dd><dt><span class="section"><a href="phantomjs.html">11.15. phantomjs - headless WebKit with JavaScript API</a></span></dt><dt><span class="section"><a href="javascript.framework.html">11.16. Javascript MVC Frameworks</a></span></dt><dd><dl><dt><span class="section"><a href="javascript.framework.html#backbone.js">11.16.1. Backbone</a></span></dt><dt><span class="section"><a href="javascript.framework.html#todomvc">11.16.2. example</a></span></dt></dl></dd></dl></div>
 	
-	<div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="mouse"></a>8.1. 禁止复制与鼠标右键</h2></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="window"></a>11.1. window</h2></div></div></div>
 		
-		<pre class="screen">
-
-&lt;script language="JavaScript" type="text/javascript"&gt;
-document.oncontextmenu=new Function("event.returnValue=false;");
-document.onselectstart=new Function("event.returnValue=false;");
-&lt;/script&gt;
-
-		</pre>
+		<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="idp27"></a>11.1.1. window.location</h3></div></div></div>
+			
+			<p>href</p>
+			<pre class="screen">
+			
+var source=window.location.href;
+if(source.indexOf('www.example.com')&gt;0){
+	... 
+}		
+			
+			</pre>
+			<p>hostname</p>
+			<pre class="screen">
+			
+if(window.location.hostname == "www.example.com"){
+	...
+}			
+			
+			</pre>
+			<pre class="screen">
+			
+&lt;span&gt;网址： &lt;script&gt;document.write(window.location.hostname);&lt;/script&gt;&lt;/span&gt;		
+			
+			</pre>			
+		</div>
 	</div>
 	
+	
+	
+	
+		
+	
+	
+
+	
+	
+	
+
+	
 
 	
 	
 	
 
-	
+</div><div xmlns="" id="disqus_thread"></div><script xmlns="">
 
-	
+var disqus_config = function () {
+this.page.url = "http://www.netkiller.cn";  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'netkiller'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
 
-	
-	
-	
-	
-
-</div><div xmlns="" id="disqus_thread"></div><script xmlns="" type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-
-            //if(document.domain == 'netkiller.github.com'){
-            var disqus_shortname = 'netkiller'; // required: replace example with your forum shortname
-            //}else{
-			//var disqus_shortname = 'neochan';
-            //}
-
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script><noscript xmlns="">Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a xmlns="" href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><br xmlns="" /><div xmlns="" id="clustrmaps-widget"></div><script xmlns="" type="text/javascript">var _clustrmaps = {'url' : 'http://netkiller.github.io', 'user' : 1107643, 'server' : '2', 'id' : 'clustrmaps-widget', 'version' : 1, 'date' : '2013-08-14', 'lang' : 'en', 'corners' : 'square' };(function (){ var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'http://www2.clustrmaps.com/counter/map.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);})();</script><noscript xmlns=""><a href="http://www2.clustrmaps.com/user/87410e6bb"><img src="http://www2.clustrmaps.com/stats/maps-no_clusters/netkiller.github.io-thumb.jpg" alt="Locations of visitors to this page" /></a></noscript><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="html.html">上一页</a> </td><td width="20%" align="center"><a accesskey="u" href="index.html">上一级</a></td><td width="40%" align="right"> <a accesskey="n" href="dom.html">下一页</a></td></tr><tr><td width="40%" align="left" valign="top">第 7 章 HTML </td><td width="20%" align="center"><a accesskey="h" href="../index.html">起始页</a></td><td width="40%" align="right" valign="top"> 8.2. DOMDocument</td></tr></table></div><script xmlns="">
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//netkiller.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script><noscript xmlns="">Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><br xmlns="" /><script xmlns="" type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?u=r5HG&amp;d=9mi5r_kkDC8uxG8HuY3p4-2qgeeVypAK9vMD-2P6BYM"></script><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="article.html">上一页</a> </td><td width="20%" align="center"><a accesskey="u" href="index.html">上一级</a></td><td width="40%" align="right"> <a accesskey="n" href="navigator.html">下一页</a></td></tr><tr><td width="40%" align="left" valign="top">10.2. article </td><td width="20%" align="center"><a accesskey="h" href="../index.html">起始页</a></td><td width="40%" align="right" valign="top"> 11.2. navigator</td></tr></table></div><script xmlns="">
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -62,7 +80,25 @@ document.onselectstart=new Function("event.returnValue=false;");
   ga('create', 'UA-11694057-1', 'auto');
   ga('send', 'pageview');
 
-</script><script xmlns="" type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F997cd4a7320a82d72cb74d179118f697' type='text/javascript'%3E%3C/script%3E"));
-</script><script xmlns="" type="text/javascript" src="/js/q.js"></script></body></html>
+</script><script xmlns="" async="async">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?93967759a51cda79e49bf4e34d0b0f2c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script xmlns="" async="async">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><script xmlns="" type="text/javascript" src="/js/q.js" async="async"></script></body></html>

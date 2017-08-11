@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>2.3. Module</title><link rel="stylesheet" type="text/css" href="..//docbook.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><meta name="keywords" content="lamp,lnmp,famp,fnmp, cgi,fastcgi,wsgi, apache,lighttpd,nginx,tomcat, awstatus, webalizer" /><link rel="home" href="../index.html" title="Netkiller Linux Web 手札" /><link rel="up" href="index.html" title="第 2 章 Lighttpd" /><link rel="prev" href="lighttpd.config.html" title="2.2. /etc/lighttpd/lighttpd.conf" /><link rel="next" href="other.html" title="2.4. 其他模块" /></head><body><a xmlns="" href="http://netkiller.github.io/">Home</a> |
-		<a xmlns="" href="http://netkiller.github.io/">简体中文</a> |
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>4.3. Module</title><link rel="stylesheet" type="text/css" href="..//docbook.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><meta name="keywords" content="lamp,lnmp,famp,fnmp, cgi,fastcgi,wsgi, apache,lighttpd,nginx,tomcat, awstatus, webalizer" /><link rel="home" href="../index.html" title="Netkiller Linux Web 手札" /><link rel="up" href="index.html" title="第 4 章 Lighttpd" /><link rel="prev" href="lighttpd.config.html" title="4.2. /etc/lighttpd/lighttpd.conf" /><link rel="next" href="other.html" title="4.4. 其他模块" /></head><body><a xmlns="" href="//www.netkiller.cn/">Home</a> |
+		<a xmlns="" href="//netkiller.github.io/">简体中文</a> |
 	    <a xmlns="" href="http://netkiller.sourceforge.net/">繁体中文</a> |
 	    <a xmlns="" href="/journal/index.html">杂文</a> |
-	    <a xmlns="" href="/search.html">Search</a> |
+	    <a xmlns="" href="//www.netkiller.cn/home/donations.html">打赏(Donations)</a> |
 	    <a xmlns="" href="http://netkiller-github-com.iteye.com/">ITEYE 博客</a> |
 	    <a xmlns="" href="http://my.oschina.net/neochen/">OSChina 博客</a> |
 	    <a xmlns="" href="https://www.facebook.com/bg7nyt">Facebook</a> |
 	    <a xmlns="" href="http://cn.linkedin.com/in/netkiller/">Linkedin</a> |
-		<a xmlns="" href="mailto:netkiller@msn.com">Email</a><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2.3. Module</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="lighttpd.config.html">上一页</a> </td><th width="60%" align="center">第 2 章 Lighttpd</th><td width="20%" align="right"> <a accesskey="n" href="other.html">下一页</a></td></tr></table><hr /><table width="100%" border="0"><tr><td align="left"><a href="http://netkiller.sourceforge.net/">Home</a> | 
-		<a href="http://netkiller.github.com/">Mirror</a> |		
-		<a href="/search.html">Search</a></td><td align="right"></td></tr></table></div><table xmlns=""><tr><td><iframe src="http://ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.com&amp;type=watch&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="http://ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.com&amp;type=fork&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="http://ghbtns.com/github-btn.html?user=netkiller&amp;type=follow&amp;count=true&amp;size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe></td></tr></table><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="module"></a>2.3. Module</h2></div></div></div>
+	    <a xmlns="" href="https://zhuanlan.zhihu.com/netkiller">知乎专栏</a> |
+	    <a xmlns="" href="/search.html">Search</a> |
+		<a xmlns="" href="mailto:netkiller@msn.com">Email</a><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4.3. Module</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="lighttpd.config.html">上一页</a> </td><th width="60%" align="center">第 4 章 Lighttpd</th><td width="20%" align="right"> <a accesskey="n" href="other.html">下一页</a></td></tr></table><hr /></div><table xmlns=""><tr><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.io&amp;type=watch&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.io&amp;type=fork&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;type=follow&amp;count=true&amp;size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe></td></tr></table><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="module"></a>4.3. Module</h2></div></div></div>
 	
 	<pre class="screen">
 server.modules              = (
@@ -37,7 +37,7 @@ server.modules              = (
                                 "mod_accesslog" )
 
 	</pre>
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="mod_simple_vhost"></a>2.3.1. simple_vhost</h3></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="mod_simple_vhost"></a>4.3.1. simple_vhost</h3></div></div></div>
 		
 		<pre class="screen">
 $ sudo lighty-enable-mod simple-vhost
@@ -53,7 +53,7 @@ $ mkdir -p /var/www/www.example.com/html
 $ echo helloworld!!!&gt; /var/www/www.example.com/html/index.html
 		</pre>
 	</div>
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="ssl"></a>2.3.2. ssl</h3></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="ssl"></a>4.3.2. ssl</h3></div></div></div>
 		
 		<p>启用 ssl 模块</p>
 		<pre class="screen">
@@ -70,7 +70,7 @@ $ sudo openssl req -new -x509 -keyout server.pem -out server.pem -days 365 -node
 $ sudo chmod 400 server.pem
 		</pre>
 	</div>
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="redirect"></a>2.3.3. redirect</h3></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="redirect"></a>4.3.3. redirect</h3></div></div></div>
 		
 		<pre class="screen">
 		
@@ -95,7 +95,7 @@ $HTTP["host"] =~ "^example\.com$" {
 }
 		</pre>
 	</div>
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="rewrite"></a>2.3.4. rewrite</h3></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="rewrite"></a>4.3.4. rewrite</h3></div></div></div>
 		
 		<p>example 1</p>
 		<pre class="screen">
@@ -123,7 +123,7 @@ $HTTP["host"] =~ "^.*\.(example.org)$" {
 }
 		
 		</pre>
-		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="rewrite.qsa"></a>2.3.4.1. Lighttpd Rewrite QSA</h4></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="rewrite.qsa"></a>4.3.4.1. Lighttpd Rewrite QSA</h4></div></div></div>
 			
 			<pre class="screen">
 			
@@ -149,7 +149,7 @@ url.rewrite = (
 			</pre>
 		</div>
 	</div>
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="alias"></a>2.3.5. alias</h3></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="alias"></a>4.3.5. alias</h3></div></div></div>
 		
 		<pre class="screen">
 		
@@ -162,7 +162,7 @@ $HTTP["host"] =~ "^.*\.(example.org)$" {
 		
 		</pre>
 	</div>
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="auth"></a>2.3.6. auth</h3></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="auth"></a>4.3.6. auth</h3></div></div></div>
 		
 		<p>enable auth</p>
 		<pre class="screen">
@@ -195,7 +195,7 @@ $ sudo chown www-data /etc/lighttpd/.secret
 		</pre>
 		<p>$ sudo /etc/init.d/lighttpd reload</p>
 	</div>
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="compress"></a>2.3.7. compress</h3></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="compress"></a>4.3.7. compress</h3></div></div></div>
 		
 		<p>创建cache目录</p>
 		<pre class="screen">
@@ -222,7 +222,7 @@ Host: 10.10.100.183
 Accept-Encoding: gzip,deflate
 		</pre>
 		<p>看到乱码输出,而非HTML,表示配置成功.</p>
-		<div class="example"><a id="idp52301232"></a><p class="title"><strong>例 2.2. lighttpd compress</strong></p><div class="example-contents">
+		<div class="example"><a id="idp137"></a><p class="title"><strong>例 4.2. lighttpd compress</strong></p><div class="example-contents">
 			
 			<pre class="screen">
 $HTTP["host"] =~ "www\.example\.com$" {
@@ -237,7 +237,7 @@ $HTTP["host"] =~ "www\.example\.com$" {
 			</pre>
 		</div></div><br class="example-break" />
 	</div>
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="expire"></a>2.3.8. expire</h3></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="expire"></a>4.3.8. expire</h3></div></div></div>
 		
 		<span class="command"><strong>  &lt;access|modification&gt; &lt;number&gt; &lt;years|months|days|hours|minutes|seconds&gt; </strong></span>
 		<pre class="screen">
@@ -249,7 +249,7 @@ $HTTP["url"] =~ "^/images/" {
 	expire.url = ( "" =&gt; "access 1 hours" )
 }
 		</pre>
-		<div class="example"><a id="idp52306032"></a><p class="title"><strong>例 2.3. lighttpd expire</strong></p><div class="example-contents">
+		<div class="example"><a id="idp138"></a><p class="title"><strong>例 4.3. lighttpd expire</strong></p><div class="example-contents">
 			
 			<pre class="screen">
 $HTTP["host"] =~ "www\.example\.com$" {
@@ -260,14 +260,14 @@ $HTTP["host"] =~ "www\.example\.com$" {
 			</pre>
 		</div></div><br class="example-break" />
 	</div>
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="status"></a>2.3.9. status</h3></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="status"></a>4.3.9. status</h3></div></div></div>
 		
 		<pre class="screen">
 $ sudo lighty-enable-mod status
 $ sudo /etc/init.d/lighttpd force-reload
 		</pre>
 	</div>
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="setenv"></a>2.3.10. setenv</h3></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="setenv"></a>4.3.10. setenv</h3></div></div></div>
 		
 		<pre class="screen">
 $HTTP["url"] =~ "^/(.*)" {
@@ -292,7 +292,7 @@ $HTTP["url"] =~ ".css" {
     )
 }
 		</pre>
-		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp52311472"></a>2.3.10.1. Automatic Decompression</h4></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp91"></a>4.3.10.1. Automatic Decompression</h4></div></div></div>
 			
 			<pre class="screen">
   $HTTP["url"] =~ "(README|ChangeLog|\.txt)\.gz$" {
@@ -304,15 +304,15 @@ $HTTP["url"] =~ ".css" {
 	</div>
 
 	
-<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="fastcgi"></a>2.3.11. fastcgi</h3></div></div></div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="fastcgi"></a>4.3.11. fastcgi</h3></div></div></div>
 	
-	<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp52314288"></a>2.3.11.1. enable fastcgi</h4></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp92"></a>4.3.11.1. enable fastcgi</h4></div></div></div>
 		
 		<p>enable fastcgi</p>
 		<pre class="screen">
 $ sudo lighty-enable-mod fastcgi
 		</pre>
-		<div class="section"><div class="titlepage"><div><div><h5 class="title"><a id="fastcgi.spawn-fcgi"></a>2.3.11.1.1. spawn-fcgi</h5></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h5 class="title"><a id="fastcgi.spawn-fcgi"></a>4.3.11.1.1. spawn-fcgi</h5></div></div></div>
 			
 			<pre class="screen">
 			
@@ -355,7 +355,7 @@ fastcgi.server    = ( ".php" =&gt;
 			
 			</pre>
 		</div>
-		<div class="section"><div class="titlepage"><div><div><h5 class="title"><a id="fastcgi.php-fpm"></a>2.3.11.1.2. php-fpm</h5></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h5 class="title"><a id="fastcgi.php-fpm"></a>4.3.11.1.2. php-fpm</h5></div></div></div>
 			
 			<p></p>
 			<pre class="screen">
@@ -372,9 +372,9 @@ fastcgi.server = ( ".php" =&gt;
 			</pre>
 		</div>
 	</div>
-	<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="fastcgi.php"></a>2.3.11.2. PHP</h4></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="fastcgi.php"></a>4.3.11.2. PHP</h4></div></div></div>
 		
-		<div class="section"><div class="titlepage"><div><div><h5 class="title"><a id="idp52322288"></a>2.3.11.2.1. 编译安装PHP</h5></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h5 class="title"><a id="idp93"></a>4.3.11.2.1. 编译安装PHP</h5></div></div></div>
 			
 			<p>
 		</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>下载PHP</p>
@@ -477,7 +477,7 @@ zip
 			</li></ol></div><p>
 		</p>
 		</div>
-		<div class="section"><div class="titlepage"><div><div><h5 class="title"><a id="idp52336496"></a>2.3.11.2.2. apt-get install</h5></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h5 class="title"><a id="idp94"></a>4.3.11.2.2. apt-get install</h5></div></div></div>
 			
 
 			<pre class="screen">
@@ -524,13 +524,13 @@ fastcgi.server = ( ".php" =&gt;
 			</li></ol></div>
 		</div>
 	</div>
-	<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="fastcgi.python"></a>2.3.11.3. Python</h4></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="fastcgi.python"></a>4.3.11.3. Python</h4></div></div></div>
 		
 		<pre class="screen">
 sudo apt-get install python
 sudo apt-get install python-setuptools
 		</pre>
-		<div class="section"><div class="titlepage"><div><div><h5 class="title"><a id="django"></a>2.3.11.3.1. Django</h5></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h5 class="title"><a id="django"></a>4.3.11.3.1. Django</h5></div></div></div>
 			
 			<pre class="screen">
 wget http://www.djangoproject.com/download/0.96/tarball/
@@ -579,7 +579,7 @@ Quit the server with CTRL-BREAK.
 			</pre>
 			<p>curl http://127.0.0.1:8000/</p>
 		</div>
-		<div class="section"><div class="titlepage"><div><div><h5 class="title"><a id="idp52348176"></a>2.3.11.3.2. Python Imaging Library</h5></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h5 class="title"><a id="idp95"></a>4.3.11.3.2. Python Imaging Library</h5></div></div></div>
 			
 			<p>Debian/Ubuntu</p>
 			<pre class="screen">
@@ -603,13 +603,13 @@ cd Imaging-1.1.6/
 			</td></tr></table></div>
 		</div>
 	</div>
-	<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="fastcgi.perl"></a>2.3.11.4. Perl</h4></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="fastcgi.perl"></a>4.3.11.4. Perl</h4></div></div></div>
 		
 		<p>install fastcgi module</p>
 		<pre class="screen">
 $ sudo apt-get install libfcgi-perl	libfcgi-procmanager-perl
 		</pre>
-		<div class="section"><div class="titlepage"><div><div><h5 class="title"><a id="idp52363760"></a>2.3.11.4.1. Installing lighttpd and FastCGI for Catalyst</h5></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h5 class="title"><a id="idp96"></a>4.3.11.4.1. Installing lighttpd and FastCGI for Catalyst</h5></div></div></div>
 			
 			<p>The examples also use a virtual host regexp that matches either www.myapp.com or myapp.com</p>
 			<pre class="screen">
@@ -644,7 +644,7 @@ neo@master:~$ sudo /etc/init.d/lighttpd restart
 			<p>Testing</p>
 			<p>http://127.0.0.1/</p>
 			<p>More advanced configuration</p>
-			<div class="example"><a id="idp52370816"></a><p class="title"><strong>例 2.4. fastcgi.conf</strong></p><div class="example-contents">
+			<div class="example"><a id="idp139"></a><p class="title"><strong>例 4.4. fastcgi.conf</strong></p><div class="example-contents">
 				
 				<pre class="screen">
 fastcgi.server = (
@@ -664,10 +664,10 @@ fastcgi.server = (
 			
 		</div>
 	</div>
-	<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="fastcgi.ruby"></a>2.3.11.5. Ruby</h4></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="fastcgi.ruby"></a>4.3.11.5. Ruby</h4></div></div></div>
 		
 	</div>
-	<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp52374208"></a>2.3.11.6. UNIX domain sockets</h4></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp97"></a>4.3.11.6. UNIX domain sockets</h4></div></div></div>
 		
 		<p>php-fpm.conf</p>
 		<pre class="screen">
@@ -686,7 +686,7 @@ listen = /var/run/fastcgi.socket
 	</div>
 </div>
 
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="user-agent"></a>2.3.12. user-agent</h3></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="user-agent"></a>4.3.12. user-agent</h3></div></div></div>
 		
 		<pre class="screen">
 $HTTP["user-agent"] =~ "Googlebot|Sosospider+|eMule|Wget|^Java|^PHP|Ruby|Python" {
@@ -699,7 +699,7 @@ $HTTP["user-agent"] =~ "Baiduspider+" {
 }
 		</pre>
 	</div>
-	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="ngx_http_spdy_module"></a>2.3.13. spdy</h3></div></div></div>
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="ngx_http_spdy_module"></a>4.3.13. spdy</h3></div></div></div>
 		
 		<pre class="screen">
 server {
@@ -711,22 +711,20 @@ server {
 }
 		</pre>
 	</div>
-</div><div xmlns="" id="disqus_thread"></div><script xmlns="" type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+</div><div xmlns="" id="disqus_thread"></div><script xmlns="">
 
-            //if(document.domain == 'netkiller.github.com'){
-            var disqus_shortname = 'netkiller'; // required: replace example with your forum shortname
-            //}else{
-			//var disqus_shortname = 'neochan';
-            //}
+var disqus_config = function () {
+this.page.url = "http://www.netkiller.cn";  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'netkiller'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
 
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script><noscript xmlns="">Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a xmlns="" href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><br xmlns="" /><div xmlns="" id="clustrmaps-widget"></div><script xmlns="" type="text/javascript">var _clustrmaps = {'url' : 'http://netkiller.github.io', 'user' : 1107643, 'server' : '2', 'id' : 'clustrmaps-widget', 'version' : 1, 'date' : '2013-08-14', 'lang' : 'en', 'corners' : 'square' };(function (){ var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'http://www2.clustrmaps.com/counter/map.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);})();</script><noscript xmlns=""><a href="http://www2.clustrmaps.com/user/87410e6bb"><img src="http://www2.clustrmaps.com/stats/maps-no_clusters/netkiller.github.io-thumb.jpg" alt="Locations of visitors to this page" /></a></noscript><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="lighttpd.config.html">上一页</a> </td><td width="20%" align="center"><a accesskey="u" href="index.html">上一级</a></td><td width="40%" align="right"> <a accesskey="n" href="other.html">下一页</a></td></tr><tr><td width="40%" align="left" valign="top">2.2. /etc/lighttpd/lighttpd.conf </td><td width="20%" align="center"><a accesskey="h" href="../index.html">起始页</a></td><td width="40%" align="right" valign="top"> 2.4. 其他模块</td></tr></table></div><script xmlns="">
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//netkiller.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script><noscript xmlns="">Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><br xmlns="" /><script xmlns="" type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?u=r5HG&amp;d=9mi5r_kkDC8uxG8HuY3p4-2qgeeVypAK9vMD-2P6BYM"></script><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="lighttpd.config.html">上一页</a> </td><td width="20%" align="center"><a accesskey="u" href="index.html">上一级</a></td><td width="40%" align="right"> <a accesskey="n" href="other.html">下一页</a></td></tr><tr><td width="40%" align="left" valign="top">4.2. /etc/lighttpd/lighttpd.conf </td><td width="20%" align="center"><a accesskey="h" href="../index.html">起始页</a></td><td width="40%" align="right" valign="top"> 4.4. 其他模块</td></tr></table></div><script xmlns="">
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -735,7 +733,25 @@ server {
   ga('create', 'UA-11694057-1', 'auto');
   ga('send', 'pageview');
 
-</script><script xmlns="" type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F997cd4a7320a82d72cb74d179118f697' type='text/javascript'%3E%3C/script%3E"));
-</script><script xmlns="" type="text/javascript" src="/js/q.js"></script></body></html>
+</script><script xmlns="" async="async">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?93967759a51cda79e49bf4e34d0b0f2c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script xmlns="" async="async">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><script xmlns="" type="text/javascript" src="/js/q.js" async="async"></script></body></html>

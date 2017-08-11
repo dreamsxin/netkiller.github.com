@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<html xmlns="http://www.w3.org/1999/xhtml"><head><title>MySQL性能调整</title><link rel="stylesheet" type="text/css" href="docbook.css"/><link rel="stylesheet" type="text/css" href="/journal/journal.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><meta name="description" content=""/><meta name="keywords" content=", , , "/></head><body><a xmlns="" href="http://netkiller.github.io/">Home</a> |
-        <a xmlns="" href="http://netkiller.sourceforge.net/">Mirror</a> |
-        <a xmlns="" href="/search.html">Search</a> | 
-		<a xmlns="" href="/journal/index.html">杂文</a> |
-        <a xmlns="" href="http://netkiller-github-com.iteye.com/">ITEYE 博客</a> |
-        <a xmlns="" href="http://my.oschina.net/neochen/">OSChina 博客</a> |
-        <a xmlns="" href="http://rline.blog.51cto.com/">51CTO 博客</a> |
-        <a xmlns="" href="http://cn.linkedin.com/in/netkiller/">Linkedin</a><section xml:lang="zh-cn" class="article" id="idp56734688"><div class="titlepage"><div><div><h2 class="title">MySQL性能调整</h2></div><div><h3 class="subtitle"><em/></h3></div><div><div class="author"><h3 class="author"><span class="honorific">Mr</span>. <span class="firstname">Neo Chen</span> <span class="surname">(netkiller)</span>, <span class="lineage">陈景峰(BG7NYT)</span></h3><div class="affiliation"><div class="address"><p><br/>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>MySQL性能调整</title><link rel="stylesheet" type="text/css" href="docbook.css"/><link rel="stylesheet" type="text/css" href="/journal/journal.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.79.1"/><meta name="description" content=""/><meta name="keywords" content=", , , "/></head><body><section xml:lang="zh-cn" class="article" id="idp1"><div class="titlepage"><div><div><h2 class="title">MySQL性能调整</h2></div><div><h3 class="subtitle"><em/></h3></div><div><div class="author"><h3 class="author"><span class="honorific">Mr</span>. <span class="firstname">Neo Chen</span> <span class="surname">(陈景峯)</span>, <span class="lineage">netkiller, BG7NYT</span></h3><div class="affiliation"><div class="address"><p><br/>
 				<span class="country">中国</span><span class="state">广东省</span><span class="city">深圳市</span><span class="street">龙华新区民治街道溪山美地</span><br/>
 				<span class="postcode">518131</span><br/>
 				<span class="phone">+86 13113668890</span><br/>
-				<span class="fax">+86 755 29812080</span><br/>
+				<br/>
 				<code class="email">&lt;<a class="email" href="mailto:netkiller@msn.com">netkiller@msn.com</a>&gt;</code><br/>
 			</p></div></div></div></div><div><div class="legalnotice" id="legalnotice"><p class="legalnotice-title"><strong>版权声明</strong></p><p>转载请与作者联系，转载时请务必标明文章原始出处和作者信息及本声明。</p><table style="border: 0; " class="simplelist"><tr><td>
 		<a class="ulink" href="http://creativecommons.org/licenses/by/3.0/" target="_top">
-			<div><table style="border: 0; width: 180; cellpadding: 0; cellspacing: 0;"><tr><td><img src="/images/by-nc-sa.png" width="180"/></td></tr></table></div>
+			<div><table style="border: 0; width: 180px; cellpadding: 0; cellspacing: 0;"><tr><td><img src="/images/by-nc-sa.png" width="180"/></td></tr></table></div>
 		</a>
 		</td><td>
 			<table style="border: 0; " class="simplelist"><tr><td>
@@ -24,72 +17,17 @@
 				</td></tr><tr><td>
 					<a class="ulink" href="http://netkiller.sourceforge.net/" target="_top">http://netkiller.sourceforge.net</a>
 				</td></tr></table>
-		</td></tr></table><p/></div></div><div><p class="pubdate">$Date$</p></div><div><div class="abstract"><div class="abstract-title">摘要</div>
+		</td><td>
+			<a class="ulink" href="/images/weixin.jpg" target="_top"><div><table style="border: 0; width: 80px; cellpadding: 0; cellspacing: 0;"><tr><td><img src="/images/weixin.jpg" width="80"/></td></tr></table></div></a>
+		</td><td>
+			<p>微信扫描二维码进入 Netkiller 微信订阅号 </p>
+			<p>QQ群：128659835 请注明“读者”</p>
+		</td></tr></table><p/></div></div><div><p class="pubdate">2017-06-16</p></div><div><div class="abstract"><div class="abstract-title">摘要</div>
 
-		</div></div><div><div class="abstract" id="abstract"><div class="abstract-title">我的系列文档</div><table style="border: 0; " class="simplelist"><tr><td>
-			<a class="ulink" href="../architect/index.html" target="_top">Netkiller Architect 手札</a>
-		</td><td>
-			<a class="ulink" href="../developer/index.html" target="_top">Netkiller Developer 手札</a>
-		</td><td>
-			<a class="ulink" href="../php/index.html" target="_top">Netkiller PHP 手札</a>
-		</td><td>
-			<a class="ulink" href="../python/index.html" target="_top">Netkiller Python 手札</a>
-		</td><td>
-			<a class="ulink" href="../testing/index.html" target="_top">Netkiller Testing 手札</a>
-		</td><td>
-			<a class="ulink" href="../cryptography/index.html" target="_top">Netkiller Cryptography 手札</a>
-		</td></tr><tr><td>
-			<a class="ulink" href="../linux/index.html" target="_top">Netkiller Linux 手札</a>
-		</td><td>
-			<a class="ulink" href="../debian/index.html" target="_top">Netkiller Debian 手札</a>
-		</td><td>
-			<a class="ulink" href="../centos/index.html" target="_top">Netkiller CentOS 手札</a>
-		</td><td>
-			<a class="ulink" href="../freebsd/index.html" target="_top">Netkiller FreeBSD 手札</a>
-		</td><td>
-			<a class="ulink" href="../shell/index.html" target="_top">Netkiller Shell 手札</a>
-		</td><td>
-			<a class="ulink" href="../security/index.html" target="_top">Netkiller Security 手札</a>
-		</td></tr><tr><td>
-			<a class="ulink" href="../www/index.html" target="_top">Netkiller Web 手札</a>
-		</td><td>
-			<a class="ulink" href="../monitoring/index.html" target="_top">Netkiller Monitoring 手札</a>
-		</td><td>
-			<a class="ulink" href="../storage/index.html" target="_top">Netkiller Storage 手札</a>
-		</td><td>
-			<a class="ulink" href="../mail/index.html" target="_top">Netkiller Mail 手札</a>
-		</td><td>
-			<a class="ulink" href="../docbook/index.html" target="_top">Netkiller Docbook 手札</a>
-		</td><td>
-			<a class="ulink" href="../version/index.html" target="_top">Netkiller Version 手札</a>
-		</td></tr><tr><td>
-			<a class="ulink" href="../database/index.html" target="_top">Netkiller Database 手札</a>
-		</td><td>
-			<a class="ulink" href="../postgresql/index.html" target="_top">Netkiller PostgreSQL 手札</a>
-		</td><td>
-			<a class="ulink" href="../mysql/index.html" target="_top">Netkiller MySQL 手札</a>
-		</td><td>
-			<a class="ulink" href="../nosql/index.html" target="_top">Netkiller NoSQL 手札</a>
-		</td><td>
-			<a class="ulink" href="../ldap/index.html" target="_top">Netkiller LDAP 手札</a>
-		</td><td>
-			<a class="ulink" href="../network/index.html" target="_top">Netkiller Network 手札</a>
-		</td></tr><tr><td>
-			<a class="ulink" href="../cisco/index.html" target="_top">Netkiller Cisco IOS 手札</a>
-		</td><td>
-			<a class="ulink" href="../h3c/index.html" target="_top">Netkiller H3C 手札</a>
-		</td><td>
-			<a class="ulink" href="../multimedia/index.html" target="_top">Netkiller Multimedia 手札</a>
-		</td><td>
-			<a class="ulink" href="../perl/index.html" target="_top">Netkiller Perl 手札</a>
-		</td><td>
-			<a class="ulink" href="../radio/index.html" target="_top">Netkiller Amateur Radio 手札</a>
-		</td><td>
-			<a class="ulink" href="../devops/index.html" target="_top">Netkiller DevOps 手札</a>
-		</td></tr></table></div></div></div><hr/></div><div class="toc"><div class="toc-title">目录</div><ul class="toc"><li><span class="section"><a href="#idp56735936">1. 系统部分</a></span></li><li><span class="section"><a href="#idp56787008">2. 线程部分</a></span></li><li><span class="section"><a href="#idp56790816">3. 查询缓存部分</a></span></li><li><span class="section"><a href="#idp56795232">4. 缓冲区部分</a></span></li><li><span class="section"><a href="#idp56797072">5. 部分</a></span></li><li><span class="section"><a href="#idp56802272">6. 默认编码设置</a></span></li><li><span class="section"><a href="#idp56803936">7. SECTION</a></span></li></ul></div>
+		</div></div></div><hr/></div><div class="toc"><div class="toc-title">目录</div><ul class="toc"><li><span class="section"><a href="#idp3">1. 系统部分</a></span><ul><li><span class="section"><a href="#idp2">1.1. 关于 Sleep 进程</a></span></li></ul></li><li><span class="section"><a href="#idp4">2. 线程部分</a></span></li><li><span class="section"><a href="#idp5">3. 查询缓存部分</a></span></li><li><span class="section"><a href="#idp6">4. 缓冲区部分</a></span></li><li><span class="section"><a href="#idp7">5. 部分</a></span></li><li><span class="section"><a href="#idp8">6. 默认编码设置</a></span></li><li><span class="section"><a href="#idp9">7. SECTION</a></span></li></ul></div>
 	
 
-	<section class="section" id="idp56735936"><div class="titlepage"><div><div><h2 class="title" style="clear: both">1. 系统部分</h2></div></div></div>
+	<section class="section" id="idp3"><div class="titlepage"><div><div><h2 class="title" style="clear: both">1. 系统部分</h2></div></div></div>
 		
 		<p>max_connections</p>
 		<pre class="screen">
@@ -127,9 +65,69 @@ mysql&gt;  show variables like '%timeout%';
 12 rows in set (0.00 sec)
 		
 		</pre>
-		
+		<section class="section" id="idp2"><div class="titlepage"><div><div><h3 class="title">1.1. 关于 Sleep 进程</h3></div></div></div>
+			
+			<pre class="screen">
+			
+mysql&gt; show processlist;
++----+------+-----------------+-----------------+---------+------+-------+------------------+
+| Id | User | Host            | db              | Command | Time | State | Info             |
++----+------+-----------------+-----------------+---------+------+-------+------------------+
+|  5 | app  | 127.0.0.1:35551 | app.example.com | Sleep   | 4444 |       | NULL             |
+|  6 | app  | 127.0.0.1:35552 | app.example.com | Sleep   | 4444 |       | NULL             |
+|  7 | app  | 127.0.0.1:35554 | app.example.com | Sleep   | 4444 |       | NULL             |
+|  8 | app  | 127.0.0.1:35556 | app.example.com | Sleep   | 4444 |       | NULL             |
+|  9 | app  | 127.0.0.1:35555 | app.example.com | Sleep   | 4444 |       | NULL             |
+| 10 | app  | 127.0.0.1:35557 | app.example.com | Sleep   | 4444 |       | NULL             |
+| 11 | app  | 127.0.0.1:35558 | app.example.com | Sleep   | 4444 |       | NULL             |
+| 12 | app  | 127.0.0.1:35559 | app.example.com | Sleep   | 4444 |       | NULL             |
+| 13 | app  | 127.0.0.1:35560 | app.example.com | Sleep   | 4444 |       | NULL             |
+| 14 | app  | 127.0.0.1:35561 | app.example.com | Sleep   |   35 |       | NULL             |
+| 15 | app  | 127.0.0.1:35562 | app.example.com | Sleep   | 4439 |       | NULL             |
+| 16 | app  | 127.0.0.1:35563 | app.example.com | Sleep   | 4439 |       | NULL             |
+| 17 | app  | 127.0.0.1:35565 | app.example.com | Sleep   | 4439 |       | NULL             |
+| 18 | app  | 127.0.0.1:35566 | app.example.com | Sleep   | 4439 |       | NULL             |
+| 19 | app  | 127.0.0.1:35567 | app.example.com | Sleep   | 4439 |       | NULL             |
+| 20 | app  | 127.0.0.1:35568 | app.example.com | Sleep   | 4439 |       | NULL             |
+| 21 | app  | 127.0.0.1:35569 | app.example.com | Sleep   | 4439 |       | NULL             |
+| 22 | app  | 127.0.0.1:35570 | app.example.com | Sleep   | 4439 |       | NULL             |
+| 23 | app  | 127.0.0.1:35571 | app.example.com | Sleep   | 4439 |       | NULL             |
+| 24 | app  | 127.0.0.1:35572 | app.example.com | Sleep   |   38 |       | NULL             |
+| 25 | app  | 127.0.0.1:35575 | app.example.com | Sleep   | 4432 |       | NULL             |
+| 26 | app  | 127.0.0.1:35576 | app.example.com | Sleep   | 4432 |       | NULL             |
+| 27 | app  | 127.0.0.1:35578 | app.example.com | Sleep   | 4432 |       | NULL             |
+| 28 | app  | 127.0.0.1:35579 | app.example.com | Sleep   | 4432 |       | NULL             |
+| 29 | app  | 127.0.0.1:35580 | app.example.com | Sleep   | 4432 |       | NULL             |
+| 30 | app  | 127.0.0.1:54330 | app.example.com | Sleep   |   10 |       | NULL             |
+| 31 | app  | 127.0.0.1:1081  | app.example.com | Query   |    0 | init  | show processlist |
++----+------+-----------------+-----------------+---------+------+-------+------------------+
+27 rows in set (0.09 sec)
+
+mysql&gt;
+			
+			</pre>
+			<pre class="screen">
+show variables where variable_name in ('wait_timeout','interactive_timeout')
+			</pre>
+			<p>与Sleep线程有关的配置 'wait_timeout'与'interactive_timeout'默认是8小时，也就是说Sleep 8小时才会关闭，如果你的服务器访问量很低，可以适当加快线程回收。</p>
+			<pre class="screen">
+			
+mysql&gt;  show variables where variable_name in ('wait_timeout','interactive_timeo
+ut');
++---------------------+-------+
+| Variable_name       | Value |
++---------------------+-------+
+| interactive_timeout | 28800 |
+| wait_timeout        | 28800 |
++---------------------+-------+
+2 rows in set (0.47 sec)
+			
+			</pre>
+			<p>另外PHP与Java两个群体在数据库处理上不同。PHP主张块连接快释放，让出更多的资源给其他服务。而Java多采用连接池独占数据库资源，连接池设置多少连接数就对应数据库创建多少持久连接，所以你会看到你并没有访问数据库但show processlist;会看到很多Sleep连接。</p>
+			<p>两个群起所采用的方式，并无好坏，都能达到最终目的。但使用连接池需要注意当MySQL最大连接数等于连接池连接数时来自其他服务器的请求将无法连接。</p>
+		</section>
 	</section>
-	<section class="section" id="idp56787008"><div class="titlepage"><div><div><h2 class="title" style="clear: both">2. 线程部分</h2></div></div></div>
+	<section class="section" id="idp4"><div class="titlepage"><div><div><h2 class="title" style="clear: both">2. 线程部分</h2></div></div></div>
 		
 		<pre class="screen">
 		
@@ -158,18 +156,9 @@ thread_cache_hit=(connections-thread_created)/connections*100%
 开启 pool-of-threads 模式
 		
 		</pre>
-		<pre class="screen">
-		
-		
-		
-		</pre>		
-		<pre class="screen">
-		
-		
-		
-		</pre>		
+
 	</section>
-	<section class="section" id="idp56790816"><div class="titlepage"><div><div><h2 class="title" style="clear: both">3. 查询缓存部分</h2></div></div></div>
+	<section class="section" id="idp5"><div class="titlepage"><div><div><h2 class="title" style="clear: both">3. 查询缓存部分</h2></div></div></div>
 		
 		<p>查看缓存设置</p>
 		<pre class="screen">
@@ -207,13 +196,13 @@ mysql&gt; show status like '%Qcache%';
 8 rows in set (0.00 sec)
 		
 		</pre>
-		
-		
-		
-		
+
+
+
+
 	</section>
-	
-	<section class="section" id="idp56795232"><div class="titlepage"><div><div><h2 class="title" style="clear: both">4. 缓冲区部分</h2></div></div></div>
+
+	<section class="section" id="idp6"><div class="titlepage"><div><div><h2 class="title" style="clear: both">4. 缓冲区部分</h2></div></div></div>
 		
 		<pre class="screen">
 		
@@ -227,10 +216,10 @@ mysql&gt; show variables like '%sort_buffer_size%';
 +-------------------------+---------+
 3 rows in set (0.00 sec)
 		
-		</pre>		
+		</pre>
 	</section>
-	
-	<section class="section" id="idp56797072"><div class="titlepage"><div><div><h2 class="title" style="clear: both">5. 部分</h2></div></div></div>
+
+	<section class="section" id="idp7"><div class="titlepage"><div><div><h2 class="title" style="clear: both">5. 部分</h2></div></div></div>
 		
 		<pre class="screen">
 		
@@ -266,7 +255,7 @@ mysql&gt; show variables like 'low_priority_updates';
 +----------------------+-------+
 | low_priority_updates | ON    |
 +----------------------+-------+
-1 row in set (0.01 sec)		
+1 row in set (0.01 sec)
 		
 		</pre>
 		<p>SESSION 会立即生效</p>
@@ -281,49 +270,38 @@ mysql&gt; show variables like 'low_priority_updates';
 +----------------------+-------+
 | low_priority_updates | ON    |
 +----------------------+-------+
-1 row in set (0.00 sec)		
+1 row in set (0.00 sec)
 		
-		</pre>		
-	</section>	
-	<section class="section" id="idp56802272"><div class="titlepage"><div><div><h2 class="title" style="clear: both">6. 默认编码设置</h2></div></div></div>
+		</pre>
+	</section>
+	<section class="section" id="idp8"><div class="titlepage"><div><div><h2 class="title" style="clear: both">6. 默认编码设置</h2></div></div></div>
 		
 		<pre class="screen">
 		
 character-set-server=utf8
-collation_server=utf8_general_ci		
-		
-		</pre>
-	</section>	
-	<section class="section" id="idp56803936"><div class="titlepage"><div><div><h2 class="title" style="clear: both">7. SECTION</h2></div></div></div>
-		
-		<pre class="screen">
-		
-		
+collation_server=utf8_general_ci
 		
 		</pre>
 	</section>
-</section><div xmlns="" id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"><a class="bds_fbook"/><a class="bds_twi"/><a class="bds_ms"/><a class="bds_msn"/><a class="bds_buzz"/><a class="bds_linkedin"/><a class="bds_deli"/><a class="bds_qzone"/><a class="bds_qq"/><a class="bds_tqq"/><a class="bds_tqf"/><a class="bds_tsina"/><a class="bds_baidu"/><a class="bds_renren"/><a class="bds_t163"/><a class="bds_tfh"/><a class="bds_douban"/><a class="bds_hi"/><a class="bds_tieba"/><a class="bds_tsohu"/><span class="bds_more"/><a class="shareCount"/></div><script xmlns="" type="text/javascript" id="bdshare_js" data="type=tools"/><script xmlns="" type="text/javascript" id="bdshell_js"/><script xmlns="" type="text/javascript">
-	document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
-</script><div xmlns="" id="disqus_thread"/><script xmlns="" type="text/javascript">
-	        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-	        var disqus_shortname = 'netkiller'; // required: replace example with your forum shortname
-	
-	        /* * * DON'T EDIT BELOW THIS LINE * * */
-	        (function() {
-	            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-	            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	        })();
-	    </script><noscript xmlns="">Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a xmlns="" href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><br xmlns=""/><div xmlns="" id="clustrmaps-widget"/><script xmlns="" type="text/javascript">var _clustrmaps = {'url' : 'http://netkiller.github.io', 'user' : 1107643, 'server' : '2', 'id' : 'clustrmaps-widget', 'version' : 1, 'date' : '2013-08-14', 'lang' : 'en', 'corners' : 'square' };(function (){ var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'http://www2.clustrmaps.com/counter/map.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);})();</script><noscript xmlns=""><a href="http://www2.clustrmaps.com/user/87410e6bb"><img src="http://www2.clustrmaps.com/stats/maps-no_clusters/netkiller.github.io-thumb.jpg" alt="Locations of visitors to this page"/></a></noscript><script xmlns="">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	<section class="section" id="idp9"><div class="titlepage"><div><div><h2 class="title" style="clear: both">7. SECTION</h2></div></div></div>
+		
+		<pre class="screen">
+		
 
-  ga('create', 'UA-11694057-1', 'netkiller.github.io');
-  ga('send', 'pageview');
+		
+		</pre>
+	</section>
+</section><div xmlns="" id="disqus_thread"/><script xmlns="">
 
-</script><script xmlns="" type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F997cd4a7320a82d72cb74d179118f697' type='text/javascript'%3E%3C/script%3E"));
-</script><script xmlns="" type="text/javascript" src="/js/q.js"/></body></html>
+var disqus_config = function () {
+this.page.url = "http://www.netkiller.cn";  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'netkiller'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//netkiller.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script><noscript xmlns="">Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><br xmlns=""/><script xmlns="" type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?u=r5HG&amp;d=9mi5r_kkDC8uxG8HuY3p4-2qgeeVypAK9vMD-2P6BYM"/></body></html>

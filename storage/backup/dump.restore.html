@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>9.2. dump / restore</title><link rel="stylesheet" type="text/css" href="..//docbook.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><meta name="keywords" content="openfiler, freenas, proftpd,pureftpd,vsftpd, rsync,wget,samba" /><link rel="home" href="../index.html" title="Netkiller Linux Storage 手札" /><link rel="up" href="index.html" title="第 9 章 Backup / Restore" /><link rel="prev" href="index.html" title="第 9 章 Backup / Restore" /><link rel="next" href="bacula.html" title="9.3. Bacula, the Open Source, Enterprise ready, Network Backup Tool for Linux, Unix, Mac and Windows." /></head><body><a xmlns="" href="//www.netkiller.cn/">Home</a> |
+		<a xmlns="" href="//netkiller.github.io/">简体中文</a> |
+	    <a xmlns="" href="http://netkiller.sourceforge.net/">繁体中文</a> |
+	    <a xmlns="" href="/journal/index.html">杂文</a> |
+	    <a xmlns="" href="//www.netkiller.cn/home/donations.html">打赏(Donations)</a> |
+	    <a xmlns="" href="http://netkiller-github-com.iteye.com/">ITEYE 博客</a> |
+	    <a xmlns="" href="http://my.oschina.net/neochen/">OSChina 博客</a> |
+	    <a xmlns="" href="https://www.facebook.com/bg7nyt">Facebook</a> |
+	    <a xmlns="" href="http://cn.linkedin.com/in/netkiller/">Linkedin</a> |
+	    <a xmlns="" href="https://zhuanlan.zhihu.com/netkiller">知乎专栏</a> |
+	    <a xmlns="" href="/search.html">Search</a> |
+		<a xmlns="" href="mailto:netkiller@msn.com">Email</a><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">9.2. dump / restore</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="index.html">上一页</a> </td><th width="60%" align="center">第 9 章 Backup / Restore</th><td width="20%" align="right"> <a accesskey="n" href="bacula.html">下一页</a></td></tr></table><hr /></div><table xmlns=""><tr><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.io&amp;type=watch&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.io&amp;type=fork&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;type=follow&amp;count=true&amp;size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe></td></tr></table><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="dump.restore"></a>9.2. dump / restore</h2></div></div></div>
+	
+		<div class="procedure"><a id="idp136"></a><p class="title"><strong>过程 9.1. dump 步骤</strong></p><ol class="procedure" type="1"><li class="step">
+				<p>确认设备</p>
+				<p>准备用dump备份/boot目录下的文件. 使用df /boot查看/boot所在的设备(以下假设为/dev/hda1)</p>
+				<pre class="screen">
+neo@netkiller:~$ df
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/sda1             19710288   3054956  15654084  17% /
+none                   1016608       208   1016400   1% /dev
+none                   1023328         0   1023328   0% /dev/shm
+none                   1023328       736   1022592   1% /var/run
+none                   1023328         0   1023328   0% /var/lock
+/dev/sda6             19228276  16456940   1794588  91% /home
+/dev/sda10              569204    171728    368564  32% /boot
+/dev/sda7             48062440   3170748  42450216   7% /var
+/dev/sda8            384497840  64897804 300068616  18% /opt
+/dev/sda9              6728280    146336   6240164   3% /tmp
+				</pre>
+			</li><li class="step">
+				<p>首先确认备份需要的空间. 查看一个0级备份需要的字节数,使用 -S</p>
+				<pre class="screen">
+# dump -oS /dev/hda1
+				</pre>
+			</li><li class="step">
+				<p>备份到文件而非磁带. 确认在/var/tmp目录是否有足够的空间,执行.</p>
+				<pre class="screen">
+# dump -0u –f /var/tmp/dumpfile /dev/hda1
+				</pre>
+				<p>检查/etc/dumpdates,查看完全备份的时间戳.</p>
+			</li></ol></div>
+		<div class="procedure"><a id="idp137"></a><p class="title"><strong>过程 9.2. restore 步骤</strong></p><ol class="procedure" type="1"><li class="step">
+				<p>使用restore检查备份文件的内容</p>
+				<pre class="screen">
+# restore –tf /var/tmp/dumpfile
+				</pre>
+			</li><li class="step">
+				<p>我们可以使用restore的互动模式恢复特定文件到一个临时目录.</p>
+				<pre class="screen">
+# mkdir /tmp/restored; cd /tmp/restored
+# restore –if /var/tmp/dumpfile
+				</pre>
+				<p>这时会看到一个restore &gt; 提示符. 键入help查看可用命令的列表. 使用ls和cd命令查看备份文件的列表.</p>
+				<p>使用add,选中/grub.menu.1st和/grub/grub.conf文件.列出所在目录,恢复的文件应该带有星号.</p>
+			</li><li class="step">
+				<p>展开备份文件</p>
+				<p> 键入extract命令恢复选中的文件.设置下个卷名为1, 不为解压目录设置所有者模式. quit退出restore模式.</p>
+				<p>在restore运行的目录中应该有一个grub目录,包含恢复的grub.conf和menu.1st文件.</p>
+				<pre class="screen">
+				</pre>
+			</li></ol></div>
+</div><div xmlns="" id="disqus_thread"></div><script xmlns="">
+
+var disqus_config = function () {
+this.page.url = "http://www.netkiller.cn";  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'netkiller'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//netkiller.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script><noscript xmlns="">Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><br xmlns="" /><script xmlns="" type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?u=r5HG&amp;d=9mi5r_kkDC8uxG8HuY3p4-2qgeeVypAK9vMD-2P6BYM"></script><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="index.html">上一页</a> </td><td width="20%" align="center"><a accesskey="u" href="index.html">上一级</a></td><td width="40%" align="right"> <a accesskey="n" href="bacula.html">下一页</a></td></tr><tr><td width="40%" align="left" valign="top">第 9 章 Backup / Restore </td><td width="20%" align="center"><a accesskey="h" href="../index.html">起始页</a></td><td width="40%" align="right" valign="top"> 9.3. Bacula, the Open Source, Enterprise ready, Network Backup Tool for Linux, Unix, Mac and Windows. </td></tr></table></div><script xmlns="">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11694057-1', 'auto');
+  ga('send', 'pageview');
+
+</script><script xmlns="" async="async">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?93967759a51cda79e49bf4e34d0b0f2c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script xmlns="" async="async">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><script xmlns="" type="text/javascript" src="/js/q.js" async="async"></script></body></html>

@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>1.8. Util</title><link rel="stylesheet" type="text/css" href="../..//docbook.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><link rel="home" href="../../index.html" title="Netkiller Java 手札" /><link rel="up" href="../../java.html" title="第 1 章 Java" /><link rel="prev" href="../sql/index.html" title="1.7. JDBC" /><link rel="next" href="../lang/reflect/index.html" title="1.9. Reflection 反射" /></head><body><a xmlns="" href="//www.netkiller.cn/">Home</a> |
+		<a xmlns="" href="//netkiller.github.io/">简体中文</a> |
+	    <a xmlns="" href="http://netkiller.sourceforge.net/">繁体中文</a> |
+	    <a xmlns="" href="/journal/index.html">杂文</a> |
+	    <a xmlns="" href="//www.netkiller.cn/home/donations.html">打赏(Donations)</a> |
+	    <a xmlns="" href="http://netkiller-github-com.iteye.com/">ITEYE 博客</a> |
+	    <a xmlns="" href="http://my.oschina.net/neochen/">OSChina 博客</a> |
+	    <a xmlns="" href="https://www.facebook.com/bg7nyt">Facebook</a> |
+	    <a xmlns="" href="http://cn.linkedin.com/in/netkiller/">Linkedin</a> |
+	    <a xmlns="" href="https://zhuanlan.zhihu.com/netkiller">知乎专栏</a> |
+	    <a xmlns="" href="/search.html">Search</a> |
+		<a xmlns="" href="mailto:netkiller@msn.com">Email</a><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">1.8. Util</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="../sql/index.html">上一页</a> </td><th width="60%" align="center">第 1 章 Java</th><td width="20%" align="right"> <a accesskey="n" href="../lang/reflect/index.html">下一页</a></td></tr></table><hr /></div><table xmlns=""><tr><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.io&amp;type=watch&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.io&amp;type=fork&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;type=follow&amp;count=true&amp;size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe></td></tr></table><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="index"></a>1.8. Util</h2></div></div></div>
+	
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="properties"></a>1.8.1. *.properties</h3></div></div></div>
+		
+		<pre class="programlisting">
+		
+package netkiller.test;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.FileInputStream;
+import java.util.Properties;
+
+public class PropertiesTest {
+
+	public static void main(String[] args) {
+
+		System.out.println("Working Directory = " + System.getProperty("user.dir"));
+
+		Properties ps = new Properties();
+		try {
+			ps.load(new FileInputStream("netkiller.properties"));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println(ps.getProperty("key"));
+	}
+
+}
+		
+		</pre>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="propertyNames"></a>1.8.1.1. propertyNames()</h4></div></div></div>
+			
+			<pre class="programlisting">
+			
+package cn.netkiller.properties;
+
+import java.util.Enumeration;
+import java.util.Map.Entry;
+import java.util.Properties;
+
+public class PropertiesTest {
+
+	public PropertiesTest() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Properties properties = new Properties();
+
+		properties.put("K1", "V1");
+		properties.put("K2", "V2");
+
+		for (Entry&lt;Object, Object&gt; x : properties.entrySet()) {
+			System.out.println(x.getKey() + " " + x.getValue());
+		}
+		
+		Enumeration&lt;?&gt; e = properties.propertyNames();
+		while (e.hasMoreElements()) {
+			String key = (String) e.nextElement();
+			String value = properties.getProperty(key);
+			System.out.println(key + ": " + value);
+		}
+	}
+
+}
+			
+			</pre>
+			<pre class="programlisting">
+			
+import java.io.FileInputStream;
+import java.util.Enumeration;
+import java.util.Properties;
+
+public class MainClass {
+  public static void main(String args[]) throws Exception {
+    Properties p = new Properties();
+    p.load(new FileInputStream("test.properties"));
+    Enumeration e = p.propertyNames();
+
+    for (; e.hasMoreElements();) {
+      System.out.println(e.nextElement());
+
+    }
+  }
+}			
+			
+			</pre>			
+		</div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp29"></a>1.8.1.2. keySet()</h4></div></div></div>
+			
+			<pre class="programlisting">
+			
+package cn.netkiller.properties;
+
+import java.util.Properties;
+import java.util.Set;
+
+public class PropertiesTest {
+
+	public PropertiesTest() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Properties properties = new Properties();
+
+		properties.put("K1", "V1");
+		properties.put("K2", "V2");
+
+		Set&lt;Object&gt; states = properties.keySet();
+
+		for (Object name : states)
+			System.out.println("The value of " + name + " is " + properties.getProperty((String) name) + ".");
+	}
+
+}
+
+			
+			</pre>
+		</div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp30"></a>1.8.1.3. entrySet()</h4></div></div></div>
+			
+			<pre class="programlisting">
+			
+package cn.netkiller.properties;
+
+import java.util.Map.Entry;
+import java.util.Properties;
+
+public class PropertiesTest {
+
+	public PropertiesTest() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Properties properties = new Properties();
+
+		properties.put("K1", "V1");
+		properties.put("K2", "V2");
+
+		for (Entry&lt;Object, Object&gt; x : properties.entrySet()) {
+			System.out.println(x.getKey() + " " + x.getValue());
+		}
+	}
+
+}
+			
+			</pre>
+		</div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp31"></a>1.8.1.4. 方法中返回 Properties</h4></div></div></div>
+			
+			<pre class="programlisting">
+			
+	@RequestMapping("/host")
+	public Enumeration&lt;Object&gt; host() throws IOException {
+		Properties properties = PropertiesLoaderUtils.loadProperties(new ClassPathResource(String.format("/%s.properties", "host")));
+		return properties.keys();
+	}
+
+	@RequestMapping("/mail")
+	public Collection&lt;Object&gt; mail() throws IOException {
+		Properties properties = PropertiesLoaderUtils.loadProperties(new ClassPathResource(String.format("/%s.properties", "mail")));
+		return properties.values();
+	}
+	@RequestMapping("/nameserver")
+	public Set&lt;Entry&lt;Object, Object&gt;&gt; nameserver() throws IOException {
+		Properties properties = PropertiesLoaderUtils.loadProperties(new ClassPathResource(String.format("/%s.properties", "dns")));
+		return properties.entrySet();
+	}
+	@RequestMapping("/dns")
+	public Properties dns() throws IOException {
+		Properties properties = PropertiesLoaderUtils.loadProperties(new ClassPathResource(String.format("/%s.properties", "dns")));
+		return properties;
+	}	
+			
+			</pre>
+		</div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp32"></a>1.8.1.5. </h4></div></div></div>
+			
+			<pre class="programlisting">
+			
+			
+			</pre>
+		</div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="getResourceAsStream"></a>1.8.1.6. getResourceAsStream()</h4></div></div></div>
+			
+			<pre class="programlisting">
+			
+Properties prop = new Properties();
+prop.load(getServletContext().getResourceAsStream("/WEB-INF/resource/sample.properties"));
+			
+			</pre>
+			<pre class="programlisting">
+			
+prop.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("netkiller.properties"));
+			
+			</pre>
+		</div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="store"></a>1.8.1.7. store</h4></div></div></div>
+			
+			<pre class="programlisting">
+			
+package cn.netkiller.config;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Properties;
+
+public class Config {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Properties prop = new Properties();
+		OutputStream output = null;
+
+		try {
+
+			output = new FileOutputStream("config.properties");
+
+			// set the properties value
+			prop.setProperty("host", "localhost");
+			prop.setProperty("port", "8000");
+			prop.setProperty("user", "neo");
+			prop.setProperty("pass", "password");
+
+			// save properties to project root folder
+			prop.store(output, null);
+
+		} catch (IOException io) {
+			io.printStackTrace();
+		} finally {
+			if (output != null) {
+				try {
+					output.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+	}
+
+}
+			
+			</pre>
+			<p>getProperty 取出key的值</p>
+			<pre class="programlisting">
+			
+package cn.netkiller.config;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
+public class LoadConfig {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Properties prop = new Properties();
+		InputStream input = null;
+
+		try {
+
+			input = new FileInputStream("config.properties");
+
+			// load a properties file
+			prop.load(input);
+
+			// get the property value and print it out
+			System.out.println(prop.getProperty("host"));
+			System.out.println(prop.getProperty("port"));
+			System.out.println(prop.getProperty("user"));
+			System.out.println(prop.getProperty("pass"));
+
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		} finally {
+			if (input != null) {
+				try {
+					input.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+	}
+
+}
+			
+			</pre>
+			<p>循环打印所有 Properties 内容</p>
+			<pre class="programlisting">
+			
+package test;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Enumeration;
+import java.util.Properties;
+
+public class Application {
+
+	public static void main(String[] args) {
+		Application app = new Application();
+		app.config();
+
+	}
+
+	private void config() {
+		Properties prop = new Properties();
+		InputStream input = null;
+		try {
+
+			String filename = "config.properties";
+
+			prop.load(new FileInputStream(filename));
+
+			Enumeration&lt;?&gt; e = prop.propertyNames();
+			while (e.hasMoreElements()) {
+				String key = (String) e.nextElement();
+				String value = prop.getProperty(key);
+				System.out.println(key + ": " + value);
+			}
+
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		} finally {
+			if (input != null) {
+				try {
+					input.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+}
+			
+			</pre>
+		</div>
+	</div>	
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="logging"></a>1.8.2. Logging</h3></div></div></div>
+		
+		<pre class="programlisting">
+		
+import java.util.logging.*;
+public class Main {
+	public static void main(String[] args) {
+		Logger log = Logger.getLogger("test"); 
+        log.setLevel(Level.INFO); 
+        log.info("--------------------------");
+        log.info("Test");
+        log.info("--------------------------");
+        
+	}
+}
+		
+		</pre>
+		<p>XML</p>
+		<pre class="programlisting">
+		
+import java.io.IOException;
+import java.util.logging.*;
+
+public class Main {
+	public static void main(String[] args) {
+
+		try {
+			Logger log = Logger.getLogger("test");
+			FileHandler fileHandler = new FileHandler("test.%g.log");
+			fileHandler.setLevel(Level.INFO);
+			log.addHandler(fileHandler);
+			
+			log.setLevel(Level.INFO);
+			log.info("One");
+			log.info("Two");
+			log.info("Three");
+			
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+}		
+		
+		</pre>
+		<p>XML 输出结果</p>
+		<pre class="programlisting">
+		
+&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
+&lt;!DOCTYPE log SYSTEM "logger.dtd"&gt;
+&lt;log&gt;
+&lt;record&gt;
+  &lt;date&gt;2016-04-19T15:57:19&lt;/date&gt;
+  &lt;millis&gt;1461052639360&lt;/millis&gt;
+  &lt;sequence&gt;0&lt;/sequence&gt;
+  &lt;logger&gt;test&lt;/logger&gt;
+  &lt;level&gt;INFO&lt;/level&gt;
+  &lt;class&gt;Main&lt;/class&gt;
+  &lt;method&gt;main&lt;/method&gt;
+  &lt;thread&gt;1&lt;/thread&gt;
+  &lt;message&gt;One&lt;/message&gt;
+&lt;/record&gt;
+&lt;record&gt;
+  &lt;date&gt;2016-04-19T15:57:19&lt;/date&gt;
+  &lt;millis&gt;1461052639394&lt;/millis&gt;
+  &lt;sequence&gt;1&lt;/sequence&gt;
+  &lt;logger&gt;test&lt;/logger&gt;
+  &lt;level&gt;INFO&lt;/level&gt;
+  &lt;class&gt;Main&lt;/class&gt;
+  &lt;method&gt;main&lt;/method&gt;
+  &lt;thread&gt;1&lt;/thread&gt;
+  &lt;message&gt;Two&lt;/message&gt;
+&lt;/record&gt;
+&lt;record&gt;
+  &lt;date&gt;2016-04-19T15:57:19&lt;/date&gt;
+  &lt;millis&gt;1461052639395&lt;/millis&gt;
+  &lt;sequence&gt;2&lt;/sequence&gt;
+  &lt;logger&gt;test&lt;/logger&gt;
+  &lt;level&gt;INFO&lt;/level&gt;
+  &lt;class&gt;Main&lt;/class&gt;
+  &lt;method&gt;main&lt;/method&gt;
+  &lt;thread&gt;1&lt;/thread&gt;
+  &lt;message&gt;Three&lt;/message&gt;
+&lt;/record&gt;
+&lt;/log&gt;
+		
+		</pre>
+		<p>Formatter 日志格式化</p>
+		<pre class="programlisting">
+		
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.*;
+
+class LogFormatter extends Formatter {
+	@Override
+	public String format(LogRecord record) {
+		return String.format("%s %s\t%s\n", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date()) , record.getLevel(), record.getMessage());
+	}
+}
+
+public class Main {
+	public static void main(String[] args) {
+
+		try {
+			Logger log = Logger.getLogger("test");
+			FileHandler fileHandler = new FileHandler("test.%g.log");
+			fileHandler.setLevel(Level.INFO);
+			log.addHandler(fileHandler);
+			fileHandler.setFormatter(new LogFormatter());
+			log.setLevel(Level.INFO);
+			log.info("One");
+			log.info("Two");
+			log.info("Three");
+
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+}		
+		
+		</pre>
+		<p>输出样式</p>
+		<pre class="programlisting">
+		
+2016-04-19 16:05:53.324 INFO	One
+2016-04-19 16:05:53.352 INFO	Two
+2016-04-19 16:05:53.353 INFO	Three		
+		
+		</pre>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp33"></a>1.8.2.1. console</h4></div></div></div>
+			
+			<p>控制台日志输入格式定义</p>
+			<pre class="programlisting">
+		ConsoleHandler consoleHandler = new ConsoleHandler();
+		consoleHandler.setLevel(Level.OFF);
+		logger.addHandler(consoleHandler);			
+			</pre>
+			<p>禁止 Console 输出</p>
+			<pre class="programlisting">
+logger.setUseParentHandlers(false);			
+			</pre>
+		</div>
+	</div>	
+	<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="base64"></a>1.8.3. BASE64</h3></div></div></div>
+		
+		<pre class="programlisting">
+		
+package cn.netkiller.test;
+
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+
+public class Base64Test {
+	public static void main(String[] args) {
+		final String text = "http://www.netkiller.cn/index.html";
+
+		final String encoded = Base64.getEncoder().encodeToString(text.getBytes(StandardCharsets.UTF_8));
+		System.out.println(encoded);
+
+		final String decoded = new String(Base64.getDecoder().decode(encoded), StandardCharsets.UTF_8);
+		System.out.println(decoded);
+	}
+}
+		
+		</pre>
+	</div>
+</div><div xmlns="" id="disqus_thread"></div><script xmlns="">
+
+var disqus_config = function () {
+this.page.url = "http://www.netkiller.cn";  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'netkiller'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//netkiller.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script><noscript xmlns="">Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><br xmlns="" /><script xmlns="" type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?u=r5HG&amp;d=9mi5r_kkDC8uxG8HuY3p4-2qgeeVypAK9vMD-2P6BYM"></script><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="../sql/index.html">上一页</a> </td><td width="20%" align="center"><a accesskey="u" href="../../java.html">上一级</a></td><td width="40%" align="right"> <a accesskey="n" href="../lang/reflect/index.html">下一页</a></td></tr><tr><td width="40%" align="left" valign="top">1.7. JDBC </td><td width="20%" align="center"><a accesskey="h" href="../../index.html">起始页</a></td><td width="40%" align="right" valign="top"> 1.9. Reflection 反射</td></tr></table></div><script xmlns="">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11694057-1', 'auto');
+  ga('send', 'pageview');
+
+</script><script xmlns="" async="async">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?93967759a51cda79e49bf4e34d0b0f2c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script xmlns="" async="async">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><script xmlns="" type="text/javascript" src="/js/q.js" async="async"></script></body></html>

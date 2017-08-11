@@ -1,18 +1,90 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>1.3. redis-cli - Command-line client to redis-server</title><link rel="stylesheet" type="text/css" href="..//docbook.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="home" href="../index.html" title="Netkiller NoSQL 手札" /><link rel="up" href="index.html" title="第 1 章 Redis" /><link rel="prev" href="redis.conf.html" title="1.2. /etc/redis.conf" /><link rel="next" href="cluster.html" title="1.4. Redis Cluster" /></head><body><a xmlns="" href="http://netkiller.github.io/">Home</a> |
-		<a xmlns="" href="http://netkiller.github.io/">简体中文</a> |
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>1.3. redis-cli - Command-line client to redis-server</title><link rel="stylesheet" type="text/css" href="..//docbook.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><link rel="home" href="../index.html" title="Netkiller NoSQL 手札" /><link rel="up" href="index.html" title="第 1 章 Redis" /><link rel="prev" href="redis.conf.html" title="1.2. /etc/redis.conf" /><link rel="next" href="redis-benchmark.html" title="1.4. redis-benchmark 测试工具" /></head><body><a xmlns="" href="//www.netkiller.cn/">Home</a> |
+		<a xmlns="" href="//netkiller.github.io/">简体中文</a> |
 	    <a xmlns="" href="http://netkiller.sourceforge.net/">繁体中文</a> |
 	    <a xmlns="" href="/journal/index.html">杂文</a> |
-	    <a xmlns="" href="/search.html">Search</a> |
+	    <a xmlns="" href="//www.netkiller.cn/home/donations.html">打赏(Donations)</a> |
 	    <a xmlns="" href="http://netkiller-github-com.iteye.com/">ITEYE 博客</a> |
 	    <a xmlns="" href="http://my.oschina.net/neochen/">OSChina 博客</a> |
 	    <a xmlns="" href="https://www.facebook.com/bg7nyt">Facebook</a> |
 	    <a xmlns="" href="http://cn.linkedin.com/in/netkiller/">Linkedin</a> |
-		<a xmlns="" href="mailto:netkiller@msn.com">Email</a><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">1.3. redis-cli - Command-line client to redis-server</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="redis.conf.html">上一页</a> </td><th width="60%" align="center">第 1 章 Redis</th><td width="20%" align="right"> <a accesskey="n" href="cluster.html">下一页</a></td></tr></table><hr /><table width="100%" border="0"><tr><td align="left"><a href="http://netkiller.sourceforge.net/">Home</a> | 
-		<a href="http://netkiller.github.com/">Mirror</a> |		
-		<a href="/search.html">Search</a></td><td align="right"></td></tr></table></div><table xmlns=""><tr><td><iframe src="http://ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.com&amp;type=watch&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="http://ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.com&amp;type=fork&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="http://ghbtns.com/github-btn.html?user=netkiller&amp;type=follow&amp;count=true&amp;size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe></td></tr></table><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="redis-cli"></a>1.3. redis-cli - Command-line client to redis-server</h2></div></div></div>
+	    <a xmlns="" href="https://zhuanlan.zhihu.com/netkiller">知乎专栏</a> |
+	    <a xmlns="" href="/search.html">Search</a> |
+		<a xmlns="" href="mailto:netkiller@msn.com">Email</a><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">1.3. redis-cli - Command-line client to redis-server</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="redis.conf.html">上一页</a> </td><th width="60%" align="center">第 1 章 Redis</th><td width="20%" align="right"> <a accesskey="n" href="redis-benchmark.html">下一页</a></td></tr></table><hr /></div><table xmlns=""><tr><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.io&amp;type=watch&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;repo=netkiller.github.io&amp;type=fork&amp;count=true&amp;size=large" height="30" width="170" frameborder="0" scrolling="0" style="width:170px; height: 30px;" allowTransparency="true"></iframe></td><td><iframe src="//ghbtns.com/github-btn.html?user=netkiller&amp;type=follow&amp;count=true&amp;size=large" height="30" width="240" frameborder="0" scrolling="0" style="width:240px; height: 30px;" allowTransparency="true"></iframe></td></tr></table><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="redis-cli"></a>1.3. redis-cli - Command-line client to redis-server</h2></div></div></div>
 		
-		<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="info"></a>1.3.1. info</h3></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="redis-cli.args"></a>1.3.1. 命令参数</h3></div></div></div>
+			
+			<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp8"></a>1.3.1.1. password</h4></div></div></div>
+				
+				<pre class="screen">
+				
+-a &lt;password&gt;      Password to use when connecting to the server.
+[root@netkiller conf.d]# redis-cli -a hsM8NK8b71vFQKFOS55jbWJrA1TYgI4e
+
+				
+				</pre>
+			</div>
+			<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="idp9"></a>1.3.1.2. raw</h4></div></div></div>
+				
+				<p>--raw              Use raw formatting for replies (default when STDOUT is not a tty).</p>
+				<p>有时显示这样的数据</p>
+				<pre class="screen">
+				
+[hadoop@netkiller ~]$ redis-cli 
+127.0.0.1:6379&gt; ZREVRANGE FASTNEWS_DATA_STORE_KEY 0 1
+1) "{\"title\":\"\xe4\xb8\x8a\xe8\xaf\x81\xe7\xbb\xbc\xe6\x8c\x87\xe5\x91\xa8\xe7\xba\xbf\xe4\xba\x94\xe8\xbf\x9e\xe9\x98\xb3\xef\xbc\x8c\xe5\x88\x9b\xe4\xb8\x9a\xe6\x9d\xbf\xe8\xbf\x9e\xe7\xbb\xad\xe4\xb8\xa4\xe5\x91\xa8\xe5\xa4\xa7\xe8\xb7\x8c\xef\xbc\x9b    \xe4\xb8\x8a\xe8\xaf\x81\xe7\xbb\xbc\xe6\x8c\x87\xe5\x91\xa8\xe4\xba\x94\xe6\x94\xb6\xe7\x9b\x98\xe8\xb7\x8c0.23%\xef\xbc\x8c\xe4\xb8\x8b\xe8\xb7\x8c7.60\xe7\x82\xb9\xef\xbc\x8c\xe6\x8a\xa53237.98\xe7\x82\xb9\xef\xbc\x9b    \xe6\xb7\xb1\xe8\xaf\x81\xe6\x88\x90\xe6\x8c\x87\xe5\x91\xa8\xe4\xba\x94\xe6\x94\xb6\xe7\x9b\x98\xe8\xb7\x8c0.03%\xef\xbc\x8c\xe4\xb8\x8b\xe8\xb7\x8c3.50\xe7\x82\xb9\xef\xbc\x8c\xe6\x8a\xa510363.48\xe7\x82\xb9\xef\xbc\x9b    \xe6\xb2\xaa\xe6\xb7\xb1300\xe8\x82\xa1\xe6\x8c\x87\xe5\x91\xa8\xe4\xba\x94\xe6\x94\xb6\xe7\x9b\x98\xe8\xb7\x8c0.52%\xef\xbc\x8c\xe4\xb8\x8b\xe8\xb7\x8c19.49\xe7\x82\xb9\xef\xbc\x8c\xe6\x8a\xa53728.39\xe7\x82\xb9\xef\xbc\x9b    \xe5\x88\x9b\xe4\xb8\x9a\xe6\x9d\xbf\xe6\x8c\x87\xe6\x95\xb0\xe5\x91\xa8\xe4\xba\x94\xe6\x94\xb6\xe7\x9b\x98\xe6\xb6\xa80.08%\xef\xbc\x8c\xe4\xb8\x8a\xe6\xb6\xa81.31\xe7\x82\xb9\xef\xbc\x8c\xe6\x8a\xa51689.92\xe7\x82\xb9\\r\\n\"}"
+2) "{\"title\":\"\xe4\xb8\x8a\xe8\xaf\x81\xe7\xbb\xbc\xe6\x8c\x87\xe5\x91\xa8\xe4\xba\x94\xe6\x94\xb6\xe7\x9b\x98\xe4\xb8\x8b\xe8\xb7\x8c0.21%\xef\xbc\x8c\xe6\x8a\xa53237.98\xe7\x82\xb9\xef\xbc\x9b\xe6\xb7\xb1\xe8\xaf\x81\xe6\x88\x90\xe6\x8c\x87\xe5\x91\xa8\xe4\xba\x94\xe6\x94\xb6\xe7\x9b\x98\xe5\xbe\xae\xe8\xb7\x8c0.02%\xef\xbc\x8c\xe6\x8a\xa510364.82\xe7\x82\xb9\xef\xbc\x9b\xe5\x88\x9b\xe4\xb8\x9a\xe6\x9d\xbf\xe6\x8c\x87\xe6\x95\xb0\xe5\x91\xa8\xe4\xba\x94\xe6\x94\xb6\xe7\x9b\x98\xe5\xbe\xae\xe6\xb6\xa80.09%\xef\xbc\x8c\xe6\x8a\xa51690.15\xe7\x82\xb9\"}"
+127.0.0.1:6379&gt; 
+				
+				</pre>
+				<p>加入 --raw 参数后可以显示可以阅读的数据</p>
+				<pre class="screen">
+				
+[hadoop@VM_3_2_centos ~]$ redis-cli --raw
+127.0.0.1:6379&gt; ZREVRANGE FASTNEWS_DATA_STORE_KEY 0 1
+{"title":"上证综指周线五连阳，创业板连续两周大跌"}
+{"title":"上证综指周五收盘下跌0.21%，报3237.98点"}
+127.0.0.1:6379&gt; 
+				
+				</pre>
+			</div>
+		</div>
+		<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="latency"></a>1.3.2. --latency Enter a special mode continuously sampling latency.</h3></div></div></div>
+			
+			<p>参数的功能是从客户端发出一条命令到客户端接受到该命令的反馈所用的最长响应时间</p>
+			<pre class="screen">
+# redis-cli --latency -h 192.168.2.1 
+min: 1, max: 210, avg: 3.64 (13453 samples)
+			</pre>
+		</div>		
+		<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="auth"></a>1.3.3. auth</h3></div></div></div>
+			
+			<p>认证密码</p>
+			<pre class="screen">
+[root@netkiller ~]# redis-cli 
+127.0.0.1:6379&gt; keys *
+(error) NOAUTH Authentication required.
+127.0.0.1:6379&gt; auth hsM8NKb71vjbWJrA1TYgI4
+OK
+127.0.0.1:6379&gt; keys *
+ 1) "HK50(1605)"
+ 2) "GBPUSD"
+ 3) "USDCHF"
+ 4) "SP500(1609)"
+ 5) "NZDJPY"
+ 6) "AUDNZD"
+ 7) "EURGBP"
+ 8) "CLN6"
+ 9) "BU6"
+			</pre>
+		</div>
+		<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="monitor"></a>1.3.4. MONITOR</h3></div></div></div>
+			
+			<pre class="screen">
+$ redis-cli monitor			
+			</pre>
+		</div>
+		<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="info"></a>1.3.5. info</h3></div></div></div>
 			
 			<pre class="screen">
 			
@@ -64,32 +136,35 @@ db0:keys=4,expires=0
 redis 127.0.0.1:6379&gt;
 			
 			</pre>
+		</div>		
+		<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="save"></a>1.3.6. save/bgsave/lastsave</h3></div></div></div>
+			
+			<p>save/bgsave 保存持久化将数据，lastsave 查看相关信息</p>
+			<pre class="screen">
+			
+redis 127.0.0.1:6379&gt; save
+OK
+redis 127.0.0.1:6379&gt; bgsave
+Background saving started
+redis 127.0.0.1:6379&gt; lastsave
+(integer) 1373335757
+			
+			</pre>
 		</div>
-		<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="monitor"></a>1.3.2. MONITOR</h3></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="config"></a>1.3.7. config</h3></div></div></div>
 			
 			<pre class="screen">
-$ redis-cli monitor			
-			</pre>
-			<p>telnet方式</p>
-			<pre class="screen">
-# telnet 172.18.52.13 6379
-Trying 172.18.52.163...
-Connected to 172.18.52.13.
-Escape character is '^]'.
-MONITOR
-+OK
-+1425454378.190210 "MONITOR"
-+1425454381.165317 "GET" "admin:633"
-+1425454381.165725 "SET" "admin:633" "{\"id\":\"633\",\"username\":\"7209\",\"password\":\"eea5981a4fd021b8d78f8431084ba760\",\"status\":\"N\",\"belong_user_id\":\"133\",\"level_id\":\"67\",\"create_time\":1425454381,\"session_id\":\"l1s609t9gq8nj7vc94hb1i3s25\"}"
-+1425454381.166088 "EXPIRE" "admin:633" "3600"
-+1425454387.956387 "GET" "admin:633"			
-			</pre>
-			<p>使用 nc 监控状态</p>
-			<pre class="screen">
-# (echo -en "MONITOR\r\n"; sleep 10) | nc 172.18.52.13 6379
+			
+CONFIG GET dir
+CONFIG GET dbfilename
+
+config set stop-writes-on-bgsave-error yes
+CONFIG SET dir /tmp
+CONFIG SET dbfilename temp.rdb
+			
 			</pre>
 		</div>
-		<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="keys"></a>1.3.3. keys</h3></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="keys"></a>1.3.8. keys</h3></div></div></div>
 			
 			<p>查询所有key</p>
 			<pre class="screen">
@@ -117,7 +192,10 @@ OK
 				
 			</pre>
 		</div>
-		<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="set"></a>1.3.4. set/get/del</h3></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="redis.string"></a>1.3.9. 字符串操作</h3></div></div></div>
+			
+		
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="set"></a>1.3.9.1. set/get/del</h4></div></div></div>
 			
 			<pre class="screen">
 			
@@ -134,7 +212,206 @@ OK
 			
 			</pre>
 		</div>
-		<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="expire"></a>1.3.5. expire/ttl</h3></div></div></div>
+		<div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="setnx"></a>1.3.9.2. setnx</h4></div></div></div>
+			
+			<span class="command"><strong>SETNX key value</strong></span>
+			<p>当 key 不存在时将 key 的值设为 value，若给定的 key 已经存在，则 SETNX 不做任何动作。SETNX 是(SET if Not eXists) (如果不存在，则 SET)的简写。</p>
+			<pre class="screen">
+			
+返回值：
+	设置成功，返回 1
+	设置失败，返回 0
+
+redis&gt; EXISTS neo             # neo 不存在
+(integer) 0
+
+redis&gt; SETNX neo "chen"    	  # neo 设置成功
+(integer) 1
+
+redis&gt; SETNX neo "netkiller"  # 尝试覆盖 neo ，失败
+(integer) 0
+
+redis&gt; GET neo                # 没有被覆盖
+"chen"	
+			
+			</pre>
+		</div>
+		</div>
+		<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="redis.list"></a>1.3.10. LIST 数据类型</h3></div></div></div>
+			
+			<p>获取 list 列表长度</p>
+			<pre class="screen">
+			
+127.0.0.1:6379&gt; TYPE "logstash:redis"
+list
+127.0.0.1:6379&gt; LLEN "logstash:redis"
+(integer) 69
+127.0.0.1:6379&gt; lpop "logstash:redis"
+127.0.0.1:6379&gt; 	
+127.0.0.1:6379&gt; LLEN "logstash:redis"
+(integer) 68
+			
+			</pre>
+			<pre class="screen">
+			
+1. LPUSH/LPUSHX/LRANGE:
+/&gt; redis-cli    #在Shell提示符下启动redis客户端工具。
+redis 127.0.0.1:6379&gt; del queue:test
+(integer) 1
+#queue:test键并不存在，该命令会创建该键及与其关联的List，之后在将参数中的values从左到右依次插入。
+redis 127.0.0.1:6379&gt; lpush queue:test a b c d
+(integer) 4
+#取从位置0开始到位置2结束的3个元素。
+redis 127.0.0.1:6379&gt; lrange queue:test 0 2
+1) "d"
+2) "c"
+3) "b"
+#取链表中的全部元素，其中0表示第一个元素，-1表示最后一个元素。
+redis 127.0.0.1:6379&gt; lrange queue:test 0 -1
+1) "d"
+2) "c"
+3) "b"
+4) "a"
+#queue:test2键此时并不存在，因此该命令将不会进行任何操作，其返回值为0。
+redis 127.0.0.1:6379&gt; lpushx queue:test2 e
+(integer) 0
+#可以看到queue:test2没有关联任何List Value。
+redis 127.0.0.1:6379&gt; lrange queue:test2 0 -1
+(empty list or set)
+#queue:test键此时已经存在，所以该命令插入成功，并返回链表中当前元素的数量。
+redis 127.0.0.1:6379&gt; lpushx queue:test e
+(integer) 5
+#获取该键的List Value的头部元素。
+redis 127.0.0.1:6379&gt; lrange queue:test 0 0
+1) "e"
+
+2. LPOP/LLEN:
+redis 127.0.0.1:6379&gt; lpush queue:test a b c d
+(integer) 4
+redis 127.0.0.1:6379&gt; lpop queue:test
+"d"
+redis 127.0.0.1:6379&gt; lpop queue:test
+"c"
+#在执行lpop命令两次后，链表头部的两个元素已经被弹出，此时链表中元素的数量是2
+redis 127.0.0.1:6379&gt; llen queue:test
+(integer) 2
+
+3. LREM/LSET/LINDEX/LTRIM:
+#为后面的示例准备测试数据。
+redis 127.0.0.1:6379&gt; lpush queue:test a b c d a c
+(integer) 6
+#从头部(left)向尾部(right)变量链表，删除2个值等于a的元素，返回值为实际删除的数量。
+redis 127.0.0.1:6379&gt; lrem queue:test 2 a
+(integer) 2
+#看出删除后链表中的全部元素。
+redis 127.0.0.1:6379&gt; lrange queue:test 0 -1
+1) "c"
+2) "d"
+3) "c"
+4) "b"
+#获取索引值为1(头部的第二个元素)的元素值。
+redis 127.0.0.1:6379&gt; lindex queue:test 1
+"d"
+#将索引值为1(头部的第二个元素)的元素值设置为新值e。
+redis 127.0.0.1:6379&gt; lset queue:test 1 e
+OK
+#查看是否设置成功。
+redis 127.0.0.1:6379&gt; lindex queue:test 1
+"e"
+#索引值6超过了链表中元素的数量，该命令返回nil。
+redis 127.0.0.1:6379&gt; lindex queue:test 6
+(nil)
+#设置的索引值6超过了链表中元素的数量，设置失败，该命令返回错误信息。
+redis 127.0.0.1:6379&gt; lset queue:test 6 hh
+(error) ERR index out of range
+#仅保留索引值0到2之间的3个元素，注意第0个和第2个元素均被保留。
+redis 127.0.0.1:6379&gt; ltrim queue:test 0 2
+OK
+#查看trim后的结果。
+redis 127.0.0.1:6379&gt; lrange queue:test 0 -1
+1) "c"
+2) "e"
+3) "c"
+
+4. LINSERT:
+#删除该键便于后面的测试。
+redis 127.0.0.1:6379&gt; del queue:test
+(integer) 1
+#为后面的示例准备测试数据。
+redis 127.0.0.1:6379&gt; lpush queue:test a b c d e
+(integer) 5
+#在a的前面插入新元素a1。
+redis 127.0.0.1:6379&gt; linsert queue:test before a a1
+(integer) 6
+#查看是否插入成功，从结果看已经插入。注意lindex的index值是0-based。
+redis 127.0.0.1:6379&gt; lindex queue:test 0
+"e"
+#在e的后面插入新元素e2，从返回结果看已经插入成功。
+redis 127.0.0.1:6379&gt; linsert queue:test after e e2
+(integer) 7
+#再次查看是否插入成功。
+redis 127.0.0.1:6379&gt; lindex queue:test 1
+"e2"
+#在不存在的元素之前或之后插入新元素，该命令操作失败，并返回-1。
+redis 127.0.0.1:6379&gt; linsert queue:test after k a
+(integer) -1
+#为不存在的Key插入新元素，该命令操作失败，返回0。
+redis 127.0.0.1:6379&gt; linsert queue:test1 after a a2
+(integer) 0
+
+5. RPUSH/RPUSHX/RPOP/RPOPLPUSH:
+#删除该键，以便于后面的测试。
+redis 127.0.0.1:6379&gt; del queue:test
+(integer) 1
+#从链表的尾部插入参数中给出的values，插入顺序是从左到右依次插入。
+redis 127.0.0.1:6379&gt; rpush queue:test a b c d
+(integer) 4
+#通过lrange的可以获悉rpush在插入多值时的插入顺序。
+redis 127.0.0.1:6379&gt; lrange queue:test 0 -1
+1) "a"
+2) "b"
+3) "c"
+4) "d"
+#该键已经存在并且包含4个元素，rpushx命令将执行成功，并将元素e插入到链表的尾部。
+redis 127.0.0.1:6379&gt; rpushx queue:test e
+(integer) 5
+#通过lindex命令可以看出之前的rpushx命令确实执行成功，因为索引值为4的元素已经是新元素了。
+redis 127.0.0.1:6379&gt; lindex queue:test 4
+"e"
+#由于queue:test2键并不存在，因此该命令不会插入数据，其返回值为0。
+redis 127.0.0.1:6379&gt; rpushx queue:test2 e
+(integer) 0
+#在执行rpoplpush命令前，先看一下queue:test中链表的元素有哪些，注意他们的位置关系。
+redis 127.0.0.1:6379&gt; lrange queue:test 0 -1
+1) "a"
+2) "b"
+3) "c"
+4) "d"
+5) "e"
+#将queue:test的尾部元素e弹出，同时再插入到queue:test2的头部(原子性的完成这两步操作)。
+redis 127.0.0.1:6379&gt; rpoplpush queue:test queue:test2
+"e"
+#通过lrange命令查看queue:test在弹出尾部元素后的结果。
+redis 127.0.0.1:6379&gt; lrange queue:test 0 -1
+1) "a"
+2) "b"
+3) "c"
+4) "d"
+#通过lrange命令查看queue:test2在插入元素后的结果。
+redis 127.0.0.1:6379&gt; lrange queue:test2 0 -1
+1) "e"
+#将source和destination设为同一键，将queue:test中的尾部元素移到其头部。
+redis 127.0.0.1:6379&gt; rpoplpush queue:test queue:test
+"d"
+#查看移动结果。
+redis 127.0.0.1:6379&gt; lrange queue:test 0 -1
+1) "d"
+2) "a"
+3) "b"
+4) "c"			
+			
+			</pre>
+		</div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="expire"></a>1.3.11. expire/ttl</h3></div></div></div>
 			
 			<p>EXPIRE 设置过期时间, TTL 可以查询过期时间倒计时。</p>
 			<pre class="screen">
@@ -156,22 +433,9 @@ OK
 			
 			</pre>
 			<p>注意ttl返回-1有两种情况，一是没有设置过期时间，另一种是该key已经过期不存在。</p>
-		</div>
-		<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="save"></a>1.3.6. save/bgsave/lastsave</h3></div></div></div>
-			
-			<p>save/bgsave 保存持久化将数据，lastsave 查看相关信息</p>
-			<pre class="screen">
-			
-redis 127.0.0.1:6379&gt; save
-OK
-redis 127.0.0.1:6379&gt; bgsave
-Background saving started
-redis 127.0.0.1:6379&gt; lastsave
-(integer) 1373335757
-			
-			</pre>
-		</div>
-		<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="pubsub"></a>1.3.7. Pub/Sub 订阅与发布</h3></div></div></div>
+		</div>		
+		
+		<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="pubsub"></a>1.3.12. Pub/Sub 订阅与发布</h3></div></div></div>
 			
 			<p>redis 提供基本的MQ 功能，下面我们做一个演示</p>
 			<p>开启第一个终端窗口，订阅first second</p>
@@ -216,22 +480,42 @@ Reading messages... (press Ctrl-C to quit)
 3) "Helloworld!!!"
 			</pre>
 		</div>
-	</div><div xmlns="" id="disqus_thread"></div><script xmlns="" type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+		<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="flushdb"></a>1.3.13. flushdb 清空 Redis 数据</h3></div></div></div> 
+			
+			<pre class="screen">
+			
+root@netkiller ~ % redis-cli 
+127.0.0.1:6379&gt; flushdb
+OK
+127.0.0.1:6379&gt; 			
+			
+			</pre>
+		</div>
+		<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="TYPE"></a>1.3.14. 获取 key 类型</h3></div></div></div>
+			
+			<pre class="screen">
+			
+root@netkiller ~ % redis-cli 
+127.0.0.1:6379&gt; TYPE "logstash:redis"
+list		
+			
+			</pre>
+		</div>
+		
+	</div><div xmlns="" id="disqus_thread"></div><script xmlns="">
 
-            //if(document.domain == 'netkiller.github.com'){
-            var disqus_shortname = 'netkiller'; // required: replace example with your forum shortname
-            //}else{
-			//var disqus_shortname = 'neochan';
-            //}
+var disqus_config = function () {
+this.page.url = "http://www.netkiller.cn";  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'netkiller'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
 
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script><noscript xmlns="">Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a xmlns="" href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a><br xmlns="" /><div xmlns="" id="clustrmaps-widget"></div><script xmlns="" type="text/javascript">var _clustrmaps = {'url' : 'http://netkiller.github.io', 'user' : 1107643, 'server' : '2', 'id' : 'clustrmaps-widget', 'version' : 1, 'date' : '2013-08-14', 'lang' : 'en', 'corners' : 'square' };(function (){ var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'http://www2.clustrmaps.com/counter/map.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);})();</script><noscript xmlns=""><a href="http://www2.clustrmaps.com/user/87410e6bb"><img src="http://www2.clustrmaps.com/stats/maps-no_clusters/netkiller.github.io-thumb.jpg" alt="Locations of visitors to this page" /></a></noscript><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="redis.conf.html">上一页</a> </td><td width="20%" align="center"><a accesskey="u" href="index.html">上一级</a></td><td width="40%" align="right"> <a accesskey="n" href="cluster.html">下一页</a></td></tr><tr><td width="40%" align="left" valign="top">1.2. /etc/redis.conf </td><td width="20%" align="center"><a accesskey="h" href="../index.html">起始页</a></td><td width="40%" align="right" valign="top"> 1.4. Redis Cluster</td></tr></table></div><script xmlns="">
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//netkiller.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script><noscript xmlns="">Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><br xmlns="" /><script xmlns="" type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?u=r5HG&amp;d=9mi5r_kkDC8uxG8HuY3p4-2qgeeVypAK9vMD-2P6BYM"></script><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="redis.conf.html">上一页</a> </td><td width="20%" align="center"><a accesskey="u" href="index.html">上一级</a></td><td width="40%" align="right"> <a accesskey="n" href="redis-benchmark.html">下一页</a></td></tr><tr><td width="40%" align="left" valign="top">1.2. /etc/redis.conf </td><td width="20%" align="center"><a accesskey="h" href="../index.html">起始页</a></td><td width="40%" align="right" valign="top"> 1.4. redis-benchmark 测试工具</td></tr></table></div><script xmlns="">
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -240,7 +524,25 @@ Reading messages... (press Ctrl-C to quit)
   ga('create', 'UA-11694057-1', 'auto');
   ga('send', 'pageview');
 
-</script><script xmlns="" type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F997cd4a7320a82d72cb74d179118f697' type='text/javascript'%3E%3C/script%3E"));
-</script><script xmlns="" type="text/javascript" src="/js/q.js"></script></body></html>
+</script><script xmlns="" async="async">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?93967759a51cda79e49bf4e34d0b0f2c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script xmlns="" async="async">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><script xmlns="" type="text/javascript" src="/js/q.js" async="async"></script></body></html>
